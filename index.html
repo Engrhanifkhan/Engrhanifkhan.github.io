@@ -487,148 +487,7 @@
 
 
   <!-- ==================== ELECTRONICS COMPONENTS & SOURCING SEARCH ==================== -->
-  <section id="components" class="py-16 bg-slate-900/60 border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
-        <div>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-900/50 text-teal-300 text-xs font-semibold border border-teal-500/30 uppercase tracking-wider">
-            <i class="fa-solid fa-microchip"></i> Hardware & Component Sourcing
-          </span>
-          <h2 class="text-3xl font-extrabold text-white mt-2">Electronics Components & Parts Search</h2>
-          <p class="text-sm text-slate-300 mt-1 max-w-2xl">
-            Search our verified inventory or request on-demand sourcing for any electronic component, microcontroller, IC, sensor, motor, capacitor, or resistor for your projects.
-          </p>
-        </div>
-        <div class="mt-4 md:mt-0">
-          <a href="#custom-component-box" class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-400 hover:to-emerald-500 text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow-lg shadow-teal-500/20 transition-all">
-            <i class="fa-solid fa-magnifying-glass-plus"></i>
-            <span>Request Unlisted Component</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Live Search Bar -->
-      <div class="relative mb-6">
-        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 text-lg">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <input 
-          type="text" 
-          id="compSearchInput" 
-          oninput="filterComponentCatalog()" 
-          placeholder="Search any component by name or keyword (e.g. ESP32, Arduino Uno, NEMA 17, Resistor, Capacitor, DC Motor, Stepper, Sensor, BTS7960, Relay, TFT)..." 
-          class="w-full bg-slate-950/90 border-2 border-slate-700 hover:border-teal-500/60 focus:border-teal-400 rounded-2xl pl-12 pr-4 py-3.5 text-sm sm:text-base text-white placeholder-slate-500 focus:outline-none shadow-xl transition-all font-sans"
-        >
-        <span id="searchCountBadge" class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-mono bg-slate-800 text-teal-400 px-2.5 py-1 rounded-lg border border-slate-700">
-          Showing All Components
-        </span>
-      </div>
-
-      
-      <!-- Multi-Vendor Rate Query & Sourcing Guarantee Banner -->
-      <div class="mb-8 p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900 border border-teal-500/30 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-2xl flex-shrink-0">
-            <i class="fa-solid fa-scale-balanced"></i>
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-mono font-bold text-teal-400 bg-teal-900/50 px-2 py-0.5 rounded border border-teal-500/30">BEST PRICE QUERY ENGINE</span>
-              <span class="text-xs text-slate-400">Wholesale Verified Sourcing • Bench-Tested Quality</span>
-            </div>
-            <h4 class="text-base font-bold text-white mt-1">Multi-Vendor Price Comparison & Genuine Sourcing</h4>
-            <p class="text-xs text-slate-300 mt-0.5">
-              Every component inquiry is queried across Pakistan's leading electronics suppliers to secure the lowest market rate, transparent courier delivery charges, and verified bench-tested quality before dispatch.
-            </p>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 flex-shrink-0">
-          <a href="https://Verified Supplier.pk/" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">Verified Supplier</a>
-          <a href="https://Authorized Distributor.com/" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">Authorized Distributor</a>
-          <a href="https://www.Component Depot.com/" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">Component Depot</a>
-        </div>
-      </div>
-
-
-      <!-- Category Filter Pills -->
-      <div class="flex flex-wrap items-center gap-2 mb-8" id="categoryPillContainer">
-        <button onclick="setCategoryFilter('ALL')" class="cat-pill active-cat px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-teal-500 text-slate-950 transition-all">
-          All Components (<span id="countAll">0</span>)
-        </button>
-        <button onclick="setCategoryFilter('MCU')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
-          <i class="fa-solid fa-microchip mr-1"></i> MCUs & Boards
-        </button>
-        <button onclick="setCategoryFilter('MOTORS')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
-          <i class="fa-solid fa-gear mr-1"></i> Motors & Steppers
-        </button>
-        <button onclick="setCategoryFilter('DRIVERS')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
-          <i class="fa-solid fa-bolt mr-1"></i> Motor Drivers & Relays
-        </button>
-        <button onclick="setCategoryFilter('SENSORS')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
-          <i class="fa-solid fa-wave-square mr-1"></i> Sensors & Probes
-        </button>
-        <button onclick="setCategoryFilter('PASSIVES')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
-          <i class="fa-solid fa-dna mr-1"></i> Resistors, Capacitors & Regulators
-        </button>
-        <button onclick="setCategoryFilter('DISPLAYS')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
-          <i class="fa-solid fa-tv mr-1"></i> Displays & Wireless
-        </button>
-      </div>
-
-      <!-- Component Dynamic Grid -->
-      <div id="componentsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        <!-- Injected via JavaScript -->
-      </div>
-
-      <!-- No Results State -->
-      <div id="noResultsState" class="hidden text-center py-12 bg-slate-950/60 rounded-2xl border border-slate-800">
-        <i class="fa-solid fa-box-open text-4xl text-slate-600 mb-3 block"></i>
-        <h4 class="text-lg font-bold text-white">No Exact Match Found in Stock Catalog</h4>
-        <p class="text-xs text-slate-400 max-w-md mx-auto mt-1 mb-5">
-          Don't worry! I can source, test, or provide any unlisted electronic component or IC directly for your project.
-        </p>
-        <button onclick="requestUnlistedFromSearch()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs shadow-lg shadow-emerald-600/30 transition-all">
-          <i class="fa-brands fa-whatsapp text-base"></i>
-          <span>Source This Component on WhatsApp (0315-9915537)</span>
-        </button>
-      </div>
-
-      <!-- Custom Component On-Demand Sourcing Box -->
-      <div id="custom-component-box" class="mt-12 bg-gradient-to-r from-teal-950 via-slate-900 to-cyan-950 p-6 sm:p-8 rounded-2xl border border-teal-500/30 shadow-2xl">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-7">
-            <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">On-Demand Sourcing & Verification</span>
-            <h3 class="text-2xl font-bold text-white mt-1">Looking for a Specific Model, Chip, or Sensor?</h3>
-            <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-              If your engineering design requires a specialized microcontroller, obsolete semiconductor, precision low-tolerance resistor kit, high-voltage capacitor, or industrial sensor probe — send the part number or specification below and I will arrange it with verified testing.
-            </p>
-            <div class="flex flex-wrap gap-2 text-xs text-slate-400 mt-4">
-              <span class="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">✓ Tested on Bench</span>
-              <span class="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">✓ Breadboard / PCB Pinout Support</span>
-              <span class="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">✓ Nationwide Delivery</span>
-            </div>
-          </div>
-          <div class="lg:col-span-5 bg-slate-900/90 p-5 rounded-xl border border-slate-800">
-            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Enter Component Name / Part Number / Specs:</label>
-            <input 
-              type="text" 
-              id="customPartInput" 
-              placeholder="e.g., IRFZ44N MOSFET, NEMA 23, STM32F401, 100uF 50V..." 
-              class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white mb-3 focus:outline-none focus:border-teal-400"
-            >
-            <button 
-              onclick="submitCustomPartInquiry()" 
-              class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all"
-            >
-              <i class="fa-brands fa-whatsapp text-base"></i>
-              <span>Source Component via WhatsApp (0315-9915537)</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
+  
 
 
   <!-- ==================== LIVE INTERACTIVE TELEMETRY ==================== -->
@@ -743,126 +602,245 @@
 
   
   <!-- ==================== DEDICATED ELECTRONICS STORE & MULTI-VENDOR RATE HUB ==================== -->
-  <section id="store" class="py-20 bg-slate-950 border-b border-slate-800 relative overflow-hidden">
-    <!-- Background Ambient Glow -->
-    <div class="absolute top-1/4 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-10 left-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+  
+  <!-- ==================== PROFESSIONAL ELECTRONICS STORE (CLEAN E-COMMERCE LAYOUT) ==================== -->
+  <section id="store" class="py-14 bg-slate-100 text-slate-800 border-b border-slate-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Store Header & Multi-Vendor Network -->
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950 text-emerald-400 text-xs font-bold border border-emerald-500/40 uppercase tracking-wider shadow-lg shadow-emerald-950/50">
-          <i class="fa-solid fa-cart-shopping"></i> Online Hardware & Components Store
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
-          Pakistan Electronics Store & Best Rate Sourcing Hub
-        </h2>
-        <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
-          Order any electronic component, microcontroller, sensor, or motor directly. We query and compare prices across 
-          <strong class="text-white">Verified Supplier.pk</strong>, <strong class="text-white">Authorized Distributor.com</strong>, and <strong class="text-white">Component Depot.com</strong> 
-          to provide you the lowest verified market rate with transparent nationwide courier delivery.
-        </p>
+      <!-- Top Store Brand & Search Bar (Exact Style of Image 2) -->
+      <div class="bg-white rounded-xl shadow-md border border-slate-200 p-4 mb-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <!-- Store Logo -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-amber-500 to-orange-600 text-white font-black flex items-center justify-center text-xl shadow">
+              EH
+            </div>
+            <div>
+              <span class="text-xl sm:text-2xl font-black text-amber-600 tracking-wider">HANIF ELECTRONICS</span>
+              <span class="text-[11px] block text-slate-500 font-semibold">COMPONENTS • SENSORS • MOTORS • IOT MODULES</span>
+            </div>
+          </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-900 text-teal-400 text-xs font-semibold border border-teal-500/30">
-            <i class="fa-solid fa-check-double"></i> Lowest Verified Market Rates
-          </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-900 text-cyan-400 text-xs font-semibold border border-cyan-500/30">
-            <i class="fa-solid fa-truck-fast"></i> Transparent Nationwide Courier Rates
-          </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-900 text-emerald-400 text-xs font-semibold border border-emerald-500/30">
-            <i class="fa-solid fa-screwdriver-wrench"></i> 100% Bench-Tested Before Dispatch
-          </span>
-        </div>
-      </div>
-
-      <!-- Quick Delivery City Calculator Banner -->
-      <div class="mb-10 p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900 border border-teal-500/30 flex flex-col md:flex-row items-center justify-between gap-5 shadow-xl">
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-2xl flex-shrink-0">
-            <i class="fa-solid fa-truck-fast"></i>
-          </div>
-          <div>
-            <h4 class="text-sm sm:text-base font-bold text-white">Transparent Nationwide Delivery Rates</h4>
-            <p class="text-xs text-slate-300 mt-0.5">Select your city to preview exact courier charges (TCS / Leopard / Trax / Local Courier):</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3 w-full md:w-auto">
-          <select id="storeCityRateSelector" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-teal-400 font-sans" onchange="updateStoreCityDelivery(this.value)">
-            <option value="150" data-label="Peshawar">Peshawar (Local: Rs. 150 - Free over Rs. 3,500)</option>
-            <option value="260" data-label="Islamabad / Rawalpindi" selected>Islamabad / Rawalpindi (Courier: Rs. 260)</option>
-            <option value="280" data-label="Lahore / Punjab">Lahore / Punjab (TCS: Rs. 280)</option>
-            <option value="300" data-label="Karachi / Sindh">Karachi / Sindh (TCS: Rs. 300)</option>
-            <option value="280" data-label="Other Nationwide">Other Cities Nationwide (Rs. 280)</option>
-          </select>
-          <div class="text-right whitespace-nowrap bg-slate-950/80 px-3 py-2 rounded-xl border border-slate-800">
-            <span class="text-[10px] text-slate-400 block">Courier Cost:</span>
-            <span id="storeHeaderDeliveryCost" class="text-xs sm:text-sm font-bold text-cyan-400 font-mono">Rs. 260</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Paste Any Product Link or Model Sourcing Tool -->
-      <div class="mb-12 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-xl">
-        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-          <div class="max-w-xl">
-            <span class="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider">Universal Component Sourcing</span>
-            <h3 class="text-xl font-bold text-white mt-1">Found a Part on Any Pakistani Website?</h3>
-            <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
-              Paste the product link or enter the exact model name from <strong class="text-teal-400">Verified Supplier.pk</strong>, <strong class="text-teal-400">Authorized Distributor.com</strong>, <strong class="text-teal-400">Component Depot.com</strong>, or any store. I will find the best market rate, inspect and test the hardware, and dispatch it to your doorstep.
-            </p>
-          </div>
-          <div class="w-full lg:w-96 flex flex-col gap-2.5">
+          <!-- Search Bar with Category Select -->
+          <div class="flex-1 max-w-2xl w-full flex items-center shadow-sm rounded-lg overflow-hidden border border-slate-300 focus-within:border-sky-500">
+            <select id="eStoreCatFilter" class="bg-slate-50 border-r border-slate-300 px-3 py-2.5 text-xs text-slate-700 font-semibold focus:outline-none hidden sm:block" onchange="filterEStore()">
+              <option value="ALL">All Products</option>
+              <option value="esp32">ESP32 & IoT</option>
+              <option value="arduino">Arduino & MCUs</option>
+              <option value="motors">Motors & Steppers</option>
+              <option value="drivers">Motor Drivers & Relays</option>
+              <option value="sensors">Sensors & Probes</option>
+              <option value="passives">Resistors & Capacitors</option>
+              <option value="displays">Displays & Wireless</option>
+            </select>
             <input 
               type="text" 
-              id="externalPartUrlInput" 
-              placeholder="Paste website product link or part name..." 
-              class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-teal-400"
+              id="eStoreSearchInput" 
+              placeholder="Search for Products (e.g. esp32, arduino, stepper, resistor, motor)..." 
+              class="w-full px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:outline-none"
+              oninput="filterEStore()"
             >
-            <button 
-              onclick="submitExternalLinkInquiry()" 
-              class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 transition-all"
-            >
-              <i class="fa-brands fa-whatsapp text-base"></i>
-              <span>Get Best Rate on WhatsApp (0315-9915537)</span>
+            <button onclick="filterEStore()" class="bg-sky-500 hover:bg-sky-600 text-white font-bold px-6 py-2.5 text-xs uppercase tracking-wider transition-colors">
+              SEARCH
+            </button>
+          </div>
+
+          <!-- Cart Counter Button -->
+          <button onclick="openCartDrawer()" class="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-lg text-xs font-bold transition-all shadow">
+            <i class="fa-solid fa-cart-shopping text-amber-400 text-base"></i>
+            <span>Cart (<span id="storeCartBadgeCount">0</span>)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main 3-Column Layout Matching Image 2 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- ================= LEFT COLUMN: SHOP BY CATEGORY ================= -->
+        <div class="lg:col-span-3 space-y-5">
+          <div class="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
+            <div class="bg-sky-500 text-white font-bold text-sm px-4 py-3 flex items-center justify-between">
+              <span class="flex items-center gap-2">
+                <i class="fa-solid fa-bars"></i> SHOP BY CATEGORY
+              </span>
+            </div>
+            <div class="divide-y divide-slate-100 text-xs font-semibold text-slate-700">
+              <button onclick="setCategorySelect('ALL')" class="w-full text-left px-4 py-2.5 hover:bg-sky-50 hover:text-sky-600 flex items-center justify-between transition-colors cat-link active-cat-link">
+                <span>› All Products</span>
+                <span class="text-[10px] text-slate-400 font-mono">(42)</span>
+              </button>
+              <button onclick="setCategorySelect('esp32')" class="w-full text-left px-4 py-2.5 hover:bg-sky-50 hover:text-sky-600 flex items-center justify-between transition-colors cat-link">
+                <span>› ESP32 & IoT Modules</span>
+                <span class="text-[10px] text-slate-400 font-mono">(9)</span>
+              </button>
+              <button onclick="setCategorySelect('arduino')" class="w-full text-left px-4 py-2.5 hover:bg-sky-50 hover:text-sky-600 flex items-center justify-between transition-colors cat-link">
+                <span>› Arduino & MCUs</span>
+                <span class="text-[10px] text-slate-400 font-mono">(5)</span>
+              </button>
+              <button onclick="setCategorySelect('motors')" class="w-full text-left px-4 py-2.5 hover:bg-sky-50 hover:text-sky-600 flex items-center justify-between transition-colors cat-link">
+                <span>› Motors, Robotics & Steppers</span>
+                <span class="text-[10px] text-slate-400 font-mono">(8)</span>
+              </button>
+              <button onclick="setCategorySelect('drivers')" class="w-full text-left px-4 py-2.5 hover:bg-sky-50 hover:text-sky-600 flex items-center justify-between transition-colors cat-link">
+                <span>› Motor Drivers & Relays</span>
+                <span class="text-[10px] text-slate-400 font-mono">(6)</span>
+              </button>
+              <button onclick="setCategorySelect('sensors')" class="w-full text-left px-4 py-2.5 hover:bg-sky-50 hover:text-sky-600 flex items-center justify-between transition-colors cat-link">
+                <span>› Breakout Sensors & Probes</span>
+                <span class="text-[10px] text-slate-400 font-mono">(8)</span>
+              </button>
+              <button onclick="setCategorySelect('passives')" class="w-full text-left px-4 py-2.5 hover:bg-sky-50 hover:text-sky-600 flex items-center justify-between transition-colors cat-link">
+                <span>› Resistors, Capacitors & Passives</span>
+                <span class="text-[10px] text-slate-400 font-mono">(6)</span>
+              </button>
+              <button onclick="setCategorySelect('displays')" class="w-full text-left px-4 py-2.5 hover:bg-sky-50 hover:text-sky-600 flex items-center justify-between transition-colors cat-link">
+                <span>› Displays, LCD, OLED & Wireless</span>
+                <span class="text-[10px] text-slate-400 font-mono">(6)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Delivery Charges City Calculator Widget -->
+          <div class="bg-white rounded-xl shadow-md border border-slate-200 p-4 text-xs">
+            <div class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5 text-sky-600">
+              <i class="fa-solid fa-truck"></i> Check Delivery Charges
+            </div>
+            <p class="text-slate-500 text-[11px] mb-2.5">Select destination city to view real courier rate:</p>
+            <select id="eStoreDeliveryCity" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2 font-semibold text-slate-700 text-xs focus:outline-none focus:border-sky-500 mb-2" onchange="updateDeliveryCity(this.value)">
+              <option value="150" data-city="Peshawar">Peshawar (Local: Rs. 150)</option>
+              <option value="260" data-city="Islamabad / Rawalpindi" selected>Islamabad / Rawalpindi (Rs. 260)</option>
+              <option value="280" data-city="Lahore / Punjab">Lahore / Punjab (TCS: Rs. 280)</option>
+              <option value="300" data-city="Karachi / Sindh">Karachi / Sindh (TCS: Rs. 300)</option>
+              <option value="280" data-city="Nationwide">Other Cities Nationwide (Rs. 280)</option>
+            </select>
+            <div class="bg-sky-50 text-sky-800 p-2.5 rounded-lg border border-sky-100 flex justify-between items-center font-bold">
+              <span>Courier Charges:</span>
+              <span id="eStoreDeliveryBadge" class="font-mono text-sm text-sky-700">Rs. 260</span>
+            </div>
+          </div>
+
+          <!-- Unlisted Part Request Box -->
+          <div class="bg-amber-50 rounded-xl border border-amber-200 p-4 text-xs">
+            <div class="font-bold text-amber-900 text-sm mb-1 flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-question text-amber-600"></i> Looking for another part?
+            </div>
+            <p class="text-amber-800 text-[11px] mb-3 leading-relaxed">
+              If any model or IC is not listed, enter its name or paste a link from any website:
+            </p>
+            <input type="text" id="customPartQuickInput" placeholder="e.g. ESP32-S3-WROOM, NEMA 23, IRFZ44N..." class="w-full bg-white border border-amber-300 rounded-lg p-2 text-xs text-slate-800 mb-2 focus:outline-none focus:border-amber-500">
+            <button onclick="requestCustomPartFromStore()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 rounded-lg text-xs transition-colors shadow">
+              <i class="fa-brands fa-whatsapp"></i> Check Best Rate on WhatsApp
             </button>
           </div>
         </div>
-      </div>
 
-      <!-- Store Controls & Live Cart Drawer Shortcut -->
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
-        <div class="flex items-center gap-3 w-full sm:w-auto">
-          <div class="relative flex-1 sm:w-80">
-            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-            <input 
-              type="text" 
-              id="storeSearchBox" 
-              placeholder="Quick search in store..." 
-              oninput="filterStoreCatalog(this.value)"
-              class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-teal-400"
-            >
+        <!-- ================= CENTER COLUMN: SEARCHED PRODUCTS (EXACT STYLE OF IMAGE 2) ================= -->
+        <div class="lg:col-span-6 space-y-4">
+          
+          <!-- Banner Result Header -->
+          <div class="bg-sky-500 text-white font-bold text-sm px-4 py-3 rounded-lg shadow flex items-center justify-between">
+            <span id="eStoreResultsTitle" class="flex items-center gap-2">
+              <i class="fa-solid fa-list-check"></i> All Electronics Components
+            </span>
+            <span id="eStoreCountBadge" class="text-xs bg-white/20 px-2.5 py-0.5 rounded font-mono">
+              42 Products
+            </span>
           </div>
-          <span id="storeItemsFoundBadge" class="text-xs font-mono text-slate-400 whitespace-nowrap">
-            Showing all items
-          </span>
+
+          <!-- Products Grid (2-Column Cards matching Image 2) -->
+          <div id="eStoreGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Dynamically populated -->
+          </div>
+
         </div>
 
-        <!-- Sticky / Header Cart Button -->
-        <button onclick="openCartDrawer()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-lg shadow-teal-600/25 transition-all">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <span>View Cart & Order (<span id="storeCartBadgeCount">0</span> items)</span>
-        </button>
-      </div>
+        <!-- ================= RIGHT COLUMN: MOST VIEWED (EXACT STYLE OF IMAGE 2) ================= -->
+        <div class="lg:col-span-3 space-y-4">
+          <div class="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
+            <div class="bg-sky-500 text-white font-bold text-sm px-4 py-3 flex items-center gap-2">
+              <i class="fa-solid fa-fire text-amber-300"></i> MOST VIEWED
+            </div>
+            <div class="divide-y divide-slate-100 p-2 space-y-1" id="mostViewedList">
+              
+              <!-- Item 1 -->
+              <div class="p-2.5 hover:bg-slate-50 rounded-lg flex items-center gap-3 transition-colors">
+                <div class="w-14 h-14 bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400 text-xl flex-shrink-0">
+                  <i class="fa-solid fa-battery-full text-emerald-600"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h5 class="text-xs font-bold text-slate-800 truncate">3.7V 2000mAh 18650 Battery</h5>
+                  <div class="text-xs font-bold text-sky-600 font-mono mt-0.5">PKR 540.00</div>
+                  <button onclick="quickOrderDirect('3.7V 18650 Li-ion Battery (PKR 540)')" class="mt-1 text-[11px] bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-2.5 py-0.5 rounded shadow">
+                    View & Order
+                  </button>
+                </div>
+              </div>
 
-      <!-- Store Grid of Products with Multi-Vendor Comparison -->
-      <div id="storeProductsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <!-- Rendered dynamically by JavaScript -->
+              <!-- Item 2 -->
+              <div class="p-2.5 hover:bg-slate-50 rounded-lg flex items-center gap-3 transition-colors">
+                <div class="w-14 h-14 bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400 text-xl flex-shrink-0">
+                  <i class="fa-solid fa-tape text-amber-600"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h5 class="text-xs font-bold text-slate-800 truncate">30mm High-Temp Kapton Tape</h5>
+                  <div class="text-xs font-bold text-sky-600 font-mono mt-0.5">PKR 900.00</div>
+                  <button onclick="quickOrderDirect('30mm Kapton Tape (PKR 900)')" class="mt-1 text-[11px] bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-2.5 py-0.5 rounded shadow">
+                    View & Order
+                  </button>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="p-2.5 hover:bg-slate-50 rounded-lg flex items-center gap-3 transition-colors">
+                <div class="w-14 h-14 bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400 text-xl flex-shrink-0">
+                  <i class="fa-solid fa-lines-leaning text-sky-600"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h5 class="text-xs font-bold text-slate-800 truncate">150mm Nylon Zip Cable Ties</h5>
+                  <div class="text-xs font-bold text-sky-600 font-mono mt-0.5">PKR 6.00</div>
+                  <button onclick="quickOrderDirect('150mm Zip Ties Pack (PKR 60)')" class="mt-1 text-[11px] bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-2.5 py-0.5 rounded shadow">
+                    View & Order
+                  </button>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="p-2.5 hover:bg-slate-50 rounded-lg flex items-center gap-3 transition-colors">
+                <div class="w-14 h-14 bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400 text-xl flex-shrink-0">
+                  <i class="fa-solid fa-tv text-purple-600"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h5 class="text-xs font-bold text-slate-800 truncate">White OLED 0.91" I2C 128x32</h5>
+                  <div class="text-xs font-bold text-sky-600 font-mono mt-0.5">PKR 650.00</div>
+                  <button onclick="quickOrderDirect('White OLED 0.91 I2C (PKR 650)')" class="mt-1 text-[11px] bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-2.5 py-0.5 rounded shadow">
+                    View & Order
+                  </button>
+                </div>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="p-2.5 hover:bg-slate-50 rounded-lg flex items-center gap-3 transition-colors">
+                <div class="w-14 h-14 bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400 text-xl flex-shrink-0">
+                  <i class="fa-solid fa-bread-slice text-teal-600"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h5 class="text-xs font-bold text-slate-800 truncate">MB-102 830 Points Breadboard</h5>
+                  <div class="text-xs font-bold text-sky-600 font-mono mt-0.5">PKR 380.00</div>
+                  <button onclick="quickOrderDirect('MB-102 Breadboard 830pts (PKR 380)')" class="mt-1 text-[11px] bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-2.5 py-0.5 rounded shadow">
+                    View & Order
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </section>
+
 
   <!-- ==================== SLIDE-OVER CART DRAWER ==================== -->
   <div id="cartDrawer" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex justify-end">
@@ -2565,18 +2543,6 @@
       window.open('https://wa.me/923159915537?text=' + msg, '_blank');
     }
 
-        badge.innerText = 'Showing all ' + STORE_ITEMS.length + ' items';
-        return;
-      }
-      const filtered = STORE_ITEMS.filter(i => 
-        i.name.toLowerCase().includes(q) || 
-        i.category.toLowerCase().includes(q) || 
-        i.desc.toLowerCase().includes(q)
-      );
-      renderStoreProducts(filtered);
-      badge.innerText = filtered.length + ' item' + (filtered.length === 1 ? '' : 's') + ' found';
-    }
-
     function updateStoreCityDelivery(val) {
       document.getElementById('storeHeaderDeliveryCost').innerText = 'Rs. ' + val;
       const select = document.getElementById('drawerCitySelect');
@@ -2743,6 +2709,215 @@
 
       window.open('https://wa.me/923159915537?text=' + encodeURIComponent(msg), '_blank');
     }
+
+    
+    // =======================================================
+    // E-COMMERCE STORE LOGIC MATCHING IMAGE 2 EXACT STYLE
+    // =======================================================
+    let selectedStoreCategory = 'ALL';
+
+    function renderEStoreGrid(items) {
+      const grid = document.getElementById('eStoreGrid');
+      const countBadge = document.getElementById('eStoreCountBadge');
+      if (!grid) return;
+
+      countBadge.innerText = items.length + ' Products';
+
+      if (items.length === 0) {
+        grid.innerHTML = '<div class="col-span-full bg-white rounded-xl p-8 text-center border border-slate-200">' +
+          '<i class="fa-solid fa-box-open text-4xl text-slate-400 mb-2 block"></i>' +
+          '<h4 class="text-sm font-bold text-slate-800">No matching component found in standard stock</h4>' +
+          '<p class="text-xs text-slate-500 mt-1 mb-4">Don\'t worry! I will source and arrange this component for you within 24-48 hours.</p>' +
+          '<button onclick="requestCustomPartFromStore()" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-4 py-2 rounded-lg shadow inline-flex items-center gap-1.5">' +
+            '<i class="fa-brands fa-whatsapp text-sm"></i> Arrange via WhatsApp (0315-9915537)' +
+          '</button>' +
+        '</div>';
+        return;
+      }
+
+      let html = '';
+      items.forEach((p, idx) => {
+        const sku = 'SKU: EH-' + p.id.toUpperCase().replace('ST_', '');
+        const isStock = p.status.includes('In Stock');
+        const stockText = isStock ? 'Stock: Available' : 'Stock: On Demand';
+        const stockColor = isStock ? 'text-emerald-600' : 'text-amber-600';
+
+        html += '<div class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">' +
+          '<div>' +
+            // Orange Header Title Banner (Exact match to Image 2)
+            '<div class="bg-amber-500 text-white font-bold text-xs p-2.5 truncate" title="' + p.name + '">' +
+              p.name +
+            '</div>' +
+
+            // Card Body (Image + Details)
+            '<div class="p-3.5 flex gap-3 items-center">' +
+              '<div class="w-20 h-20 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-center text-slate-400 text-3xl flex-shrink-0">' +
+                '<i class="fa-solid ' + p.icon + '"></i>' +
+              '</div>' +
+              '<div class="flex-1 min-w-0 text-[11px] space-y-0.5">' +
+                '<div class="text-slate-400 font-mono text-[10px]">' + sku + '</div>' +
+                '<div class="font-bold ' + stockColor + '">' + stockText + '</div>' +
+                '<div class="text-slate-500 text-[10px] truncate">' + p.desc + '</div>' +
+                '<div class="text-base font-black text-sky-600 font-mono pt-1">PKR ' + p.rate.toLocaleString() + '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+
+          // Action row matching Image 2: QTY + Add to Cart + Product Info
+          '<div class="p-3 bg-slate-50 border-t border-slate-100 flex items-center gap-2">' +
+            '<div class="flex items-center text-xs text-slate-600">' +
+              '<span class="mr-1 font-semibold text-[11px]">QTY:</span>' +
+              '<input type="number" id="qty_' + p.id + '" value="1" min="1" max="99" class="w-12 h-7 bg-white border border-slate-300 rounded text-center text-xs font-bold text-slate-800 focus:outline-none focus:border-sky-500">' +
+            '</div>' +
+            '<button onclick="addWithQty(\'' + p.id + '\')" class="flex-1 bg-sky-500 hover:bg-sky-600 text-white font-bold text-xs py-1.5 rounded transition-colors shadow-sm">' +
+              'Add to Cart' +
+            '</button>' +
+            '<button onclick="orderDirectWhatsApp(\'' + p.id + '\')" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-2.5 py-1.5 rounded transition-colors shadow-sm" title="Order via WhatsApp">' +
+              '<i class="fa-brands fa-whatsapp text-sm"></i>' +
+            '</button>' +
+          '</div>' +
+        '</div>';
+      });
+
+      grid.innerHTML = html;
+    }
+
+    function addWithQty(id) {
+      const p = STORE_ITEMS.find(i => i.id === id);
+      if (!p) return;
+      const qtyInput = document.getElementById('qty_' + id);
+      const qty = parseInt(qtyInput ? qtyInput.value : 1) || 1;
+
+      const existing = userCart.find(c => c.id === id);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        userCart.push({ ...p, qty: qty });
+      }
+
+      updateCartBadge();
+      openCartDrawer();
+    }
+
+    function orderDirectWhatsApp(id) {
+      const p = STORE_ITEMS.find(i => i.id === id);
+      if (!p) return;
+      const qtyInput = document.getElementById('qty_' + id);
+      const qty = parseInt(qtyInput ? qtyInput.value : 1) || 1;
+
+      const citySelect = document.getElementById('eStoreDeliveryCity');
+      const cityName = citySelect ? citySelect.options[citySelect.selectedIndex].getAttribute('data-city') : 'Standard Courier';
+      const deliveryFee = parseInt(citySelect ? citySelect.value : 260) || 260;
+
+      const subtotal = p.rate * qty;
+      const total = subtotal + deliveryFee;
+
+      const msg = 
+        '🛒 *ORDER COMPONENT VIA HANIF ELECTRONICS*\n' +
+        '========================================\n' +
+        '*Product:* ' + p.name + '\n' +
+        '*Quantity:* ' + qty + ' pcs\n' +
+        '*Unit Rate:* PKR ' + p.rate.toLocaleString() + '\n' +
+        '*Subtotal:* PKR ' + subtotal.toLocaleString() + '\n' +
+        '*Delivery Destination:* ' + cityName + ' (PKR ' + deliveryFee + ')\n' +
+        '*TOTAL PAYABLE:* PKR ' + total.toLocaleString() + '\n' +
+        '----------------------------------------\n' +
+        'Please confirm availability, payment details, and dispatch.';
+
+      window.open('https://wa.me/923159915537?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    function quickOrderDirect(itemName) {
+      const citySelect = document.getElementById('eStoreDeliveryCity');
+      const cityName = citySelect ? citySelect.options[citySelect.selectedIndex].getAttribute('data-city') : 'Courier';
+      const msg = 
+        '🛒 *QUICK INQUIRY / ORDER*\n' +
+        '*Product:* ' + itemName + '\n' +
+        '*City:* ' + cityName + '\n' +
+        'Please confirm availability and dispatch cost.';
+      window.open('https://wa.me/923159915537?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    function filterEStore() {
+      const searchVal = (document.getElementById('eStoreSearchInput') ? document.getElementById('eStoreSearchInput').value : '').toLowerCase().trim();
+      const catSelect = document.getElementById('eStoreCatFilter');
+      const catVal = catSelect ? catSelect.value : 'ALL';
+
+      const titleEl = document.getElementById('eStoreResultsTitle');
+
+      let filtered = STORE_ITEMS;
+
+      // Filter by category
+      if (selectedStoreCategory !== 'ALL') {
+        filtered = filtered.filter(i => (i.family && i.family.toLowerCase() === selectedStoreCategory.toLowerCase()) || i.category.toLowerCase().includes(selectedStoreCategory.toLowerCase()));
+        if (titleEl) titleEl.innerText = selectedStoreCategory.toUpperCase() + ' Category Results';
+      } else if (catVal !== 'ALL') {
+        filtered = filtered.filter(i => (i.family && i.family.toLowerCase() === catVal.toLowerCase()) || i.category.toLowerCase().includes(catVal.toLowerCase()));
+        if (titleEl) titleEl.innerText = catVal.toUpperCase() + ' Category Results';
+      } else {
+        if (titleEl) titleEl.innerText = 'All Electronics Components';
+      }
+
+      // Filter by search text
+      if (searchVal.length > 0) {
+        filtered = filtered.filter(i => {
+          return i.name.toLowerCase().includes(searchVal) ||
+                 i.desc.toLowerCase().includes(searchVal) ||
+                 i.category.toLowerCase().includes(searchVal) ||
+                 (i.family && i.family.toLowerCase().includes(searchVal));
+        });
+        if (titleEl) titleEl.innerText = '"' + searchVal + '" Searched Product Results';
+      }
+
+      renderEStoreGrid(filtered);
+    }
+
+    function setCategorySelect(cat) {
+      selectedStoreCategory = cat;
+      const catSelect = document.getElementById('eStoreCatFilter');
+      if (catSelect) catSelect.value = cat;
+
+      // Clear search box to view full category
+      const s = document.getElementById('eStoreSearchInput');
+      if (s) s.value = '';
+
+      filterEStore();
+
+      // Highlight active link
+      const links = document.querySelectorAll('.cat-link');
+      links.forEach(l => l.classList.remove('text-sky-600', 'font-bold', 'bg-sky-50'));
+      if (event && event.target) {
+        const btn = event.target.closest('button');
+        if (btn) btn.classList.add('text-sky-600', 'font-bold', 'bg-sky-50');
+      }
+    }
+
+    function updateDeliveryCity(val) {
+      document.getElementById('eStoreDeliveryBadge').innerText = 'Rs. ' + val;
+      const drawerSelect = document.getElementById('drawerCitySelect');
+      if (drawerSelect) {
+        drawerSelect.value = val;
+        recalcCartDrawer();
+      }
+    }
+
+    function requestCustomPartFromStore() {
+      const part = document.getElementById('customPartQuickInput').value.trim() || 
+                   (document.getElementById('eStoreSearchInput') ? document.getElementById('eStoreSearchInput').value.trim() : '');
+      const msg = 
+        '🔍 *CUSTOM COMPONENT SOURCING INQUIRY*\n' +
+        '====================================\n' +
+        '*Model / Part Name:* ' + (part || 'Unlisted Component') + '\n' +
+        '------------------------------------\n' +
+        'Please check availability, arrange it, and provide the best verified rate + delivery charges.';
+      window.open('https://wa.me/923159915537?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    // Initialize E-Store Catalog on load
+    document.addEventListener('DOMContentLoaded', function() {
+      renderEStoreGrid(STORE_ITEMS);
+    });
+
 
     // Initialize Store Catalog on load
     document.addEventListener('DOMContentLoaded', function() {
