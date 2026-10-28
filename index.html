@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Engr. Hanif Ullah | Hardware & Embedded Systems Engineer</title>
-  <meta name="description" content="Professional Engineering Portfolio, IoT Telemetry Dashboard, and Electronics Store of Engr. Hanif Ullah (CISNR, UET Peshawar).">
+  <title>Engr. Hanif Ullah | Hardware, Embedded Systems & Full-Stack FYP Engineering Solutions</title>
+  <meta name="description" content="Turnkey Embedded Systems, Custom PCB Design, IoT Telemetry, Full-Stack Software Development, and Complete FYP Project Engineering by Engr. Hanif Ullah (CISNR, UET Peshawar).">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Chart.js CDN for real-time telemetry -->
@@ -41,47 +41,61 @@
     }
     .animate-pulse-slow { animation: pulse-slow 2.5s infinite ease-in-out; }
     .glassmorphism {
-      background: rgba(30, 41, 59, 0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(30, 41, 59, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glow-teal {
+      box-shadow: 0 0 35px -5px rgba(0, 199, 183, 0.25);
     }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white min-h-screen flex flex-col">
+
+  <!-- ==================== TOP ANNOUNCEMENT BANNER ==================== -->
+  <div class="bg-gradient-to-r from-teal-900 via-slate-900 to-cyan-950 border-b border-teal-500/20 py-2 px-4 text-center text-xs sm:text-sm text-teal-200">
+    <span class="font-bold text-white">🎓 Complete FYP & Engineering Project Solutions:</span> 
+    Full Working Hardware + Embedded Firmware + Web/Mobile Apps + Comprehensive Thesis & Defense Preparation. 
+    <a href="https://wa.me/923159915537?text=Hello%20Engr%20Hanif,%20I%20need%20a%20complete%20FYP%20/%20Engineering%20Project%20solution." target="_blank" class="underline font-bold text-teal-400 hover:text-white ml-2 inline-flex items-center gap-1">
+      <i class="fa-brands fa-whatsapp"></i> Inquire Now
+    </a>
+  </div>
 
   <!-- ==================== NAVIGATION BAR ==================== -->
   <nav class="sticky top-0 z-50 glassmorphism border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-cyan-500 flex items-center justify-center font-bold text-white shadow-lg shadow-teal-500/20">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-cyan-500 flex items-center justify-center font-extrabold text-white shadow-lg shadow-teal-500/20">
             EH
           </div>
           <div>
             <a href="#home" class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
               Engr. Hanif Ullah
-              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-teal-900/60 text-teal-300 border border-teal-500/30">CISNR</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-teal-900/60 text-teal-300 border border-teal-500/30">CISNR</span>
             </a>
-            <p class="text-xs text-slate-400 hidden sm:block">Hardware & Embedded Systems Engineer</p>
+            <p class="text-xs text-slate-400 hidden sm:block">Hardware, Embedded Systems & Software Engineer</p>
           </div>
         </div>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
-          <a href="#projects" class="hover:text-teal-400 transition-colors">Projects</a>
+          <a href="#fyp-solutions" class="text-teal-400 hover:text-teal-300 transition-colors font-semibold flex items-center gap-1.5">
+            <i class="fa-solid fa-graduation-cap"></i> FYP Solutions
+          </a>
+          <a href="#projects" class="hover:text-teal-400 transition-colors">Projects & Builds</a>
           <a href="#telemetry" class="hover:text-teal-400 transition-colors">Live Telemetry</a>
-          <a href="#store" class="hover:text-teal-400 transition-colors">Hardware Store</a>
           <a href="#services" class="hover:text-teal-400 transition-colors">Services</a>
           <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
-          <a href="https://wa.me/923159915537" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg font-semibold transition-all shadow-md shadow-emerald-600/30">
+          <a href="https://wa.me/923159915537" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl font-semibold transition-all shadow-md shadow-emerald-600/30">
             <i class="fa-brands fa-whatsapp text-lg"></i>
             <span>WhatsApp (0315-9915537)</span>
           </a>
         </div>
 
         <!-- Mobile WhatsApp button -->
-        <div class="flex md:hidden items-center gap-3">
+        <div class="flex md:hidden items-center gap-2">
           <a href="https://wa.me/923159915537" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white p-2 rounded-lg text-sm">
             <i class="fa-brands fa-whatsapp text-lg"></i>
           </a>
@@ -103,53 +117,56 @@
           </div>
 
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            Engineering Resilient <br class="hidden sm:inline" />
+            Turnkey Hardware, <br class="hidden sm:inline" />
             <span class="bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
               Embedded Systems
-            </span> & IoT Telemetry
+            </span> & Full-Stack FYP Solutions
           </h1>
 
           <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
-            From circuit design and firmware development to industrial sensor telemetry and field automation. Specializing in 
-            <strong class="text-white">ESP32, STM32, Arduino, Raspberry Pi, LoRa, GSM/GPS</strong>, and mission-critical cloud dashboards.
+            Whether you need a <strong class="text-white">commercial IoT prototype</strong>, custom <strong class="text-white">PCB & firmware engineering</strong>, or a <strong class="text-white">complete defense-ready Final Year Project (FYP)</strong> with hardware, web dashboards, and mobile apps — I design, fabricate, program, and deliver 100% functional systems.
           </p>
 
           <!-- Action buttons -->
           <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="https://wa.me/923159915537?text=Hello%20Engr%20Hanif,%20I%20am%20interested%20in%20your%20engineering%20services/projects." target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-400 hover:to-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-teal-500/25 transition-all">
+            <a href="https://wa.me/923159915537?text=Hello%20Engr%20Hanif,%20I%20want%20to%20discuss%20a%20project%20/%20FYP%20solution." target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-400 hover:to-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-teal-500/25 transition-all">
               <i class="fa-brands fa-whatsapp text-xl"></i>
-              <span>WhatsApp (0315-9915537)</span>
+              <span>Order Any Project / Contact (0315-9915537)</span>
             </a>
-            <a href="https://github.com/Engrhanifkhan" target="_blank" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-5 py-3.5 rounded-xl border border-slate-700 transition-all">
-              <i class="fa-brands fa-github text-xl"></i>
-              <span>GitHub Repositories</span>
+            <a href="#fyp-solutions" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-5 py-3.5 rounded-xl border border-slate-700 transition-all">
+              <i class="fa-solid fa-laptop-code text-teal-400"></i>
+              <span>FYP & Software Services</span>
             </a>
-            <a href="https://www.linkedin.com/in/engr-hanif-khan-628a04259/" target="_blank" class="inline-flex items-center gap-2 bg-blue-700/30 hover:bg-blue-700/50 text-blue-300 border border-blue-500/30 font-semibold px-5 py-3.5 rounded-xl transition-all">
-              <i class="fa-brands fa-linkedin text-xl"></i>
-              <span>LinkedIn</span>
+            <a href="https://github.com/Engrhanifkhan" target="_blank" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold px-4 py-3.5 rounded-xl border border-slate-800 transition-all">
+              <i class="fa-brands fa-github text-lg"></i>
+              <span>GitHub</span>
             </a>
           </div>
 
-          <!-- Quick Metrics -->
-          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 max-w-lg">
-            <div>
-              <div class="text-2xl sm:text-3xl font-extrabold text-white">10+</div>
-              <div class="text-xs text-slate-400">Published Hardware Repos</div>
+          <!-- Capability Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-800/80">
+            <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
+              <div class="text-teal-400 text-sm font-bold flex items-center gap-1.5"><i class="fa-solid fa-microchip"></i> Hardware</div>
+              <div class="text-xs text-slate-400 mt-0.5">ESP32, STM32, Arduino, Pi</div>
             </div>
-            <div>
-              <div class="text-2xl sm:text-3xl font-extrabold text-teal-400">100%</div>
-              <div class="text-xs text-slate-400">Verified Pinouts</div>
+            <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
+              <div class="text-cyan-400 text-sm font-bold flex items-center gap-1.5"><i class="fa-solid fa-code"></i> Firmware</div>
+              <div class="text-xs text-slate-400 mt-0.5">Embedded C/C++, FreeRTOS</div>
             </div>
-            <div>
-              <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400">0315-9915537</div>
-              <div class="text-xs text-slate-400">Direct Contact</div>
+            <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
+              <div class="text-emerald-400 text-sm font-bold flex items-center gap-1.5"><i class="fa-solid fa-desktop"></i> Software</div>
+              <div class="text-xs text-slate-400 mt-0.5">React, Flutter, Python, SQL</div>
+            </div>
+            <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
+              <div class="text-purple-400 text-sm font-bold flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap"></i> Complete FYPs</div>
+              <div class="text-xs text-slate-400 mt-0.5">Build + Code + Defense Prep</div>
             </div>
           </div>
         </div>
 
         <!-- Live Telemetry Card Preview -->
         <div class="lg:col-span-5">
-          <div class="glassmorphism rounded-2xl p-6 border border-slate-800 shadow-2xl relative overflow-hidden">
+          <div class="glassmorphism rounded-2xl p-6 border border-slate-800 shadow-2xl glow-teal relative overflow-hidden">
             <div class="flex items-center justify-between pb-4 border-b border-slate-700/60 mb-4">
               <div class="flex items-center gap-3">
                 <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -198,16 +215,117 @@
     </div>
   </section>
 
+  <!-- ==================== DEDICATED FYP & ALL-TYPE SOFTWARE SOLUTIONS ==================== -->
+  <section id="fyp-solutions" class="py-16 bg-gradient-to-b from-slate-950 via-slate-900/60 to-slate-950 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-900/50 text-teal-300 text-xs font-semibold border border-teal-500/30 uppercase tracking-wider">
+          <i class="fa-solid fa-award"></i> University & Industrial Grade Projects
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          Complete Final Year Projects (FYP) & Custom Software Engineering
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+          I provide <strong>end-to-end project realization</strong> for electrical, electronics, mechatronics, computer engineering, and computer science students and research institutions. Every project is delivered with 100% verified working hardware, complete clean source code, and full viva defense preparation.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Pillar 1: Turnkey Hardware Builds -->
+        <div class="bg-slate-900/90 border border-slate-800 hover:border-teal-500/40 rounded-2xl p-7 flex flex-col justify-between shadow-xl transition-all">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-2xl mb-5">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">1. Hardware & Embedded Systems</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Complete physical prototypes built with precision wiring, robust sensor calibration, and industrial reliability.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+              <li>ESP32, STM32 ARM Cortex, Arduino, Raspberry Pi 4/5</li>
+              <li>Wireless Telemetry: LoRa, LoRaWAN, GSM/GPRS, GPS, BLE, Zigbee</li>
+              <li>Robotics, Inverters, Solar SCADA, BLDC/Stepper Motor Drivers</li>
+              <li>Custom PCB Design, Schematics & Gerber Files (KiCad, Proteus)</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800">
+            <span class="text-xs font-mono text-teal-400">Turnkey Physical Prototype</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2: All Types of Software Development -->
+        <div class="bg-slate-900/90 border border-slate-800 hover:border-cyan-500/40 rounded-2xl p-7 flex flex-col justify-between shadow-xl transition-all">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl mb-5">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">2. All-Type Software & Applications</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Modern full-stack web applications, mobile apps, desktop GUIs, and cloud IoT dashboards connected to your hardware.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+              <li><strong>Web Dashboards:</strong> React, Next.js, Tailwind CSS, Node.js, REST APIs</li>
+              <li><strong>Mobile Apps:</strong> Flutter (Android & iOS) cross-platform apps</li>
+              <li><strong>Desktop GUIs:</strong> Python (Tkinter, PyQt), Computer Vision (OpenCV)</li>
+              <li><strong>Cloud IoT:</strong> MQTT, Firebase, Blynk, Adafruit IO, ThingsBoard</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800">
+            <span class="text-xs font-mono text-cyan-400">Full-Stack Code & APIs</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Complete FYP Documentation & Mentorship -->
+        <div class="bg-slate-900/90 border border-slate-800 hover:border-emerald-500/40 rounded-2xl p-7 flex flex-col justify-between shadow-xl transition-all">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-5">
+              <i class="fa-solid fa-file-shield"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">3. Full FYP Thesis & Defense Prep</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              You receive not just the hardware, but everything required to achieve top grades and pass supervisor evaluations with distinction.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+              <li>Comprehensive Academic Report & Thesis Documentation</li>
+              <li>Circuit Diagrams, Block Diagrams & Flowcharts</li>
+              <li>Software Source Code with Clean Comments & Explanation</li>
+              <li>Viva & Presentation Slide Coaching for Final Defense</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800">
+            <span class="text-xs font-mono text-emerald-400">Guaranteed Defense-Ready</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Action Box -->
+      <div class="mt-12 bg-gradient-to-r from-teal-950 via-slate-900 to-cyan-950 p-6 sm:p-8 rounded-2xl border border-teal-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div>
+          <h4 class="text-xl font-bold text-white">Have a Project or FYP Idea in Mind?</h4>
+          <p class="text-xs sm:text-sm text-slate-300 mt-1">
+            Share your project statement or requirements. I will handle the hardware build, firmware coding, software dashboard, and full project package.
+          </p>
+        </div>
+        <a href="https://wa.me/923159915537?text=Hello%20Engr%20Hanif,%20I%20want%20you%20to%20build/code%20my%20FYP%20Project.%20Here%20are%20my%20requirements:" target="_blank" class="whitespace-nowrap bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>Discuss on WhatsApp (0315-9915537)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== FEATURED PROJECTS ==================== -->
   <section id="projects" class="py-16 bg-slate-900/40 border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
-          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Open-Source & Production Hardware</span>
+          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Open-Source & Complete Turnkey Builds</span>
           <h2 class="text-3xl font-extrabold text-white mt-1">Featured Engineering Projects</h2>
         </div>
         <p class="text-sm text-slate-400 max-w-md mt-2 md:mt-0">
-          Independent repositories with authentic hardware schematics, verified pinouts, and production C/C++ firmware.
+          Any of these systems can be custom built, fabricated, and adapted for your specific commercial or academic project needs.
         </p>
       </div>
 
@@ -233,8 +351,8 @@
             <a href="https://github.com/Engrhanifkhan/shallow-geothermal-monitor" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
               <i class="fa-brands fa-github text-base"></i> View Code
             </a>
-            <button onclick="openBOMModal('Geothermal')" class="text-xs bg-slate-800 hover:bg-slate-700 text-teal-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
-              BOM & Pinout
+            <button onclick="openBOMModal('Geothermal')" class="text-xs bg-slate-800 hover:bg-slate-700 text-teal-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors font-semibold">
+              Components & Custom Build
             </button>
           </div>
         </div>
@@ -257,8 +375,8 @@
             <a href="https://github.com/Engrhanifkhan/wireless-tank-level-indicator" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
               <i class="fa-brands fa-github text-base"></i> View Code
             </a>
-            <button onclick="openBOMModal('TankLevel')" class="text-xs bg-slate-800 hover:bg-slate-700 text-cyan-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
-              BOM & Pinout
+            <button onclick="openBOMModal('TankLevel')" class="text-xs bg-slate-800 hover:bg-slate-700 text-cyan-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors font-semibold">
+              Components & Custom Build
             </button>
           </div>
         </div>
@@ -281,8 +399,8 @@
             <a href="https://github.com/Engrhanifkhan/esp32-ili9341-tft-display" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
               <i class="fa-brands fa-github text-base"></i> View Code
             </a>
-            <button onclick="openBOMModal('TFT')" class="text-xs bg-slate-800 hover:bg-slate-700 text-blue-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
-              BOM & Pinout
+            <button onclick="openBOMModal('TFT')" class="text-xs bg-slate-800 hover:bg-slate-700 text-blue-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors font-semibold">
+              Components & Custom Build
             </button>
           </div>
         </div>
@@ -305,8 +423,8 @@
             <a href="https://github.com/Engrhanifkhan/esp32-3d-printer-controller" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
               <i class="fa-brands fa-github text-base"></i> View Code
             </a>
-            <button onclick="openBOMModal('3DPrinter')" class="text-xs bg-slate-800 hover:bg-slate-700 text-orange-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
-              BOM & Pinout
+            <button onclick="openBOMModal('3DPrinter')" class="text-xs bg-slate-800 hover:bg-slate-700 text-orange-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors font-semibold">
+              Components & Custom Build
             </button>
           </div>
         </div>
@@ -329,8 +447,8 @@
             <a href="https://github.com/Engrhanifkhan/Smart-Emergency-Response-System-For-Accident-Victims" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
               <i class="fa-brands fa-github text-base"></i> View Code
             </a>
-            <button onclick="openBOMModal('Emergency')" class="text-xs bg-slate-800 hover:bg-slate-700 text-red-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
-              BOM & Pinout
+            <button onclick="openBOMModal('Emergency')" class="text-xs bg-slate-800 hover:bg-slate-700 text-red-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors font-semibold">
+              Components & Custom Build
             </button>
           </div>
         </div>
@@ -353,8 +471,8 @@
             <a href="https://github.com/Engrhanifkhan/automatic_imagery_unit_hardware_testing_tool" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
               <i class="fa-brands fa-github text-base"></i> View Code
             </a>
-            <button onclick="openBOMModal('Imagery')" class="text-xs bg-slate-800 hover:bg-slate-700 text-purple-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
-              BOM & Pinout
+            <button onclick="openBOMModal('Imagery')" class="text-xs bg-slate-800 hover:bg-slate-700 text-purple-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors font-semibold">
+              Components & Custom Build
             </button>
           </div>
         </div>
@@ -473,132 +591,45 @@
     </div>
   </section>
 
-  <!-- ==================== ELECTRONICS STORE & INVENTORY ==================== -->
-  <section id="store" class="py-16 bg-slate-900/40 border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-        <div>
-          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Components & Modules</span>
-          <h2 class="text-3xl font-extrabold text-white mt-1">Hardware Store & Development Kits</h2>
-        </div>
-        <div class="mt-4 md:mt-0 flex items-center gap-3">
-          <button onclick="openCartModal()" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-teal-300 px-4 py-2 rounded-xl border border-slate-700 font-semibold text-sm transition-all">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span>View Cart (<span id="cartCount">0</span>)</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <!-- Product 1 -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
-          <div>
-            <div class="w-full h-36 bg-slate-800/80 rounded-lg flex items-center justify-center text-4xl text-teal-400 mb-4">
-              <i class="fa-solid fa-microchip"></i>
-            </div>
-            <span class="text-xs font-mono text-teal-400 bg-teal-900/40 px-2 py-0.5 rounded">MCU DevKit</span>
-            <h4 class="font-bold text-white text-base mt-2">ESP32-WROOM-32 Dev Module</h4>
-            <p class="text-xs text-slate-400 mt-1">Dual-core 240MHz, 4MB Flash, Wi-Fi & BLE, CP2102 USB.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="font-bold text-teal-400 font-mono">Rs. 1,650</span>
-            <button onclick="addToCart('ESP32-WROOM-32', 1650)" class="bg-teal-600 hover:bg-teal-500 text-white text-xs px-3 py-1.5 rounded-lg font-semibold transition-all">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
-          <div>
-            <div class="w-full h-36 bg-slate-800/80 rounded-lg flex items-center justify-center text-4xl text-cyan-400 mb-4">
-              <i class="fa-solid fa-tv"></i>
-            </div>
-            <span class="text-xs font-mono text-cyan-400 bg-cyan-900/40 px-2 py-0.5 rounded">SPI Display</span>
-            <h4 class="font-bold text-white text-base mt-2">2.8" SPI TFT LCD (ILI9341)</h4>
-            <p class="text-xs text-slate-400 mt-1">320x240 RGB resolution, 4-wire SPI, 3.3V logic, optional touch.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="font-bold text-teal-400 font-mono">Rs. 2,850</span>
-            <button onclick="addToCart('2.8 SPI TFT ILI9341', 2850)" class="bg-teal-600 hover:bg-teal-500 text-white text-xs px-3 py-1.5 rounded-lg font-semibold transition-all">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
-          <div>
-            <div class="w-full h-36 bg-slate-800/80 rounded-lg flex items-center justify-center text-4xl text-emerald-400 mb-4">
-              <i class="fa-solid fa-water"></i>
-            </div>
-            <span class="text-xs font-mono text-emerald-400 bg-emerald-900/40 px-2 py-0.5 rounded">Sensor</span>
-            <h4 class="font-bold text-white text-base mt-2">AJ-SR04M Waterproof Ultrasonic</h4>
-            <p class="text-xs text-slate-400 mt-1">Integrated sealed probe, 20-450cm range, industrial water tanks.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="font-bold text-teal-400 font-mono">Rs. 1,450</span>
-            <button onclick="addToCart('AJ-SR04M Sensor', 1450)" class="bg-teal-600 hover:bg-teal-500 text-white text-xs px-3 py-1.5 rounded-lg font-semibold transition-all">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 4 -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
-          <div>
-            <div class="w-full h-36 bg-slate-800/80 rounded-lg flex items-center justify-center text-4xl text-orange-400 mb-4">
-              <i class="fa-solid fa-bolt"></i>
-            </div>
-            <span class="text-xs font-mono text-orange-400 bg-orange-900/40 px-2 py-0.5 rounded">Relay</span>
-            <h4 class="font-bold text-white text-base mt-2">Fotek 40A Solid State Relay (SSR)</h4>
-            <p class="text-xs text-slate-400 mt-1">SSR-40DA, 3-32V DC input, 24-380V AC switching for motors/heaters.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-            <span class="font-bold text-teal-400 font-mono">Rs. 1,950</span>
-            <button onclick="addToCart('Fotek 40A SSR', 1950)" class="bg-teal-600 hover:bg-teal-500 text-white text-xs px-3 py-1.5 rounded-lg font-semibold transition-all">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- ==================== ENGINEERING SERVICES & QUOTATIONS ==================== -->
   <section id="services" class="py-16 border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div class="lg:col-span-6 space-y-6">
-          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Engineering Services</span>
-          <h2 class="text-3xl font-extrabold text-white">Custom Hardware, Firmware & Telemetry Architecture</h2>
+          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Engineering & Software Capabilities</span>
+          <h2 class="text-3xl font-extrabold text-white">Turnkey Hardware, Firmware & Software Engineering</h2>
           <p class="text-slate-300 text-sm leading-relaxed">
-            Need an industrial monitoring prototype, custom IoT telemetry system, or university FYP engineering assistance? I provide complete turnkey development from schematic to field deployment.
+            Need an industrial monitoring prototype, an enterprise IoT telemetry system, or a complete university FYP engineering package? I deliver full-stack solutions covering hardware, firmware, web/mobile dashboards, and complete documentation.
           </p>
 
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <i class="fa-solid fa-circle-check text-teal-400 mt-1"></i>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i class="fa-solid fa-microchip text-teal-400 text-lg mt-0.5"></i>
               <div>
-                <strong class="text-white text-sm">Embedded C/C++ Firmware Development:</strong>
-                <p class="text-xs text-slate-400">Non-blocking architectures, RTOS tasks, low-power sleep modes for ESP32 and STM32.</p>
+                <strong class="text-white text-sm">Turnkey Hardware & PCB Development</strong>
+                <p class="text-xs text-slate-400">Schematic capture, PCB layout, Gerber generation, component soldering, sensor calibration, and casing integration.</p>
               </div>
             </div>
-            <div class="flex items-start gap-3">
-              <i class="fa-solid fa-circle-check text-teal-400 mt-1"></i>
+            <div class="flex items-start gap-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i class="fa-solid fa-code text-cyan-400 text-lg mt-0.5"></i>
               <div>
-                <strong class="text-white text-sm">Industrial Telemetry (LoRa, GSM, GPS, Modbus):</strong>
-                <p class="text-xs text-slate-400">Long-range data acquisition for water, agriculture, energy, and vehicle telematics.</p>
+                <strong class="text-white text-sm">Embedded Firmware (C / C++ / Python)</strong>
+                <p class="text-xs text-slate-400">ESP32, STM32, Arduino, FreeRTOS tasks, power-saving sleep routines, and communication drivers (OneWire, I2C, SPI, UART, Modbus).</p>
               </div>
             </div>
-            <div class="flex items-start gap-3">
-              <i class="fa-solid fa-circle-check text-teal-400 mt-1"></i>
+            <div class="flex items-start gap-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i class="fa-solid fa-desktop text-emerald-400 text-lg mt-0.5"></i>
               <div>
-                <strong class="text-white text-sm">PCB Schematic & Circuit Design:</strong>
-                <p class="text-xs text-slate-400">KiCad and Proteus schematics, power supply isolation, and sensor interfacing.</p>
+                <strong class="text-white text-sm">Web Dashboards, Mobile Apps & Cloud IoT</strong>
+                <p class="text-xs text-slate-400">Responsive real-time React/Next.js web dashboards, Flutter Android/iOS mobile apps, and cloud telemetry integration.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <i class="fa-solid fa-graduation-cap text-purple-400 text-lg mt-0.5"></i>
+              <div>
+                <strong class="text-white text-sm">Full FYP Project Mentorship & Reports</strong>
+                <p class="text-xs text-slate-400">Complete thesis documentation, circuit simulations (Proteus), presentations, and one-on-one viva preparation.</p>
               </div>
             </div>
           </div>
@@ -606,42 +637,42 @@
 
         <!-- Quotation Form -->
         <div class="lg:col-span-6">
-          <div class="glassmorphism rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl">
-            <h3 class="text-xl font-bold text-white mb-2">Request an Engineering Quotation</h3>
-            <p class="text-xs text-slate-400 mb-6">Submit your project details to send a direct quotation inquiry to my WhatsApp.</p>
+          <div class="glassmorphism rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl glow-teal">
+            <h3 class="text-xl font-bold text-white mb-1">Request a Project Build or Quotation</h3>
+            <p class="text-xs text-slate-400 mb-6">Describe what you need — I can build and code any hardware, software, or FYP project.</p>
 
             <form onsubmit="submitQuotation(event)" class="space-y-4">
               <div>
                 <label class="block text-xs font-semibold text-slate-300 mb-1">Your Name</label>
-                <input type="text" id="quoteName" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-teal-500" placeholder="e.g. Engr. Ahmad">
+                <input type="text" id="quoteName" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-teal-500" placeholder="e.g. Engr. Ahmad / Student Group">
               </div>
               <div class="grid grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-xs font-semibold text-slate-300 mb-1">Service Type</label>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Project Category</label>
                   <select id="quoteService" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-teal-500">
-                    <option>IoT Telemetry Setup</option>
-                    <option>Embedded Firmware (ESP32/STM32)</option>
-                    <option>Custom PCB Design</option>
-                    <option>Student FYP Mentorship</option>
-                    <option>Hardware Component Sourcing</option>
+                    <option>Complete FYP Project (Hardware + Software)</option>
+                    <option>Custom Embedded Hardware & PCB</option>
+                    <option>IoT Cloud & Telemetry System</option>
+                    <option>Software Dashboard / Mobile App</option>
+                    <option>Existing Project Customization / Repair</option>
                   </select>
                 </div>
                 <div>
-                  <label class="block text-xs font-semibold text-slate-300 mb-1">Target Timeline</label>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Required Timeline</label>
                   <select id="quoteTimeline" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-teal-500">
                     <option>Urgent (&lt; 1 week)</option>
                     <option>Standard (2-3 weeks)</option>
-                    <option>Flexible</option>
+                    <option>Semester / Flexible</option>
                   </select>
                 </div>
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1">Project Requirements</label>
-                <textarea id="quoteDetails" rows="3" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-teal-500" placeholder="Briefly describe your hardware, sensors, and functional goals..."></textarea>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Project Scope & Requirements</label>
+                <textarea id="quoteDetails" rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-teal-500" placeholder="Tell me about your project: which hardware, sensors, mobile/web features, or FYP topic you need..."></textarea>
               </div>
-              <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span>Send Quotation to WhatsApp (0315-9915537)</span>
+              <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>Send to WhatsApp (0315-9915537)</span>
               </button>
             </form>
           </div>
@@ -664,7 +695,7 @@
                 </div>
                 <div>
                   <h3 class="text-lg font-bold text-white">Engr. Hanif Ullah</h3>
-                  <p class="text-xs text-teal-400">Junior Hardware Engineer</p>
+                  <p class="text-xs text-teal-400 font-semibold">Junior Hardware Engineer</p>
                   <p class="text-xs text-slate-400">CISNR, UET Peshawar</p>
                 </div>
               </div>
@@ -681,33 +712,33 @@
         </div>
 
         <div class="lg:col-span-7 space-y-6">
-          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Technical Mastery</span>
-          <h2 class="text-3xl font-extrabold text-white">Microcontroller Architectures & Protocols</h2>
+          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Technical Competency</span>
+          <h2 class="text-3xl font-extrabold text-white">Hardware & Software Engineering Stack</h2>
           
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
             <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
-              <h4 class="font-bold text-white text-sm">MCUs & MPUs</h4>
-              <p class="text-xs text-slate-400 mt-1">ESP32, STM32, Arduino, Raspberry Pi, ESP8266</p>
+              <h4 class="font-bold text-white text-sm">Microcontrollers</h4>
+              <p class="text-xs text-slate-400 mt-1">ESP32, STM32, Arduino, Raspberry Pi, PIC</p>
             </div>
             <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
-              <h4 class="font-bold text-white text-sm">Wireless Tech</h4>
+              <h4 class="font-bold text-white text-sm">Wireless Protocols</h4>
               <p class="text-xs text-slate-400 mt-1">LoRa / LoRaWAN, GSM/GPRS, GPS (NEO-6M), BLE, Wi-Fi</p>
             </div>
             <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
-              <h4 class="font-bold text-white text-sm">Buses & Protocols</h4>
+              <h4 class="font-bold text-white text-sm">Industrial Buses</h4>
               <p class="text-xs text-slate-400 mt-1">OneWire, I2C, SPI, UART, Modbus RS-485, CAN</p>
             </div>
             <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
               <h4 class="font-bold text-white text-sm">Firmware Dev</h4>
-              <p class="text-xs text-slate-400 mt-1">Embedded C, C++, Python, PlatformIO, Arduino IDE</p>
+              <p class="text-xs text-slate-400 mt-1">Embedded C, C++, FreeRTOS, Arduino IDE, PlatformIO</p>
             </div>
             <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
-              <h4 class="font-bold text-white text-sm">EDA & Simulation</h4>
-              <p class="text-xs text-slate-400 mt-1">KiCad, Proteus, EasyEDA, Oscilloscope Debugging</p>
+              <h4 class="font-bold text-white text-sm">Software & Apps</h4>
+              <p class="text-xs text-slate-400 mt-1">React, Next.js, Flutter Mobile Apps, Python GUI, OpenCV</p>
             </div>
             <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
-              <h4 class="font-bold text-white text-sm">Cloud IoT</h4>
-              <p class="text-xs text-slate-400 mt-1">Blynk IoT, Adafruit IO, MQTT Brokers, GitHub Pages</p>
+              <h4 class="font-bold text-white text-sm">FYP Deliverables</h4>
+              <p class="text-xs text-slate-400 mt-1">Complete Hardware, Clean Code, Thesis Report, Defense Prep</p>
             </div>
           </div>
         </div>
@@ -724,59 +755,54 @@
         <a href="https://www.linkedin.com/in/engr-hanif-khan-628a04259/" target="_blank" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
         <a href="mailto:hanifullahshams@gmail.com" class="hover:text-red-400 transition-colors"><i class="fa-solid fa-envelope"></i></a>
       </div>
-      <p>© 2026 Engr. Hanif Ullah. Hosted 100% Free of Cost on GitHub Pages.</p>
+      <p>© 2026 Engr. Hanif Ullah. Complete Hardware & Software Engineering Solutions.</p>
       <p class="text-slate-600">Hardware & Embedded Systems Engineer • CISNR, UET Peshawar, Pakistan</p>
     </div>
   </footer>
 
-  <!-- ==================== BOM MODAL ==================== -->
+  <!-- ==================== PROJECT DETAILS & CUSTOM BUILD MODAL ==================== -->
   <div id="bomModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl">
       <div class="flex justify-between items-center pb-3 border-b border-slate-800">
-        <h3 id="bomTitle" class="text-lg font-bold text-white">Bill of Materials</h3>
+        <div>
+          <span class="text-teal-400 font-mono text-xs uppercase tracking-wider">Project Specifications & Build</span>
+          <h3 id="bomTitle" class="text-lg font-bold text-white">Project Details</h3>
+        </div>
         <button onclick="closeBOMModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div id="bomBody" class="text-xs text-slate-300 space-y-2 max-h-72 overflow-y-auto">
-        <!-- Dynamic content injected -->
+      <div class="space-y-3">
+        <div>
+          <h4 class="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Hardware Components:</h4>
+          <div id="bomBody" class="text-xs text-slate-300 space-y-1.5 max-h-48 overflow-y-auto">
+            <!-- Dynamic content injected -->
+          </div>
+        </div>
+
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-1">
+          <div class="font-bold text-white flex items-center gap-1.5 text-teal-400">
+            <i class="fa-solid fa-box-open"></i> Complete Project Package Includes:
+          </div>
+          <p>• Fully Assembled & Tested Physical Hardware</p>
+          <p>• Complete Clean Firmware Source Code (ESP32/STM32/Arduino)</p>
+          <p>• Web Dashboard / Mobile App (if applicable)</p>
+          <p>• Circuit Schematics, Block Diagrams & Wiring Documentation</p>
+          <p>• Full Academic / FYP Report & Defense Guidance</p>
+        </div>
       </div>
-      <div class="pt-3 border-t border-slate-800 flex justify-between items-center">
-        <div id="bomEstimatedCost" class="font-bold text-teal-400 font-mono text-sm"></div>
-        <a id="bomOrderBtn" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs px-4 py-2 rounded-lg flex items-center gap-1.5">
-          <i class="fa-brands fa-whatsapp"></i> Inquire Parts on WhatsApp
+      <div class="pt-3 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-3">
+        <div class="text-xs text-slate-400 text-center sm:text-left">
+          <span class="text-white font-semibold">Custom Build / FYP Order:</span> Available on Demand
+        </div>
+        <a id="bomOrderBtn" href="#" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-5 py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30">
+          <i class="fa-brands fa-whatsapp text-base"></i> Order Complete Build on WhatsApp
         </a>
       </div>
     </div>
   </div>
 
-  <!-- ==================== CART MODAL ==================== -->
-  <div id="cartModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
-      <div class="flex justify-between items-center pb-3 border-b border-slate-800">
-        <h3 class="text-lg font-bold text-white flex items-center gap-2">
-          <i class="fa-solid fa-cart-shopping text-teal-400"></i>
-          <span>Your Hardware Cart</span>
-        </h3>
-        <button onclick="closeCartModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div id="cartItemsList" class="text-xs text-slate-300 space-y-2 max-h-60 overflow-y-auto">
-        <!-- Cart items dynamic -->
-      </div>
-      <div class="pt-3 border-t border-slate-800 space-y-3">
-        <div class="flex justify-between text-sm font-bold text-white">
-          <span>Total:</span>
-          <span id="cartTotalLabel" class="text-teal-400 font-mono">Rs. 0</span>
-        </div>
-        <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30">
-          <i class="fa-brands fa-whatsapp text-base"></i>
-          <span>Checkout via WhatsApp (+92 315 9915537)</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== INTERACTION LOGIC & TELEMETRY SIMULATORS ==================== -->
+  <!-- ==================== JAVASCRIPT ==================== -->
   <script>
-    // 1. Water Tank Level Simulation
+    // 1. Water Tank Simulation
     let pumpRunning = false;
     function updateTankSimulation(val) {
       document.getElementById('waterPercentLabel').innerText = val;
@@ -848,87 +874,87 @@
     }
     drawECG();
 
-    // 3. BOM Data & Modal
-    const BOM_DATA = {
+    // 3. Project Specifications Data & Modal
+    const PROJECT_DATA = {
       'Geothermal': {
-        title: 'Shallow Geothermal Telemetry System BOM',
+        title: 'Shallow Geothermal Telemetry System',
         items: [
-          'ESP32-WROOM-32 Dev Module (Qty: 1)',
-          'DS18B20 Waterproof Temperature Probes (Qty: 4)',
-          '4.7kΩ Pull-up Resistor for OneWire Bus (Qty: 1)',
-          '5V 2A Regulated Power Supply (Qty: 1)',
-          'Weatherproof IP65 Conduit Box (Qty: 1)'
-        ],
-        cost: 'Estimated BOM Cost: Rs. 4,800 (~$17)'
+          'ESP32-WROOM-32 Main Microcontroller Board',
+          '4x Waterproof DS18B20 Digital Temperature Probes (OneWire Bus)',
+          '4.7kΩ Precision Pull-up Resistor Network',
+          'Regulated 5V 2A Power Management Unit',
+          'IP65 Weatherproof Industrial Conduit Enclosure',
+          'Complete C++ Firmware with COP Thermodynamics Engine',
+          'Live Web Dashboard Deployed on Cloud / GitHub Pages'
+        ]
       },
       'TankLevel': {
-        title: 'Wireless Tank Level & Pump Controller BOM',
+        title: 'Wireless Tank Level & Automatic Pump Controller',
         items: [
-          'ESP32-C3 Super Mini / ESP32 (Qty: 2 for dual-node)',
-          'AJ-SR04M Waterproof Ultrasonic Sensor (Qty: 1)',
-          '1kΩ and 2kΩ Resistors for 5V-to-3.3V Echo divider',
-          'Fotek 40A Solid State Relay (SSR-40DA) or 5V Relay Module',
-          '5V 2A Power Adapter (Qty: 1)'
-        ],
-        cost: 'Estimated BOM Cost: Rs. 6,200 (~$22)'
+          'Dual ESP32 / ESP32-C3 Super Mini Boards (Transmitter & Receiver)',
+          'AJ-SR04M Industrial Waterproof Ultrasonic Sensor',
+          'Voltage Divider Interface (5V-to-3.3V Echo Protection)',
+          'High-Current 40A Solid State Relay (SSR) or Optocoupled Relay Module',
+          'ESP-NOW 2.4 GHz Zero-Latency RF Protocol + Blynk IoT Cloud',
+          'Automatic Water Level State-Machine & Dry-Run Safety Watchdog'
+        ]
       },
       'TFT': {
-        title: 'ESP32 SPI ILI9341 TFT Display Kit BOM',
+        title: 'ESP32 SPI ILI9341 Color TFT Display Suite',
         items: [
-          'ESP32-WROOM-32 (Qty: 1)',
-          '2.8" SPI TFT LCD Display Module ILI9341 320x240 (Qty: 1)',
-          'Female-to-Male Dupont Jumper Wire Ribbon (Qty: 1)',
-          'Breadboard / Prototyping shield (Qty: 1)'
-        ],
-        cost: 'Estimated BOM Cost: Rs. 4,500 (~$16)'
+          'ESP32-WROOM-32 Dev Module',
+          '2.8" SPI Color TFT LCD Display (ILI9341 Controller, 320x240 RGB)',
+          'High-Speed 40MHz VSPI Bus Connection Ribbon',
+          'Low-Level MADCTL 0x36 Register Mirror Text Fix Code',
+          'Modular Multi-Screen Telemetry GUI Dashboard & Benchmarks'
+        ]
       },
       '3DPrinter': {
-        title: 'ESP32 3D Printer Enclosure Controller BOM',
+        title: 'ESP32 3D Printer Enclosure & Chamber Controller',
         items: [
-          'ESP32 Dev Module (Qty: 1)',
-          'DS18B20 Digital Temp Sensors (Qty: 3 - Chamber, Bed, Ambient)',
-          '2x 25A / 40A SSR Relays for dual-zone heating',
-          'Blynk IoT cloud dashboard configuration'
-        ],
-        cost: 'Estimated BOM Cost: Rs. 5,900 (~$21)'
+          'ESP32 Dev Module with Wi-Fi & Blynk IoT',
+          '3x DS18B20 Digital OneWire Sensors (Chamber, Bed, Ambient)',
+          'Dual-Zone SSR Relay Heating Control (SSR-40DA / 25A)',
+          'PID Temperature Regulation & Thermal Runaway Protection Firmware',
+          'Mobile App Real-Time Temperature Monitoring & Timer Controls'
+        ]
       },
       'Emergency': {
-        title: 'Smart Emergency Health Response System BOM',
+        title: 'Smart Healthcare & Emergency Response System',
         items: [
-          'ESP32-WROOM-32 (Qty: 1)',
-          'AD8232 ECG Sensor & 3-Lead Electrode Cable (Qty: 1)',
-          'MAX30102 Pulse Oximeter & Heart Rate Sensor (Qty: 1)',
-          'NEO-6M GPS Module with Ceramic Antenna (Qty: 1)',
-          'SIM800L GSM/GPRS Module with high-current buck converter (Qty: 1)',
-          'HX8357D / ILI9341 Color Display (Qty: 1)'
-        ],
-        cost: 'Estimated BOM Cost: Rs. 11,500 (~$41)'
+          'ESP32-WROOM-32 Main Processing Unit',
+          'AD8232 ECG Sensor & 3-Lead Electrode Biomedical Cable',
+          'MAX30102 Pulse Oximeter & Heart Rate Photoplethysmography Sensor',
+          'NEO-6M GPS Receiver with High-Gain Ceramic Antenna',
+          'SIM800L GSM/GPRS Cellular Module with High-Current Regulator',
+          'TFT Real-Time Patient Monitor Display + Automated Emergency SMS Alerts'
+        ]
       },
       'Imagery': {
-        title: 'Biomedical Automated Imagery Suite BOM',
+        title: 'Biomedical Automated Imagery & Incubation Suite',
         items: [
-          'Raspberry Pi 4 Model B (Qty: 1)',
-          'High-Resolution Camera Module with autofocus lens (Qty: 1)',
-          '3x NEMA 17 Stepper Motors + BTS7960 Motor Drivers',
-          'Limit switches, lead screws, and motorized petri dish tray',
-          'Incubator heating element and temperature sensor'
-        ],
-        cost: 'Estimated BOM Cost: Rs. 38,000 (~$135)'
+          'Raspberry Pi 4 Model B Single Board Computer',
+          'High-Resolution Camera Module with Optical Autofocus Lens',
+          '3-Axis Motorized Linear Mechanics (3x Steppers + BTS7960 High-Power Drivers)',
+          'Precision Optical & Mechanical Limit Switch Homing System',
+          'Motorized 10-Petri Dish Tray Mechanism',
+          'OpenCV Automated 7x7 Tile Image Capture & Mosaic Stitching Software',
+          'Closed-Loop Incubator Chamber Temperature Profiling (20°C to 55°C)'
+        ]
       }
     };
 
     function openBOMModal(key) {
-      const data = BOM_DATA[key];
+      const data = PROJECT_DATA[key];
       if (!data) return;
       document.getElementById('bomTitle').innerText = data.title;
-      document.getElementById('bomEstimatedCost').innerText = data.cost;
       
       let html = '<ul class="space-y-1.5 list-disc list-inside">';
       data.items.forEach(i => html += '<li>' + i + '</li>');
       html += '</ul>';
       document.getElementById('bomBody').innerHTML = html;
 
-      const orderMsg = encodeURIComponent('Hello Engr Hanif, I am interested in sourcing the BOM for: ' + data.title);
+      const orderMsg = encodeURIComponent('Hello Engr Hanif, I want to order / inquire about the complete build and software for: ' + data.title + '. Please provide details.');
       document.getElementById('bomOrderBtn').href = 'https://wa.me/923159915537?text=' + orderMsg;
 
       document.getElementById('bomModal').classList.remove('hidden');
@@ -938,53 +964,7 @@
       document.getElementById('bomModal').classList.add('hidden');
     }
 
-    // 4. Shopping Cart
-    let cart = [];
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      document.getElementById('cartCount').innerText = cart.length;
-      alert(name + ' added to your inquiry cart!');
-    }
-
-    function openCartModal() {
-      const list = document.getElementById('cartItemsList');
-      if (cart.length === 0) {
-        list.innerHTML = '<div class="text-center py-6 text-slate-500">Your cart is currently empty.</div>';
-        document.getElementById('cartTotalLabel').innerText = 'Rs. 0';
-      } else {
-        let total = 0;
-        let html = '<div class="divide-y divide-slate-800">';
-        cart.forEach((item, idx) => {
-          total += item.price;
-          html += '<div class="py-2 flex justify-between items-center"><span>' + item.name + '</span><span class="font-mono text-teal-400">Rs. ' + item.price.toLocaleString() + '</span></div>';
-        });
-        html += '</div>';
-        list.innerHTML = html;
-        document.getElementById('cartTotalLabel').innerText = 'Rs. ' + total.toLocaleString();
-      }
-      document.getElementById('cartModal').classList.remove('hidden');
-    }
-
-    function closeCartModal() {
-      document.getElementById('cartModal').classList.add('hidden');
-    }
-
-    function checkoutWhatsApp() {
-      if (cart.length === 0) {
-        alert('Cart is empty!');
-        return;
-      }
-      let total = 0;
-      let itemsStr = '';
-      cart.forEach((i, idx) => {
-        total += i.price;
-        itemsStr += (idx + 1) + '. ' + i.name + ' (Rs. ' + i.price + ')\n';
-      });
-      const text = encodeURIComponent('Hello Engr Hanif, I would like to place an order for the following items:\n\n' + itemsStr + '\nTotal: Rs. ' + total.toLocaleString() + '\n\nPlease confirm delivery and availability.');
-      window.open('https://wa.me/923159915537?text=' + text, '_blank');
-    }
-
-    // 5. Quotation Form
+    // 4. Quotation Form
     function submitQuotation(e) {
       e.preventDefault();
       const name = document.getElementById('quoteName').value;
@@ -992,7 +972,7 @@
       const timeline = document.getElementById('quoteTimeline').value;
       const details = document.getElementById('quoteDetails').value;
 
-      const text = encodeURIComponent('Hello Engr Hanif,\n\n*Quotation Inquiry*\n*Name:* ' + name + '\n*Service:* ' + service + '\n*Timeline:* ' + timeline + '\n*Details:* ' + details);
+      const text = encodeURIComponent('Hello Engr Hanif,\\n\\n*Project / FYP Build Inquiry*\\n*Name:* ' + name + '\\n*Category:* ' + service + '\\n*Timeline:* ' + timeline + '\\n*Details:* ' + details);
       window.open('https://wa.me/923159915537?text=' + text, '_blank');
     }
   </script>
