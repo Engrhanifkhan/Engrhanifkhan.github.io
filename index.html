@@ -84,7 +84,10 @@
           <a href="#fyp-solutions" class="text-teal-400 hover:text-teal-300 transition-colors font-semibold flex items-center gap-1.5">
             <i class="fa-solid fa-graduation-cap"></i> FYP Solutions
           </a>
-          <a href="#projects" class="hover:text-teal-400 transition-colors">Projects & Builds</a>
+          <a href="#projects" class="hover:text-teal-400 transition-colors">Projects</a>
+          <a href="#store" class="text-teal-400 hover:text-teal-300 font-bold transition-colors flex items-center gap-1.5">
+            <i class="fa-solid fa-cart-shopping"></i> Electronics Store
+          </a>
           <a href="#components" class="hover:text-teal-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-microchip text-xs text-teal-400"></i> Components Search</a>
           <a href="#telemetry" class="hover:text-teal-400 transition-colors">Live Telemetry</a>
           <a href="#services" class="hover:text-teal-400 transition-colors">Services</a>
@@ -737,6 +740,202 @@
       </div>
     </div>
   </section>
+
+  
+  <!-- ==================== DEDICATED ELECTRONICS STORE & MULTI-VENDOR RATE HUB ==================== -->
+  <section id="store" class="py-20 bg-slate-950 border-b border-slate-800 relative overflow-hidden">
+    <!-- Background Ambient Glow -->
+    <div class="absolute top-1/4 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 left-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      
+      <!-- Store Header & Multi-Vendor Network -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-950 text-emerald-400 text-xs font-bold border border-emerald-500/40 uppercase tracking-wider shadow-lg shadow-emerald-950/50">
+          <i class="fa-solid fa-cart-shopping"></i> Online Hardware & Components Store
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          Pakistan Electronics Store & Best Rate Sourcing Hub
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+          Order any electronic component, microcontroller, sensor, or motor directly. We query and compare prices across 
+          <strong class="text-white">Digilog.pk</strong>, <strong class="text-white">Electrobes.com</strong>, and <strong class="text-white">ArduinoPak.com</strong> 
+          to provide you the lowest verified market rate with transparent nationwide courier delivery.
+        </p>
+
+        <!-- Sourced Supplier Badges -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
+          <span class="text-xs text-slate-400 font-semibold mr-1">Queried Suppliers:</span>
+          <a href="https://digilog.pk/" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-700/80 transition-all hover:border-teal-500/50">
+            <span class="w-2 h-2 rounded-full bg-blue-400"></span> Digilog.pk
+          </a>
+          <a href="https://electrobes.com/" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-700/80 transition-all hover:border-teal-500/50">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Electrobes.com
+          </a>
+          <a href="https://www.arduinopak.com/" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-700/80 transition-all hover:border-teal-500/50">
+            <span class="w-2 h-2 rounded-full bg-red-400"></span> ArduinoPak.com
+          </a>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/60 text-slate-400 text-xs border border-slate-800">
+            + All Pakistan Electronics Vendors
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Delivery City Calculator Banner -->
+      <div class="mb-10 p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-900 border border-teal-500/30 flex flex-col md:flex-row items-center justify-between gap-5 shadow-xl">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-2xl flex-shrink-0">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <div>
+            <h4 class="text-sm sm:text-base font-bold text-white">Transparent Nationwide Delivery Rates</h4>
+            <p class="text-xs text-slate-300 mt-0.5">Select your city to preview exact courier charges (TCS / Leopard / Trax / Local Courier):</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 w-full md:w-auto">
+          <select id="storeCityRateSelector" class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-teal-400 font-sans" onchange="updateStoreCityDelivery(this.value)">
+            <option value="150" data-label="Peshawar">Peshawar (Local: Rs. 150 - Free over Rs. 3,500)</option>
+            <option value="260" data-label="Islamabad / Rawalpindi" selected>Islamabad / Rawalpindi (Courier: Rs. 260)</option>
+            <option value="280" data-label="Lahore / Punjab">Lahore / Punjab (TCS: Rs. 280)</option>
+            <option value="300" data-label="Karachi / Sindh">Karachi / Sindh (TCS: Rs. 300)</option>
+            <option value="280" data-label="Other Nationwide">Other Cities Nationwide (Rs. 280)</option>
+          </select>
+          <div class="text-right whitespace-nowrap bg-slate-950/80 px-3 py-2 rounded-xl border border-slate-800">
+            <span class="text-[10px] text-slate-400 block">Courier Cost:</span>
+            <span id="storeHeaderDeliveryCost" class="text-xs sm:text-sm font-bold text-cyan-400 font-mono">Rs. 260</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paste Any Product Link or Model Sourcing Tool -->
+      <div class="mb-12 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-xl">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div class="max-w-xl">
+            <span class="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider">Universal Component Sourcing</span>
+            <h3 class="text-xl font-bold text-white mt-1">Found a Part on Any Pakistani Website?</h3>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+              Paste the product link or enter the exact model name from <strong class="text-teal-400">Digilog.pk</strong>, <strong class="text-teal-400">Electrobes.com</strong>, <strong class="text-teal-400">ArduinoPak.com</strong>, or any store. I will find the best market rate, inspect and test the hardware, and dispatch it to your doorstep.
+            </p>
+          </div>
+          <div class="w-full lg:w-96 flex flex-col gap-2.5">
+            <input 
+              type="text" 
+              id="externalPartUrlInput" 
+              placeholder="Paste website product link or part name..." 
+              class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-teal-400"
+            >
+            <button 
+              onclick="submitExternalLinkInquiry()" 
+              class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 transition-all"
+            >
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              <span>Get Best Rate on WhatsApp (0315-9915537)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Store Controls & Live Cart Drawer Shortcut -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <div class="relative flex-1 sm:w-80">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input 
+              type="text" 
+              id="storeSearchBox" 
+              placeholder="Quick search in store..." 
+              oninput="filterStoreCatalog(this.value)"
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-teal-400"
+            >
+          </div>
+          <span id="storeItemsFoundBadge" class="text-xs font-mono text-slate-400 whitespace-nowrap">
+            Showing all items
+          </span>
+        </div>
+
+        <!-- Sticky / Header Cart Button -->
+        <button onclick="openCartDrawer()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white px-5 py-2.5 rounded-xl font-bold text-xs shadow-lg shadow-teal-600/25 transition-all">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>View Cart & Order (<span id="storeCartBadgeCount">0</span> items)</span>
+        </button>
+      </div>
+
+      <!-- Store Grid of Products with Multi-Vendor Comparison -->
+      <div id="storeProductsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE-OVER CART DRAWER ==================== -->
+  <div id="cartDrawer" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden flex justify-end">
+    <div class="bg-slate-900 border-l border-slate-800 w-full max-w-md h-full flex flex-col justify-between p-6 shadow-2xl overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">Your Component Order</h3>
+              <p class="text-[11px] text-slate-400">Queried via Digilog • Electrobes • ArduinoPak</p>
+            </div>
+          </div>
+          <button onclick="closeCartDrawer()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- Cart items list -->
+        <div id="cartDrawerList" class="space-y-3 mb-4 max-h-[420px] overflow-y-auto pr-1">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <!-- Cart Drawer Footer & Checkout -->
+      <div class="pt-4 border-t border-slate-800 space-y-3">
+        <!-- Delivery Destination in Drawer -->
+        <div>
+          <label class="block text-slate-300 text-xs font-semibold mb-1">Delivery City</label>
+          <select id="drawerCitySelect" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-teal-400" onchange="recalcCartDrawer()">
+            <option value="150" data-label="Peshawar (Local)">Peshawar (Local: Rs. 150 - Free over Rs. 3,500)</option>
+            <option value="260" data-label="Islamabad / Rawalpindi" selected>Islamabad / Rawalpindi (Rs. 260)</option>
+            <option value="280" data-label="Lahore / Punjab">Lahore / Punjab (Rs. 280)</option>
+            <option value="300" data-label="Karachi / Sindh">Karachi / Sindh (Rs. 300)</option>
+            <option value="280" data-label="Other Nationwide">Other Cities Nationwide (Rs. 280)</option>
+          </select>
+        </div>
+
+        <!-- Customer Inputs -->
+        <div class="space-y-2">
+          <input type="text" id="drawerCustomerName" placeholder="Your Name" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-teal-400">
+          <input type="text" id="drawerCustomerAddress" placeholder="Delivery Address & Phone Number" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-teal-400">
+        </div>
+
+        <!-- Total Calculation -->
+        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1 text-xs font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Items Subtotal:</span>
+            <span id="drawerSubtotalText" class="text-white">Rs. 0</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Courier Delivery:</span>
+            <span id="drawerDeliveryText" class="text-cyan-400">Rs. 260</span>
+          </div>
+          <div class="pt-1.5 border-t border-slate-800 flex justify-between text-sm font-bold">
+            <span class="text-white font-sans">Total Payable:</span>
+            <span id="drawerGrandTotalText" class="text-teal-400 text-base">Rs. 260</span>
+          </div>
+        </div>
+
+        <button onclick="checkoutCartToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Confirm & Order on WhatsApp (0315-9915537)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
 
   <!-- ==================== ENGINEERING SERVICES & QUOTATIONS ==================== -->
   <section id="services" class="py-16 border-b border-slate-800">
@@ -1791,6 +1990,391 @@
       window.open('https://wa.me/923159915537?text=' + encodeURIComponent(orderText), '_blank');
       closeOrderModal();
     }
+
+
+    
+    // ==========================================
+    // PAKISTAN ELECTRONICS STORE MULTI-VENDOR ENGINE
+    // ==========================================
+    let userCart = [];
+
+    // Store Catalog items with simulated multi-vendor price comparison
+    const STORE_ITEMS = [
+      {
+        id: 'st1',
+        name: 'ESP32-WROOM-32 Dev Module',
+        category: 'Microcontrollers',
+        icon: 'fa-microchip',
+        desc: 'Dual-core 240MHz, 4MB Flash, Wi-Fi & BLE 4.2.',
+        rate: 1650,
+        rates: { digilog: 1690, electrobes: 1650, arduinopak: 1700 }
+      },
+      {
+        id: 'st2',
+        name: 'ESP32-C3 Super Mini',
+        category: 'Microcontrollers',
+        icon: 'fa-microchip',
+        desc: 'Single-core RISC-V 160MHz, Wi-Fi 4 + BLE 5.',
+        rate: 1150,
+        rates: { digilog: 1180, electrobes: 1150, arduinopak: 1200 }
+      },
+      {
+        id: 'st3',
+        name: 'Arduino Uno R3 (ATmega328P)',
+        category: 'Microcontrollers',
+        icon: 'fa-microchip',
+        desc: '16MHz, 5V logic, 14 digital I/O, standard shield pinout.',
+        rate: 1350,
+        rates: { digilog: 1390, electrobes: 1350, arduinopak: 1400 }
+      },
+      {
+        id: 'st4',
+        name: 'Arduino Nano V3 (CH340)',
+        category: 'Microcontrollers',
+        icon: 'fa-microchip',
+        desc: 'ATmega328P, compact breadboard friendly DIP-30 module.',
+        rate: 750,
+        rates: { digilog: 780, electrobes: 750, arduinopak: 790 }
+      },
+      {
+        id: 'st5',
+        name: 'NEMA 17 Stepper Motor',
+        category: 'Motors',
+        icon: 'fa-gear',
+        desc: '1.8° step angle, 1.5A holding torque for 3D printers and CNC.',
+        rate: 2400,
+        rates: { digilog: 2450, electrobes: 2400, arduinopak: 2500 }
+      },
+      {
+        id: 'st6',
+        name: '28BYJ-48 Stepper + ULN2003',
+        category: 'Motors',
+        icon: 'fa-gear',
+        desc: '5V geared stepper motor with 4-channel LED driver board.',
+        rate: 550,
+        rates: { digilog: 580, electrobes: 550, arduinopak: 600 }
+      },
+      {
+        id: 'st7',
+        name: 'High-Torque 12V DC Gear Motor',
+        category: 'Motors',
+        icon: 'fa-gear',
+        desc: 'All-metal gearbox, 100-300 RPM for robotics & conveyors.',
+        rate: 1200,
+        rates: { digilog: 1250, electrobes: 1200, arduinopak: 1280 }
+      },
+      {
+        id: 'st8',
+        name: 'BTS7960 43A High-Power H-Bridge',
+        category: 'Drivers',
+        icon: 'fa-bolt',
+        desc: 'Dual half-bridge, 6-27V, up to 43A peak current PWM control.',
+        rate: 2100,
+        rates: { digilog: 2150, electrobes: 2100, arduinopak: 2200 }
+      },
+      {
+        id: 'st9',
+        name: 'L298N Dual H-Bridge Driver',
+        category: 'Drivers',
+        icon: 'fa-bolt',
+        desc: 'Drives 2 DC motors or 1 bipolar stepper, onboard 5V regulator.',
+        rate: 480,
+        rates: { digilog: 490, electrobes: 480, arduinopak: 520 }
+      },
+      {
+        id: 'st10',
+        name: 'Fotek 40A Solid State Relay (SSR)',
+        category: 'Relays',
+        icon: 'fa-toggle-on',
+        desc: 'Input 3-32V DC, Output 24-380V AC up to 40A, spark-free.',
+        rate: 1950,
+        rates: { digilog: 2000, electrobes: 1950, arduinopak: 2100 }
+      },
+      {
+        id: 'st11',
+        name: 'Resistors Assortment Kit (1/4W)',
+        category: 'Passives',
+        icon: 'fa-sliders',
+        desc: 'High-precision 1% metal film, full range 1Ω to 10MΩ.',
+        rate: 250,
+        rates: { digilog: 270, electrobes: 250, arduinopak: 280 }
+      },
+      {
+        id: 'st12',
+        name: 'Electrolytic Capacitors Pack',
+        category: 'Passives',
+        icon: 'fa-battery-half',
+        desc: 'Assorted 1µF to 1000µF 25V/50V power supply filter pack.',
+        rate: 300,
+        rates: { digilog: 320, electrobes: 300, arduinopak: 350 }
+      },
+      {
+        id: 'st13',
+        name: 'AJ-SR04M Waterproof Ultrasonic',
+        category: 'Sensors',
+        icon: 'fa-water',
+        desc: 'Sealed waterproof probe, 20-450cm range for water tanks.',
+        rate: 1450,
+        rates: { digilog: 1480, electrobes: 1450, arduinopak: 1520 }
+      },
+      {
+        id: 'st14',
+        name: 'DS18B20 Waterproof Temp Probe',
+        category: 'Sensors',
+        icon: 'fa-temperature-half',
+        desc: 'Stainless steel sealed probe, -55°C to +125°C OneWire bus.',
+        rate: 480,
+        rates: { digilog: 500, electrobes: 480, arduinopak: 520 }
+      },
+      {
+        id: 'st15',
+        name: 'AD8232 ECG Kit + 3 Electrodes',
+        category: 'Sensors',
+        icon: 'fa-heart-pulse',
+        desc: 'Biomedical heart pulse monitor with lead-off detection.',
+        rate: 1850,
+        rates: { digilog: 1890, electrobes: 1850, arduinopak: 1950 }
+      },
+      {
+        id: 'st16',
+        name: '2.8" SPI TFT LCD (ILI9341)',
+        category: 'Displays',
+        icon: 'fa-tv',
+        desc: '320x240 RGB color screen, 4-wire high-speed SPI.',
+        rate: 2850,
+        rates: { digilog: 2890, electrobes: 2850, arduinopak: 2950 }
+      }
+    ];
+
+    function renderStoreProducts(items) {
+      const grid = document.getElementById('storeProductsGrid');
+      if (!grid) return;
+
+      let html = '';
+      items.forEach(p => {
+        html += '<div class="bg-slate-900 border border-slate-800 hover:border-teal-500/50 rounded-2xl p-5 flex flex-col justify-between transition-all group shadow-md">' +
+          '<div>' +
+            '<div class="flex items-center justify-between mb-3">' +
+              '<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-teal-400 border border-slate-700">' + p.category + '</span>' +
+              '<div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 group-hover:text-teal-400 transition-colors">' +
+                '<i class="fa-solid ' + p.icon + '"></i>' +
+              '</div>' +
+            '</div>' +
+            '<h4 class="font-bold text-white text-base group-hover:text-teal-400 transition-colors">' + p.name + '</h4>' +
+            '<p class="text-xs text-slate-400 mt-1.5 leading-relaxed">' + p.desc + '</p>' +
+
+            // Multi-Vendor Comparison snippet
+            '<div class="mt-3.5 p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-[11px] space-y-1">' +
+              '<div class="text-slate-400 flex justify-between"><span>Digilog.pk:</span><span class="font-mono text-slate-300">Rs. ' + p.rates.digilog + '</span></div>' +
+              '<div class="text-slate-400 flex justify-between"><span>Electrobes.com:</span><span class="font-mono text-slate-300">Rs. ' + p.rates.electrobes + '</span></div>' +
+              '<div class="text-slate-400 flex justify-between"><span>ArduinoPak.com:</span><span class="font-mono text-slate-300">Rs. ' + p.rates.arduinopak + '</span></div>' +
+              '<div class="pt-1 border-t border-slate-800/80 flex justify-between font-bold text-teal-400"><span>Our Sourced Rate:</span><span class="font-mono">Rs. ' + p.rate.toLocaleString() + '</span></div>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">' +
+            '<div>' +
+              '<span class="text-[10px] text-slate-400 block">Best Verified Price</span>' +
+              '<span class="text-base font-bold text-teal-400 font-mono">Rs. ' + p.rate.toLocaleString() + '</span>' +
+            '</div>' +
+            '<button onclick="addItemToStoreCart(\'' + p.id + '\')" class="bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-bold text-xs px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-all shadow-md shadow-emerald-900/30">' +
+              '<i class="fa-solid fa-cart-plus"></i> Add to Cart' +
+            '</button>' +
+          '</div>' +
+        '</div>';
+      });
+
+      grid.innerHTML = html;
+    }
+
+    function filterStoreCatalog(query) {
+      const q = (query || '').toLowerCase().trim();
+      const badge = document.getElementById('storeItemsFoundBadge');
+      if (!q) {
+        renderStoreProducts(STORE_ITEMS);
+        badge.innerText = 'Showing all ' + STORE_ITEMS.length + ' items';
+        return;
+      }
+      const filtered = STORE_ITEMS.filter(i => 
+        i.name.toLowerCase().includes(q) || 
+        i.category.toLowerCase().includes(q) || 
+        i.desc.toLowerCase().includes(q)
+      );
+      renderStoreProducts(filtered);
+      badge.innerText = filtered.length + ' item' + (filtered.length === 1 ? '' : 's') + ' found';
+    }
+
+    function updateStoreCityDelivery(val) {
+      document.getElementById('storeHeaderDeliveryCost').innerText = 'Rs. ' + val;
+      const select = document.getElementById('drawerCitySelect');
+      if (select) {
+        select.value = val;
+        recalcCartDrawer();
+      }
+    }
+
+    // Cart Management
+    function addItemToStoreCart(itemId) {
+      const item = STORE_ITEMS.find(i => i.id === itemId);
+      if (!item) return;
+
+      const existing = userCart.find(c => c.id === itemId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        userCart.push({ ...item, qty: 1 });
+      }
+
+      updateCartBadge();
+      openCartDrawer();
+    }
+
+    function updateCartBadge() {
+      const count = userCart.reduce((sum, i) => sum + i.qty, 0);
+      const b = document.getElementById('storeCartBadgeCount');
+      if (b) b.innerText = count;
+    }
+
+    function openCartDrawer() {
+      recalcCartDrawer();
+      document.getElementById('cartDrawer').classList.remove('hidden');
+    }
+
+    function closeCartDrawer() {
+      document.getElementById('cartDrawer').classList.add('hidden');
+    }
+
+    function updateDrawerItemQty(itemId, delta) {
+      const item = userCart.find(i => i.id === itemId);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        userCart = userCart.filter(i => i.id !== itemId);
+      }
+      updateCartBadge();
+      recalcCartDrawer();
+    }
+
+    function recalcCartDrawer() {
+      const list = document.getElementById('cartDrawerList');
+      if (userCart.length === 0) {
+        list.innerHTML = '<div class="text-center py-10 text-slate-500 text-xs"><i class="fa-solid fa-cart-arrow-down text-3xl mb-2 block"></i>Your cart is currently empty.<br>Click "Add to Cart" on any component.</div>';
+        document.getElementById('drawerSubtotalText').innerText = 'Rs. 0';
+        document.getElementById('drawerDeliveryText').innerText = 'Rs. 0';
+        document.getElementById('drawerGrandTotalText').innerText = 'Rs. 0';
+        return;
+      }
+
+      let subtotal = 0;
+      let html = '';
+      userCart.forEach(i => {
+        const itemTotal = i.rate * i.qty;
+        subtotal += itemTotal;
+        html += '<div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex justify-between items-center text-xs">' +
+          '<div>' +
+            '<div class="font-bold text-white">' + i.name + '</div>' +
+            '<div class="text-slate-400 font-mono">Rs. ' + i.rate.toLocaleString() + ' each</div>' +
+          '</div>' +
+          '<div class="flex items-center gap-2">' +
+            '<div class="flex items-center border border-slate-700 rounded-lg overflow-hidden">' +
+              '<button onclick="updateDrawerItemQty(\'' + i.id + '\', -1)" class="px-2 py-0.5 bg-slate-800 text-white font-bold hover:bg-slate-700">-</button>' +
+              '<span class="px-2.5 font-mono text-white">' + i.qty + '</span>' +
+              '<button onclick="updateDrawerItemQty(\'' + i.id + '\', 1)" class="px-2 py-0.5 bg-slate-800 text-white font-bold hover:bg-slate-700">+</button>' +
+            '</div>' +
+            '<span class="font-mono font-bold text-teal-400 w-16 text-right">Rs. ' + itemTotal.toLocaleString() + '</span>' +
+          '</div>' +
+        '</div>';
+      });
+      list.innerHTML = html;
+
+      const citySelect = document.getElementById('drawerCitySelect');
+      let deliveryFee = parseInt(citySelect.value) || 260;
+      if (citySelect.value === '150' && subtotal >= 3500) {
+        deliveryFee = 0; // Free local delivery on orders > 3500
+      }
+
+      const grandTotal = subtotal + deliveryFee;
+
+      document.getElementById('drawerSubtotalText').innerText = 'Rs. ' + subtotal.toLocaleString();
+      document.getElementById('drawerDeliveryText').innerText = (deliveryFee === 0) ? 'FREE (Promo)' : 'Rs. ' + deliveryFee.toLocaleString();
+      document.getElementById('drawerGrandTotalText').innerText = 'Rs. ' + grandTotal.toLocaleString();
+    }
+
+    function checkoutCartToWhatsApp() {
+      if (userCart.length === 0) {
+        alert('Your cart is empty. Please add components first.');
+        return;
+      }
+
+      const name = document.getElementById('drawerCustomerName').value.trim();
+      const address = document.getElementById('drawerCustomerAddress').value.trim();
+      if (!name || !address) {
+        alert('Please enter your Name, Delivery Address, and Phone Number.');
+        return;
+      }
+
+      const citySelect = document.getElementById('drawerCitySelect');
+      const selectedOption = citySelect.options[citySelect.selectedIndex];
+      const cityName = selectedOption.getAttribute('data-label') || 'Standard Courier';
+      let deliveryFee = parseInt(citySelect.value) || 260;
+
+      let subtotal = 0;
+      let itemsListStr = '';
+      userCart.forEach((i, idx) => {
+        const itemTot = i.rate * i.qty;
+        subtotal += itemTot;
+        itemsListStr += (idx + 1) + '. ' + i.qty + 'x ' + i.name + ' @ Rs. ' + i.rate + ' = Rs. ' + itemTot + '\n';
+      });
+
+      if (citySelect.value === '150' && subtotal >= 3500) {
+        deliveryFee = 0;
+      }
+      const grandTotal = subtotal + deliveryFee;
+
+      const orderMsg = 
+        '🛒 *NEW MULTI-ITEM ELECTRONICS ORDER*\n' +
+        '====================================\n' +
+        '*Customer:* ' + name + '\n' +
+        '*Delivery Address:* ' + address + ' (' + cityName + ')\n' +
+        '------------------------------------\n' +
+        '*Ordered Components (Sourced & Tested):*\n' +
+        itemsListStr +
+        '------------------------------------\n' +
+        '*Subtotal:* Rs. ' + subtotal.toLocaleString() + '\n' +
+        '*Courier Delivery Fee:* ' + ((deliveryFee === 0) ? 'FREE' : 'Rs. ' + deliveryFee) + ' (' + cityName + ')\n' +
+        '*TOTAL AMOUNT PAYABLE:* Rs. ' + grandTotal.toLocaleString() + '\n' +
+        '------------------------------------\n' +
+        '*Suppliers Queried:* Digilog.pk / Electrobes.com / ArduinoPak.com\n' +
+        '*Status:* PENDING APPROVAL by Engr. Hanif Khan';
+
+      window.open('https://wa.me/923159915537?text=' + encodeURIComponent(orderMsg), '_blank');
+      closeCartDrawer();
+    }
+
+    function submitExternalLinkInquiry() {
+      const input = document.getElementById('externalPartUrlInput').value.trim();
+      if (!input) {
+        alert('Please enter a product link or component name.');
+        return;
+      }
+      const citySelect = document.getElementById('storeCityRateSelector');
+      const cityName = citySelect.options[citySelect.selectedIndex].getAttribute('data-label') || 'Pakistan';
+
+      const msg = 
+        '🔍 *UNIVERSAL COMPONENT SOURCING INQUIRY*\n' +
+        '========================================\n' +
+        '*Component Link / Name:* ' + input + '\n' +
+        '*Delivery Destination:* ' + cityName + '\n' +
+        '----------------------------------------\n' +
+        'Please check the best available rate across Digilog.pk, Electrobes.com, ArduinoPak.com (or other vendors) and confirm total price with delivery charges.';
+
+      window.open('https://wa.me/923159915537?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    // Initialize Store Catalog on load
+    document.addEventListener('DOMContentLoaded', function() {
+      renderStoreProducts(STORE_ITEMS);
+    });
 
 
     // Initialize Catalog on Page Load
