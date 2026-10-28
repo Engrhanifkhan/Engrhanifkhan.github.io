@@ -607,6 +607,24 @@
   <section id="store" class="py-14 bg-slate-100 text-slate-800 border-b border-slate-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
+      <!-- Admin Intelligence Banner (Visible ONLY when Hanif logs in) -->
+      <div id="adminModeBanner" class="hidden bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white p-3.5 rounded-xl mb-4 shadow-lg flex flex-col md:flex-row items-center justify-between gap-3 border border-amber-400/40 animate-fade-in">
+        <div class="flex items-center gap-2.5 text-xs font-bold">
+          <span class="bg-amber-950/60 px-2.5 py-1 rounded-md text-[10px] uppercase font-mono tracking-wider border border-amber-300/30">
+            <i class="fa-solid fa-shield-halved text-amber-300"></i> ADMIN SOURCING ACTIVE
+          </span>
+          <span>Supplier sites (Digilog, Electrobes, ArduinoPak, EWall, DreamSmart, ColgRoad), wholesale costs & profit margins unlocked for Engr. Hanif Khan.</span>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <button onclick="openSupplierCompareModal()" class="bg-white text-amber-800 hover:bg-amber-50 text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm transition-colors flex items-center gap-1.5">
+            <i class="fa-solid fa-scale-balanced text-amber-600"></i> 6-Supplier Rate Comparator
+          </button>
+          <button onclick="toggleAdminMode(false)" class="bg-amber-950/50 hover:bg-amber-950/80 text-white text-xs font-bold px-3 py-1.5 rounded-lg border border-white/20 transition-colors flex items-center gap-1">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Exit to Customer View
+          </button>
+        </div>
+      </div>
+
       <!-- Top Store Brand & Search Bar (Exact Style of Image 2) -->
       <div class="bg-white rounded-xl shadow-md border border-slate-200 p-4 mb-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -619,6 +637,13 @@
               <span class="text-xl sm:text-2xl font-black text-amber-600 tracking-wider">HANIF ELECTRONICS</span>
               <span class="text-[11px] block text-slate-500 font-semibold">COMPONENTS • SENSORS • MOTORS • IOT MODULES</span>
             </div>
+          </div>
+
+          <!-- Admin Sourcing Portal Toggle -->
+          <div class="flex items-center gap-2">
+            <button onclick="toggleAdminPrompt()" id="adminPortalBtn" class="text-xs bg-slate-100 hover:bg-amber-100 text-slate-600 hover:text-amber-800 font-bold px-3 py-2 rounded-lg border border-slate-300 flex items-center gap-1.5 transition-all shadow-xs">
+              <i class="fa-solid fa-lock text-amber-600"></i> <span id="adminPortalBtnText">Admin Portal</span>
+            </button>
           </div>
 
           <!-- Search Bar with Category Select -->
@@ -1971,500 +1996,631 @@
     // COMPREHENSIVE ELECTRONICS STORE CATALOG (ALL VARIANTS)
     // =======================================================
     const STORE_ITEMS = [
-      // === ESP32 FAMILY MODULES & BOARDS ===
-      {
-        id: 'st_esp1',
-        name: 'ESP32-WROOM-32 DevKit (38-Pin / 30-Pin)',
-        family: 'esp32',
-        category: 'ESP32 Family',
-        icon: 'fa-microchip',
-        desc: 'Dual-core 240MHz, 4MB Flash, Wi-Fi 802.11 b/g/n, BLE 4.2, CP2102/CH340 USB.',
-        rate: 1650,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_esp2',
-        name: 'ESP32-C3 Super Mini Dev Board',
-        family: 'esp32',
-        category: 'ESP32 Family',
-        icon: 'fa-microchip',
-        desc: 'Ultra-compact single-core RISC-V 160MHz, Wi-Fi 4 + Bluetooth 5 (LE), low power.',
-        rate: 1150,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_esp3',
-        name: 'ESP32-S3 Dual-Core AI & ML Board',
-        family: 'esp32',
-        category: 'ESP32 Family',
-        icon: 'fa-microchip',
-        desc: 'Xtensa LX7 240MHz, 8MB PSRAM, 16MB Flash, Vector instructions for TinyML, Dual Type-C.',
-        rate: 2650,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_esp4',
-        name: 'ESP32-CAM AI-Thinker + OV2640 Camera',
-        family: 'esp32',
-        category: 'ESP32 Family',
-        icon: 'fa-camera',
-        desc: 'ESP32-S module with 2MP OV2640 camera, MicroSD slot, onboard Flash LED for video streaming.',
-        rate: 2450,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_esp5',
-        name: 'ESP32-WROVER-E (8MB PSRAM + 16MB Flash)',
-        family: 'esp32',
-        category: 'ESP32 Family',
-        icon: 'fa-microchip',
-        desc: 'Extended 8MB SPI PSRAM, ideal for heavy GUI displays, audio processing, and web servers.',
-        rate: 2200,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_esp6',
-        name: 'ESP32-S2 Single-Core USB OTG Board',
-        family: 'esp32',
-        category: 'ESP32 Family',
-        icon: 'fa-microchip',
-        desc: '240MHz single-core, native hardware USB OTG, 43 GPIOs, touch sensor pins, low power.',
-        rate: 1850,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_esp7',
-        name: 'ESP32 LoRa V3 Development Board (SX1262 / OLED)',
-        family: 'esp32',
-        category: 'ESP32 Family',
-        icon: 'fa-satellite-dish',
-        desc: 'ESP32-S3 + SX1262 LoRa 433/868MHz + 0.96" OLED display + Li-ion battery charging circuit.',
-        rate: 4800,
-        status: 'Available on Demand (Will Arrange in 24-48h)'
-      },
-      {
-        id: 'st_esp8',
-        name: 'ESP32 4-Channel Relay IoT Controller Board',
-        family: 'esp32',
-        category: 'ESP32 Family',
-        icon: 'fa-toggle-on',
-        desc: 'Onboard ESP32 with 4x 10A 250V AC optocoupled relays, screw terminals, and 5V/12V input.',
-        rate: 2950,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_esp9',
-        name: 'ESP32 with 2.8" SPI Color Touch Screen (All-in-One)',
-        family: 'esp32',
-        category: 'ESP32 Family',
-        icon: 'fa-tv',
-        desc: 'ESP32 integrated directly on a 2.8" 320x240 color TFT screen with touch controller and speaker.',
-        rate: 4200,
-        status: 'Available on Demand (Will Arrange in 24-48h)'
-      },
-
-      // === ARDUINO FAMILY BOARDS ===
-      {
-        id: 'st_ard1',
-        name: 'Arduino Uno R3 (ATmega328P DIP)',
-        family: 'arduino',
-        category: 'Arduino Family',
-        icon: 'fa-microchip',
-        desc: '16MHz, 5V logic, 14 digital I/O (6 PWM), 6 analog inputs, removable socketed DIP IC.',
-        rate: 1350,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_ard2',
-        name: 'Arduino Uno R3 SMD (CH340 Driver)',
-        family: 'arduino',
-        category: 'Arduino Family',
-        icon: 'fa-microchip',
-        desc: 'Cost-effective SMD ATmega328P with CH340 USB chip, pin headers included.',
-        rate: 1100,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_ard3',
-        name: 'Arduino Nano V3 (Type-C / Mini-USB)',
-        family: 'arduino',
-        category: 'Arduino Family',
-        icon: 'fa-microchip',
-        desc: 'Compact breadboard module, ATmega328P, 8 analog inputs, 16MHz crystal.',
-        rate: 750,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_ard4',
-        name: 'Arduino Mega 2560 R3',
-        family: 'arduino',
-        category: 'Arduino Family',
-        icon: 'fa-microchip',
-        desc: 'ATmega2560, 54 digital I/O, 16 analog inputs, 4 hardware serial UARTs, 256KB flash.',
-        rate: 3200,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_ard5',
-        name: 'Arduino Pro Mini (5V 16MHz / 3.3V 8MHz)',
-        family: 'arduino',
-        category: 'Arduino Family',
-        icon: 'fa-microchip',
-        desc: 'Ultra-small profile for compact builds (requires FTDI / CH340 adapter for programming).',
-        rate: 650,
-        status: 'In Stock (Fast Dispatch)'
-      },
-
-      // === STEPPER MOTORS & DC MOTORS ===
-      {
-        id: 'st_mot1',
-        name: 'NEMA 17 Stepper Motor (1.5A / 2.0A, 42x42mm)',
-        family: 'motors',
-        category: 'Motors & Steppers',
-        icon: 'fa-gear',
-        desc: '1.8° step angle (200 steps/rev), 4-lead bipolar wire with JST connector, high torque.',
-        rate: 2400,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_mot2',
-        name: 'NEMA 23 High-Torque Stepper Motor (3.0A, 57x57mm)',
-        family: 'motors',
-        category: 'Motors & Steppers',
-        icon: 'fa-gear',
-        desc: 'Heavy-duty CNC & automated linear slide stepper motor, 1.9Nm holding torque.',
-        rate: 5500,
-        status: 'Available on Demand (Will Arrange in 24-48h)'
-      },
-      {
-        id: 'st_mot3',
-        name: '28BYJ-48 5V Geared Stepper Motor + ULN2003 Driver',
-        family: 'motors',
-        category: 'Motors & Steppers',
-        icon: 'fa-gear',
-        desc: '5V 4-phase geared stepper with 1:64 reduction ratio, includes ULN2003 LED driver board.',
-        rate: 550,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_mot4',
-        name: 'High-Torque 12V DC Metal Gear Motor (100 / 300 / 600 RPM)',
-        family: 'motors',
-        category: 'Motors & Steppers',
-        icon: 'fa-gear',
-        desc: 'All-metal planetary spur gearbox, 37mm diameter, heavy industrial robotic traction.',
-        rate: 1250,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_mot5',
-        name: '775 High-Speed Ball-Bearing DC Motor (12V-24V)',
-        family: 'motors',
-        category: 'Motors & Steppers',
-        icon: 'fa-fan',
-        desc: 'High speed 10,000-20,000 RPM, dual ball bearings, high starting torque for drill/cutter tools.',
-        rate: 1450,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_mot6',
-        name: 'SG90 9g Micro Servo Motor (180°)',
-        family: 'motors',
-        category: 'Motors & Steppers',
-        icon: 'fa-arrows-rotate',
-        desc: 'Lightweight nylon gear servo, 1.6kg/cm torque at 4.8V, robotic arms and pan/tilt cameras.',
-        rate: 380,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_mot7',
-        name: 'MG996R All-Metal Gear High-Torque Servo (10kg/cm)',
-        family: 'motors',
-        category: 'Motors & Steppers',
-        icon: 'fa-arrows-rotate',
-        desc: 'Full metal brass gears, dual ball bearings, 11kg/cm torque at 6V for heavy steering & grippers.',
-        rate: 1450,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_mot8',
-        name: 'BLDC Brushless Motor & 30A/40A ESC Bundle',
-        family: 'motors',
-        category: 'Motors & Steppers',
-        icon: 'fa-fan',
-        desc: 'Outrunner brushless DC motor with matching 3S-4S BEC speed controller.',
-        rate: 3600,
-        status: 'In Stock (Fast Dispatch)'
-      },
-
-      // === MOTOR DRIVERS & RELAYS ===
-      {
-        id: 'st_drv1',
-        name: 'BTS7960 43A High-Current Dual H-Bridge Driver',
-        family: 'drivers',
-        category: 'Motor Drivers & Relays',
-        icon: 'fa-bolt',
-        desc: '6V-27V operating range, 43A peak current, optical isolation, PWM duty speed control.',
-        rate: 2100,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_drv2',
-        name: 'L298N Dual H-Bridge Motor Driver Module',
-        family: 'drivers',
-        category: 'Motor Drivers & Relays',
-        icon: 'fa-bolt',
-        desc: 'Drives 2 DC motors (forward/reverse) or 1 4-wire stepper, onboard 5V regulator.',
-        rate: 480,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_drv3',
-        name: 'A4988 / DRV8825 Microstepping Stepper Driver',
-        family: 'drivers',
-        category: 'Motor Drivers & Relays',
-        icon: 'fa-bolt',
-        desc: 'Step/Direction interface, up to 1/32 microstepping, heatsink included.',
-        rate: 350,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_drv4',
-        name: 'TB6600 4.0A 9-42V CNC Stepper Driver',
-        family: 'drivers',
-        category: 'Motor Drivers & Relays',
-        icon: 'fa-bolt',
-        desc: 'Industrial optical isolation, aluminum casing, up to 1/32 microstep resolution.',
-        rate: 2250,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_drv5',
-        name: 'Fotek 40A Solid State Relay (SSR-40DA)',
-        family: 'drivers',
-        category: 'Motor Drivers & Relays',
-        icon: 'fa-toggle-on',
-        desc: 'Input 3-32V DC, Output 24-380V AC up to 40A, spark-free silent switching for pumps/heaters.',
-        rate: 1950,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_drv6',
-        name: '1 / 2 / 4 / 8-Channel 5V Optocoupler Relay Modules',
-        family: 'drivers',
-        category: 'Motor Drivers & Relays',
-        icon: 'fa-toggle-on',
-        desc: '10A 250V AC / 30V DC rated contacts, active LOW/HIGH selectable trigger.',
-        rate: 280,
-        status: 'In Stock (Fast Dispatch)'
-      },
-
-      // === RESISTORS, CAPACITORS & PASSIVES ===
-      {
-        id: 'st_pas1',
-        name: 'Metal Film Resistors Assortment Pack (1/4W 1%)',
-        family: 'passives',
-        category: 'Passives & Components',
-        icon: 'fa-sliders',
-        desc: 'High precision 1% tolerance, values from 1Ω to 10MΩ (Pull-up, Pull-down, Current limiting).',
-        rate: 250,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_pas2',
-        name: 'SMD Resistor Sample Book / Strips (0805 / 0603)',
-        family: 'passives',
-        category: 'Passives & Components',
-        icon: 'fa-sliders',
-        desc: 'Surface mount chip resistors, standard E24 series for compact PCB fabrication.',
-        rate: 450,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_pas3',
-        name: 'Electrolytic Capacitors Assortment Pack (1µF to 2200µF)',
-        family: 'passives',
-        category: 'Passives & Components',
-        icon: 'fa-battery-half',
-        desc: 'Aluminum radial leads, 16V, 25V, 50V ratings for power filtering and decoupling.',
-        rate: 300,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_pas4',
-        name: 'Ceramic Disc & Monolithic Capacitors (22pF to 100nF)',
-        family: 'passives',
-        category: 'Passives & Components',
-        icon: 'fa-battery-half',
-        desc: '104 (0.1µF) decoupling capacitors, 22pF crystal capacitors, 50V rated.',
-        rate: 200,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_pas5',
-        name: 'Power MOSFETs (IRFZ44N / IRLZ44N / IRF540N)',
-        family: 'passives',
-        category: 'Passives & Components',
-        icon: 'fa-bolt',
-        desc: 'High-current N-channel power MOSFETs for PWM speed control, solenoids, and high-power LED strips.',
-        rate: 180,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_pas6',
-        name: 'DC-DC Buck / Boost Voltage Regulators (LM2596 / XL6009)',
-        family: 'passives',
-        category: 'Passives & Components',
-        icon: 'fa-plug',
-        desc: 'Step-down (3A) and Step-up (4A) high-efficiency switching power supply modules.',
-        rate: 350,
-        status: 'In Stock (Fast Dispatch)'
-      },
-
-      // === SENSORS & PROBES ===
-      {
-        id: 'st_sen1',
-        name: 'AJ-SR04M Waterproof Ultrasonic Sensor',
-        family: 'sensors',
-        category: 'Sensors & Probes',
-        icon: 'fa-water',
-        desc: 'Sealed waterproof ultrasonic transducer probe with separate driver board, 20-450cm range.',
-        rate: 1450,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_sen2',
-        name: 'HC-SR04 Ultrasonic Distance Sensor',
-        family: 'sensors',
-        category: 'Sensors & Probes',
-        icon: 'fa-ruler-horizontal',
-        desc: 'Standard 4-pin ultrasonic sensor, 2-400cm range, 3mm resolution for robotics.',
-        rate: 350,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_sen3',
-        name: 'DS18B20 Stainless Steel Waterproof Temp Probe',
-        family: 'sensors',
-        category: 'Sensors & Probes',
-        icon: 'fa-temperature-half',
-        desc: 'Waterproof 1-meter cable, digital OneWire protocol, -55°C to +125°C.',
-        rate: 480,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_sen4',
-        name: 'DHT22 / AM2302 High-Accuracy Temp & Humidity',
-        family: 'sensors',
-        category: 'Sensors & Probes',
-        icon: 'fa-cloud-sun',
-        desc: '0-100% RH measurement with 2-5% accuracy, -40°C to 80°C range with single-bus protocol.',
-        rate: 750,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_sen5',
-        name: 'AD8232 ECG Heart Monitor Sensor + 3 Leads',
-        family: 'sensors',
-        category: 'Sensors & Probes',
-        icon: 'fa-heart-pulse',
-        desc: 'Biomedical signal conditioning front-end, instrumentation amplifier, includes 3-lead electrode cable.',
-        rate: 1850,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_sen6',
-        name: 'MAX30102 Pulse Oximeter & Heart Rate Biosensor',
-        family: 'sensors',
-        category: 'Sensors & Probes',
-        icon: 'fa-heart-pulse',
-        desc: 'Integrated PPG sensor with dual Red & IR LEDs and photodetector, I2C interface.',
-        rate: 850,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_sen7',
-        name: 'MQ Gas Sensors (MQ-2 LPG/Smoke, MQ-135 Air Quality)',
-        family: 'sensors',
-        category: 'Sensors & Probes',
-        icon: 'fa-smog',
-        desc: 'SnO2 gas sensing element with analog output and adjustable digital comparator trigger.',
-        rate: 550,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_sen8',
-        name: 'Capacitive Soil Moisture Sensor v1.2 (Corrosion Proof)',
-        family: 'sensors',
-        category: 'Sensors & Probes',
-        icon: 'fa-seedling',
-        desc: 'Capacitive sensing principle (no direct metal soil contact), prevents corrosion.',
-        rate: 320,
-        status: 'In Stock (Fast Dispatch)'
-      },
-
-      // === DISPLAYS & WIRELESS ===
-      {
-        id: 'st_dis1',
-        name: '2.8" SPI TFT Color LCD Screen (ILI9341 320x240)',
-        family: 'displays',
-        category: 'Displays & Wireless',
-        icon: 'fa-tv',
-        desc: 'RGB color TFT display, 4-wire high-speed SPI bus, 3.3V logic, optional touch.',
-        rate: 2850,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_dis2',
-        name: '0.96" I2C OLED Display (SSD1306 128x64)',
-        family: 'displays',
-        category: 'Displays & Wireless',
-        icon: 'fa-tv',
-        desc: 'Monochrome high-contrast I2C display, 3.3V/5V compatible, ultra-low power.',
-        rate: 650,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_dis3',
-        name: '16x2 / 20x4 Character LCD + I2C Backpack Module',
-        family: 'displays',
-        category: 'Displays & Wireless',
-        icon: 'fa-tv',
-        desc: 'Standard HD44780 LCD equipped with PCF8574 I2C adapter board (only 2 pins needed).',
-        rate: 750,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_dis4',
-        name: 'NEO-6M GPS Module with Active Ceramic Antenna',
-        family: 'displays',
-        category: 'Displays & Wireless',
-        icon: 'fa-location-dot',
-        desc: '50-channel u-blox positioning engine, standard UART NMEA sentence output.',
-        rate: 1750,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_dis5',
-        name: 'SX1278 LoRa Transceiver Module (433MHz / 868MHz)',
-        family: 'displays',
-        category: 'Displays & Wireless',
-        icon: 'fa-satellite-dish',
-        desc: 'Long-range spread-spectrum SPI transceiver, up to 5-10km range for remote telemetry.',
-        rate: 1850,
-        status: 'In Stock (Fast Dispatch)'
-      },
-      {
-        id: 'st_dis6',
-        name: 'SIM800L GPRS / GSM Quad-Band Cellular Module',
-        family: 'displays',
-        category: 'Displays & Wireless',
-        icon: 'fa-sim-card',
-        desc: 'Sends SMS alerts, voice calls, and GPRS data via AT commands across all cellular networks.',
-        rate: 1650,
-        status: 'In Stock (Fast Dispatch)'
-      }
-    ];
+  {
+    "id": "st_esp1",
+    "name": "ESP32-WROOM-32 DevKit (38-Pin / 30-Pin)",
+    "family": "esp32",
+    "category": "ESP32 Family",
+    "icon": "fa-microchip",
+    "desc": "Dual-core 240MHz, 4MB Flash, Wi-Fi 802.11 b/g/n, BLE 4.2, CP2102/CH340 USB.",
+    "rate": 1650,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 1350,
+    "supplierUrl": "https://digilog.pk/search?q=esp32%20wroom%2032%20devkit"
+  },
+  {
+    "id": "st_esp2",
+    "name": "ESP32-C3 Super Mini Dev Board",
+    "family": "esp32",
+    "category": "ESP32 Family",
+    "icon": "fa-microchip",
+    "desc": "Ultra-compact single-core RISC-V 160MHz, Wi-Fi 4 + Bluetooth 5 (LE), low power.",
+    "rate": 1150,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 920,
+    "supplierUrl": "https://digilog.pk/search?q=esp32-c3%20super%20mini"
+  },
+  {
+    "id": "st_esp3",
+    "name": "ESP32-S3 Dual-Core AI & ML Board",
+    "family": "esp32",
+    "category": "ESP32 Family",
+    "icon": "fa-microchip",
+    "desc": "Xtensa LX7 240MHz, 8MB PSRAM, 16MB Flash, Vector instructions for TinyML, Dual Type-C.",
+    "rate": 2650,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 2150,
+    "supplierUrl": "https://digilog.pk/search?q=esp32-s3"
+  },
+  {
+    "id": "st_esp4",
+    "name": "ESP32-CAM AI-Thinker + OV2640 Camera",
+    "family": "esp32",
+    "category": "ESP32 Family",
+    "icon": "fa-camera",
+    "desc": "ESP32-S module with 2MP OV2640 camera, MicroSD slot, onboard Flash LED for video streaming.",
+    "rate": 2450,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "electrobes.com",
+    "cost": 1950,
+    "supplierUrl": "https://electrobes.com/?s=esp32-cam%20ai-thinker&post_type=product"
+  },
+  {
+    "id": "st_esp5",
+    "name": "ESP32-WROVER-E (8MB PSRAM + 16MB Flash)",
+    "family": "esp32",
+    "category": "ESP32 Family",
+    "icon": "fa-microchip",
+    "desc": "Extended 8MB SPI PSRAM, ideal for heavy GUI displays, audio processing, and web servers.",
+    "rate": 2200,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 1750,
+    "supplierUrl": "https://digilog.pk/search?q=esp32%20wrover%20psram"
+  },
+  {
+    "id": "st_esp6",
+    "name": "ESP32-S2 Single-Core USB OTG Board",
+    "family": "esp32",
+    "category": "ESP32 Family",
+    "icon": "fa-microchip",
+    "desc": "240MHz single-core, native hardware USB OTG, 43 GPIOs, touch sensor pins, low power.",
+    "rate": 1850,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "ewall.com.pk",
+    "cost": 1480,
+    "supplierUrl": "https://www.ewall.com.pk/?s=esp32-s2&post_type=product"
+  },
+  {
+    "id": "st_esp7",
+    "name": "ESP32 LoRa V3 Development Board (SX1262 / OLED)",
+    "family": "esp32",
+    "category": "ESP32 Family",
+    "icon": "fa-satellite-dish",
+    "desc": "ESP32-S3 + SX1262 LoRa 433/868MHz + 0.96\" OLED display + Li-ion battery charging circuit.",
+    "rate": 4800,
+    "status": "Available on Demand (Will Arrange in 24-48h)",
+    "supplier": "digilog.pk",
+    "cost": 3850,
+    "supplierUrl": "https://digilog.pk/search?q=esp32%20lora%20v3%20sx1262"
+  },
+  {
+    "id": "st_esp8",
+    "name": "ESP32 4-Channel Relay IoT Controller Board",
+    "family": "esp32",
+    "category": "ESP32 Family",
+    "icon": "fa-toggle-on",
+    "desc": "Onboard ESP32 with 4x 10A 250V AC optocoupled relays, screw terminals, and 5V/12V input.",
+    "rate": 2950,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 2350,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=esp32%204%20channel%20relay"
+  },
+  {
+    "id": "st_esp9",
+    "name": "ESP32 with 2.8\" SPI Color Touch Screen (All-in-One)",
+    "family": "esp32",
+    "category": "ESP32 Family",
+    "icon": "fa-tv",
+    "desc": "ESP32 integrated directly on a 2.8\" 320x240 color TFT screen with touch controller and speaker.",
+    "rate": 4200,
+    "status": "Available on Demand (Will Arrange in 24-48h)",
+    "supplier": "digilog.pk",
+    "cost": 3350,
+    "supplierUrl": "https://digilog.pk/search?q=esp32%202.8%20tft%20touch"
+  },
+  {
+    "id": "st_ard1",
+    "name": "Arduino Uno R3 (ATmega328P DIP)",
+    "family": "arduino",
+    "category": "Arduino Family",
+    "icon": "fa-microchip",
+    "desc": "16MHz, 5V logic, 14 digital I/O (6 PWM), 6 analog inputs, removable socketed DIP IC.",
+    "rate": 1350,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 1050,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=arduino%20uno%20r3%20dip"
+  },
+  {
+    "id": "st_ard2",
+    "name": "Arduino Uno R3 SMD (CH340 Driver)",
+    "family": "arduino",
+    "category": "Arduino Family",
+    "icon": "fa-microchip",
+    "desc": "Cost-effective SMD ATmega328P with CH340 USB chip, pin headers included.",
+    "rate": 1100,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 850,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=arduino%20uno%20r3%20smd"
+  },
+  {
+    "id": "st_ard3",
+    "name": "Arduino Nano V3 (Type-C / Mini-USB)",
+    "family": "arduino",
+    "category": "Arduino Family",
+    "icon": "fa-microchip",
+    "desc": "Compact breadboard module, ATmega328P, 8 analog inputs, 16MHz crystal.",
+    "rate": 750,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 580,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=arduino%20nano%20v3%20ch340"
+  },
+  {
+    "id": "st_ard4",
+    "name": "Arduino Mega 2560 R3",
+    "family": "arduino",
+    "category": "Arduino Family",
+    "icon": "fa-microchip",
+    "desc": "ATmega2560, 54 digital I/O, 16 analog inputs, 4 hardware serial UARTs, 256KB flash.",
+    "rate": 3200,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 2550,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=arduino%20mega%202560"
+  },
+  {
+    "id": "st_ard5",
+    "name": "Arduino Pro Mini (5V 16MHz / 3.3V 8MHz)",
+    "family": "arduino",
+    "category": "Arduino Family",
+    "icon": "fa-microchip",
+    "desc": "Ultra-small profile for compact builds (requires FTDI / CH340 adapter for programming).",
+    "rate": 650,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "ewall.com.pk",
+    "cost": 480,
+    "supplierUrl": "https://www.ewall.com.pk/?s=arduino%20pro%20mini&post_type=product"
+  },
+  {
+    "id": "st_mot1",
+    "name": "NEMA 17 Stepper Motor (1.5A / 2.0A, 42x42mm)",
+    "family": "motors",
+    "category": "Motors & Steppers",
+    "icon": "fa-gear",
+    "desc": "1.8° step angle (200 steps/rev), 4-lead bipolar wire with JST connector, high torque.",
+    "rate": 2400,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "electrobes.com",
+    "cost": 1900,
+    "supplierUrl": "https://electrobes.com/?s=nema%2017%20stepper%20motor&post_type=product"
+  },
+  {
+    "id": "st_mot2",
+    "name": "NEMA 23 High-Torque Stepper Motor (3.0A, 57x57mm)",
+    "family": "motors",
+    "category": "Motors & Steppers",
+    "icon": "fa-gear",
+    "desc": "Heavy-duty CNC & automated linear slide stepper motor, 1.9Nm holding torque.",
+    "rate": 5500,
+    "status": "Available on Demand (Will Arrange in 24-48h)",
+    "supplier": "electrobes.com",
+    "cost": 4400,
+    "supplierUrl": "https://electrobes.com/?s=nema%2023%20stepper%20motor&post_type=product"
+  },
+  {
+    "id": "st_mot3",
+    "name": "28BYJ-48 5V Geared Stepper Motor + ULN2003 Driver",
+    "family": "motors",
+    "category": "Motors & Steppers",
+    "icon": "fa-gear",
+    "desc": "5V 4-phase geared stepper with 1:64 reduction ratio, includes ULN2003 LED driver board.",
+    "rate": 550,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 420,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=28byj-48%20stepper%20motor"
+  },
+  {
+    "id": "st_mot4",
+    "name": "High-Torque 12V DC Metal Gear Motor (100 / 300 / 600 RPM)",
+    "family": "motors",
+    "category": "Motors & Steppers",
+    "icon": "fa-gear",
+    "desc": "All-metal planetary spur gearbox, 37mm diameter, heavy industrial robotic traction.",
+    "rate": 1250,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "electrobes.com",
+    "cost": 980,
+    "supplierUrl": "https://electrobes.com/?s=12v%20dc%20metal%20gear%20motor&post_type=product"
+  },
+  {
+    "id": "st_mot5",
+    "name": "775 High-Speed Ball-Bearing DC Motor (12V-24V)",
+    "family": "motors",
+    "category": "Motors & Steppers",
+    "icon": "fa-fan",
+    "desc": "High speed 10,000-20,000 RPM, dual ball bearings, high starting torque for drill/cutter tools.",
+    "rate": 1450,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "colgroad.com",
+    "cost": 1150,
+    "supplierUrl": "https://colgroad.com/?s=775%20dc%20motor&post_type=product"
+  },
+  {
+    "id": "st_mot6",
+    "name": "SG90 9g Micro Servo Motor (180°)",
+    "family": "motors",
+    "category": "Motors & Steppers",
+    "icon": "fa-arrows-rotate",
+    "desc": "Lightweight nylon gear servo, 1.6kg/cm torque at 4.8V, robotic arms and pan/tilt cameras.",
+    "rate": 380,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 290,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=sg90%20micro%20servo"
+  },
+  {
+    "id": "st_mot7",
+    "name": "MG996R All-Metal Gear High-Torque Servo (10kg/cm)",
+    "family": "motors",
+    "category": "Motors & Steppers",
+    "icon": "fa-arrows-rotate",
+    "desc": "Full metal brass gears, dual ball bearings, 11kg/cm torque at 6V for heavy steering & grippers.",
+    "rate": 1450,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "colgroad.com",
+    "cost": 1150,
+    "supplierUrl": "https://colgroad.com/?s=mg996r%20metal%20servo&post_type=product"
+  },
+  {
+    "id": "st_mot8",
+    "name": "BLDC Brushless Motor & 30A/40A ESC Bundle",
+    "family": "motors",
+    "category": "Motors & Steppers",
+    "icon": "fa-fan",
+    "desc": "Outrunner brushless DC motor with matching 3S-4S BEC speed controller.",
+    "rate": 3600,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "colgroad.com",
+    "cost": 2900,
+    "supplierUrl": "https://colgroad.com/?s=bldc%20motor%20esc%20bundle&post_type=product"
+  },
+  {
+    "id": "st_drv1",
+    "name": "BTS7960 43A High-Current Dual H-Bridge Driver",
+    "family": "drivers",
+    "category": "Motor Drivers & Relays",
+    "icon": "fa-bolt",
+    "desc": "6V-27V operating range, 43A peak current, optical isolation, PWM duty speed control.",
+    "rate": 2100,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "electrobes.com",
+    "cost": 1680,
+    "supplierUrl": "https://electrobes.com/?s=bts7960%2043a%20motor%20driver&post_type=product"
+  },
+  {
+    "id": "st_drv2",
+    "name": "L298N Dual H-Bridge Motor Driver Module",
+    "family": "drivers",
+    "category": "Motor Drivers & Relays",
+    "icon": "fa-bolt",
+    "desc": "Drives 2 DC motors (forward/reverse) or 1 4-wire stepper, onboard 5V regulator.",
+    "rate": 480,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 360,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=l298n%20motor%20driver"
+  },
+  {
+    "id": "st_drv3",
+    "name": "A4988 / DRV8825 Microstepping Stepper Driver",
+    "family": "drivers",
+    "category": "Motor Drivers & Relays",
+    "icon": "fa-bolt",
+    "desc": "Step/Direction interface, up to 1/32 microstepping, heatsink included.",
+    "rate": 350,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 260,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=a4988%20stepper%20driver"
+  },
+  {
+    "id": "st_drv4",
+    "name": "TB6600 4.0A 9-42V CNC Stepper Driver",
+    "family": "drivers",
+    "category": "Motor Drivers & Relays",
+    "icon": "fa-bolt",
+    "desc": "Industrial optical isolation, aluminum casing, up to 1/32 microstep resolution.",
+    "rate": 2250,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "electrobes.com",
+    "cost": 1780,
+    "supplierUrl": "https://electrobes.com/?s=tb6600%20stepper%20driver&post_type=product"
+  },
+  {
+    "id": "st_drv5",
+    "name": "Fotek 40A Solid State Relay (SSR-40DA)",
+    "family": "drivers",
+    "category": "Motor Drivers & Relays",
+    "icon": "fa-toggle-on",
+    "desc": "Input 3-32V DC, Output 24-380V AC up to 40A, spark-free silent switching for pumps/heaters.",
+    "rate": 1950,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "electrobes.com",
+    "cost": 1550,
+    "supplierUrl": "https://electrobes.com/?s=ssr-40da%20solid%20state%20relay&post_type=product"
+  },
+  {
+    "id": "st_drv6",
+    "name": "1 / 2 / 4 / 8-Channel 5V Optocoupler Relay Modules",
+    "family": "drivers",
+    "category": "Motor Drivers & Relays",
+    "icon": "fa-toggle-on",
+    "desc": "10A 250V AC / 30V DC rated contacts, active LOW/HIGH selectable trigger.",
+    "rate": 280,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "ewall.com.pk",
+    "cost": 210,
+    "supplierUrl": "https://www.ewall.com.pk/?s=5v%20relay%20module&post_type=product"
+  },
+  {
+    "id": "st_pas1",
+    "name": "Metal Film Resistors Assortment Pack (1/4W 1%)",
+    "family": "passives",
+    "category": "Passives & Components",
+    "icon": "fa-sliders",
+    "desc": "High precision 1% tolerance, values from 1Ω to 10MΩ (Pull-up, Pull-down, Current limiting).",
+    "rate": 250,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "ewall.com.pk",
+    "cost": 180,
+    "supplierUrl": "https://www.ewall.com.pk/?s=metal%20film%20resistor%20pack&post_type=product"
+  },
+  {
+    "id": "st_pas2",
+    "name": "SMD Resistor Sample Book / Strips (0805 / 0603)",
+    "family": "passives",
+    "category": "Passives & Components",
+    "icon": "fa-sliders",
+    "desc": "Surface mount chip resistors, standard E24 series for compact PCB fabrication.",
+    "rate": 450,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "ewall.com.pk",
+    "cost": 340,
+    "supplierUrl": "https://www.ewall.com.pk/?s=smd%20resistor%20book%200805&post_type=product"
+  },
+  {
+    "id": "st_pas3",
+    "name": "Electrolytic Capacitors Assortment Pack (1µF to 2200µF)",
+    "family": "passives",
+    "category": "Passives & Components",
+    "icon": "fa-battery-half",
+    "desc": "Aluminum radial leads, 16V, 25V, 50V ratings for power filtering and decoupling.",
+    "rate": 300,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "ewall.com.pk",
+    "cost": 220,
+    "supplierUrl": "https://www.ewall.com.pk/?s=electrolytic%20capacitor%20pack&post_type=product"
+  },
+  {
+    "id": "st_pas4",
+    "name": "Ceramic Disc & Monolithic Capacitors (22pF to 100nF)",
+    "family": "passives",
+    "category": "Passives & Components",
+    "icon": "fa-battery-half",
+    "desc": "104 (0.1µF) decoupling capacitors, 22pF crystal capacitors, 50V rated.",
+    "rate": 200,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "ewall.com.pk",
+    "cost": 140,
+    "supplierUrl": "https://www.ewall.com.pk/?s=ceramic%20capacitor%20pack&post_type=product"
+  },
+  {
+    "id": "st_pas5",
+    "name": "Power MOSFETs (IRFZ44N / IRLZ44N / IRF540N)",
+    "family": "passives",
+    "category": "Passives & Components",
+    "icon": "fa-bolt",
+    "desc": "High-current N-channel power MOSFETs for PWM speed control, solenoids, and high-power LED strips.",
+    "rate": 180,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "dreamsmart.pk",
+    "cost": 125,
+    "supplierUrl": "https://www.dreamsmart.pk/?s=irfz44n%20mosfet&post_type=product"
+  },
+  {
+    "id": "st_pas6",
+    "name": "DC-DC Buck / Boost Voltage Regulators (LM2596 / XL6009)",
+    "family": "passives",
+    "category": "Passives & Components",
+    "icon": "fa-plug",
+    "desc": "Step-down (3A) and Step-up (4A) high-efficiency switching power supply modules.",
+    "rate": 350,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "dreamsmart.pk",
+    "cost": 260,
+    "supplierUrl": "https://www.dreamsmart.pk/?s=lm2596%20buck%20converter&post_type=product"
+  },
+  {
+    "id": "st_sen1",
+    "name": "AJ-SR04M Waterproof Ultrasonic Sensor",
+    "family": "sensors",
+    "category": "Sensors & Probes",
+    "icon": "fa-water",
+    "desc": "Sealed waterproof ultrasonic transducer probe with separate driver board, 20-450cm range.",
+    "rate": 1450,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 1150,
+    "supplierUrl": "https://digilog.pk/search?q=aj-sr04m%20waterproof%20ultrasonic"
+  },
+  {
+    "id": "st_sen2",
+    "name": "HC-SR04 Ultrasonic Distance Sensor",
+    "family": "sensors",
+    "category": "Sensors & Probes",
+    "icon": "fa-ruler-horizontal",
+    "desc": "Standard 4-pin ultrasonic sensor, 2-400cm range, 3mm resolution for robotics.",
+    "rate": 350,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 260,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=hc-sr04%20ultrasonic%20sensor"
+  },
+  {
+    "id": "st_sen3",
+    "name": "DS18B20 Stainless Steel Waterproof Temp Probe",
+    "family": "sensors",
+    "category": "Sensors & Probes",
+    "icon": "fa-temperature-half",
+    "desc": "Waterproof 1-meter cable, digital OneWire protocol, -55°C to +125°C.",
+    "rate": 480,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 360,
+    "supplierUrl": "https://digilog.pk/search?q=ds18b20%20waterproof%20temp"
+  },
+  {
+    "id": "st_sen4",
+    "name": "DHT22 / AM2302 High-Accuracy Temp & Humidity",
+    "family": "sensors",
+    "category": "Sensors & Probes",
+    "icon": "fa-cloud-sun",
+    "desc": "0-100% RH measurement with 2-5% accuracy, -40°C to 80°C range with single-bus protocol.",
+    "rate": 750,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "dreamsmart.pk",
+    "cost": 580,
+    "supplierUrl": "https://www.dreamsmart.pk/?s=dht22%20am2302%20sensor&post_type=product"
+  },
+  {
+    "id": "st_sen5",
+    "name": "AD8232 ECG Heart Monitor Sensor + 3 Leads",
+    "family": "sensors",
+    "category": "Sensors & Probes",
+    "icon": "fa-heart-pulse",
+    "desc": "Biomedical signal conditioning front-end, instrumentation amplifier, includes 3-lead electrode cable.",
+    "rate": 1850,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 1450,
+    "supplierUrl": "https://digilog.pk/search?q=ad8232%20ecg%20sensor"
+  },
+  {
+    "id": "st_sen6",
+    "name": "MAX30102 Pulse Oximeter & Heart Rate Biosensor",
+    "family": "sensors",
+    "category": "Sensors & Probes",
+    "icon": "fa-heart-pulse",
+    "desc": "Integrated PPG sensor with dual Red & IR LEDs and photodetector, I2C interface.",
+    "rate": 850,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "dreamsmart.pk",
+    "cost": 650,
+    "supplierUrl": "https://www.dreamsmart.pk/?s=max30102%20pulse%20oximeter&post_type=product"
+  },
+  {
+    "id": "st_sen7",
+    "name": "MQ Gas Sensors (MQ-2 LPG/Smoke, MQ-135 Air Quality)",
+    "family": "sensors",
+    "category": "Sensors & Probes",
+    "icon": "fa-smog",
+    "desc": "SnO2 gas sensing element with analog output and adjustable digital comparator trigger.",
+    "rate": 550,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 420,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=mq%20gas%20sensor"
+  },
+  {
+    "id": "st_sen8",
+    "name": "Capacitive Soil Moisture Sensor v1.2 (Corrosion Proof)",
+    "family": "sensors",
+    "category": "Sensors & Probes",
+    "icon": "fa-seedling",
+    "desc": "Capacitive sensing principle (no direct metal soil contact), prevents corrosion.",
+    "rate": 320,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "dreamsmart.pk",
+    "cost": 230,
+    "supplierUrl": "https://www.dreamsmart.pk/?s=capacitive%20soil%20moisture%20sensor&post_type=product"
+  },
+  {
+    "id": "st_dis1",
+    "name": "2.8\" SPI TFT Color LCD Screen (ILI9341 320x240)",
+    "family": "displays",
+    "category": "Displays & Wireless",
+    "icon": "fa-tv",
+    "desc": "RGB color TFT display, 4-wire high-speed SPI bus, 3.3V logic, optional touch.",
+    "rate": 2850,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 2250,
+    "supplierUrl": "https://digilog.pk/search?q=ili9341%202.8%20spi%20tft"
+  },
+  {
+    "id": "st_dis2",
+    "name": "0.96\" I2C OLED Display (SSD1306 128x64)",
+    "family": "displays",
+    "category": "Displays & Wireless",
+    "icon": "fa-tv",
+    "desc": "Monochrome high-contrast I2C display, 3.3V/5V compatible, ultra-low power.",
+    "rate": 650,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 490,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=ssd1306%200.96%20oled%20i2c"
+  },
+  {
+    "id": "st_dis3",
+    "name": "16x2 / 20x4 Character LCD + I2C Backpack Module",
+    "family": "displays",
+    "category": "Displays & Wireless",
+    "icon": "fa-tv",
+    "desc": "Standard HD44780 LCD equipped with PCF8574 I2C adapter board (only 2 pins needed).",
+    "rate": 750,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "arduinopak.com",
+    "cost": 560,
+    "supplierUrl": "https://www.arduinopak.com/Search.aspx?key=1602%20lcd%20i2c"
+  },
+  {
+    "id": "st_dis4",
+    "name": "NEO-6M GPS Module with Active Ceramic Antenna",
+    "family": "displays",
+    "category": "Displays & Wireless",
+    "icon": "fa-location-dot",
+    "desc": "50-channel u-blox positioning engine, standard UART NMEA sentence output.",
+    "rate": 1750,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 1380,
+    "supplierUrl": "https://digilog.pk/search?q=neo-6m%20gps%20module"
+  },
+  {
+    "id": "st_dis5",
+    "name": "SX1278 LoRa Transceiver Module (433MHz / 868MHz)",
+    "family": "displays",
+    "category": "Displays & Wireless",
+    "icon": "fa-satellite-dish",
+    "desc": "Long-range spread-spectrum SPI transceiver, up to 5-10km range for remote telemetry.",
+    "rate": 1850,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 1450,
+    "supplierUrl": "https://digilog.pk/search?q=sx1278%20lora%20module"
+  },
+  {
+    "id": "st_dis6",
+    "name": "SIM800L GPRS / GSM Quad-Band Cellular Module",
+    "family": "displays",
+    "category": "Displays & Wireless",
+    "icon": "fa-sim-card",
+    "desc": "Sends SMS alerts, voice calls, and GPRS data via AT commands across all cellular networks.",
+    "rate": 1650,
+    "status": "In Stock (Fast Dispatch)",
+    "supplier": "digilog.pk",
+    "cost": 1280,
+    "supplierUrl": "https://digilog.pk/search?q=sim800l%20gsm%20gprs%20module"
+  }
+];
 
     function renderStoreProducts(items) {
       const grid = document.getElementById('storeProductsGrid');
@@ -2670,6 +2826,22 @@
       }
       const grandTotal = subtotal + deliveryFee;
 
+      let totalCost = 0;
+      let adminSourcingBreakdown = '';
+      userCart.forEach((i, idx) => {
+        const itemTot = i.rate * i.qty;
+        const itemCost = (i.cost || Math.round(i.rate * 0.78)) * i.qty;
+        totalCost += itemCost;
+        const margin = itemTot - itemCost;
+        adminSourcingBreakdown += (idx + 1) + '. ' + i.name + ' (' + i.qty + 'x)\n' +
+                                  '   -> Best Source: ' + (i.supplier || 'digilog.pk') + '\n' +
+                                  '   -> Buy Cost: Rs. ' + (i.cost || Math.round(i.rate * 0.78)) + ' each (Total: Rs. ' + itemCost + ')\n' +
+                                  '   -> Sell Rate: Rs. ' + i.rate + ' each (Total: Rs. ' + itemTot + ')\n' +
+                                  '   -> Net Margin: +Rs. ' + margin + '\n' +
+                                  '   -> Buy Link: ' + (i.supplierUrl || 'https://digilog.pk/search?q=' + encodeURIComponent(i.name)) + '\n';
+      });
+      const totalNetMargin = subtotal - totalCost;
+
       const orderMsg = 
         '🛒 *NEW MULTI-ITEM ELECTRONICS ORDER*\n' +
         '====================================\n' +
@@ -2683,8 +2855,16 @@
         '*Courier Delivery Fee:* ' + ((deliveryFee === 0) ? 'FREE' : 'Rs. ' + deliveryFee) + ' (' + cityName + ')\n' +
         '*TOTAL AMOUNT PAYABLE:* Rs. ' + grandTotal.toLocaleString() + '\n' +
         '------------------------------------\n' +
-        '*Suppliers Queried:* Verified Supplier.pk / Authorized Distributor.com / Component Depot.com\n' +
-        '*Status:* PENDING APPROVAL by Engr. Hanif Khan';
+        '*Status:* PENDING CONFIRMATION\n' +
+        '====================================\n' +
+        '🔒 *[ADMIN PROCUREMENT DISPATCH GUIDE]*\n' +
+        '*(Confidential - For Engr. Hanif Khan Only)*\n' +
+        adminSourcingBreakdown +
+        '------------------------------------\n' +
+        '*TOTAL SOURCING COST:* Rs. ' + totalCost.toLocaleString() + '\n' +
+        '*TOTAL ESTIMATED NET PROFIT:* +Rs. ' + totalNetMargin.toLocaleString() + '\n' +
+        '*DISPATCH:* ' + cityName + ' via Trax / TCS COD\n' +
+        '====================================';
 
       window.open('https://wa.me/923159915537?text=' + encodeURIComponent(orderMsg), '_blank');
       closeCartDrawer();
@@ -2713,8 +2893,65 @@
     
     // =======================================================
     // E-COMMERCE STORE LOGIC MATCHING IMAGE 2 EXACT STYLE
+    // WITH ADMIN SOURCING INTELLIGENCE (CUSTOMER SECURE)
     // =======================================================
     let selectedStoreCategory = 'ALL';
+    let isAdminMode = false;
+
+    // Check if admin was previously logged in
+    try {
+      if (sessionStorage.getItem('eh_admin_mode') === 'true') {
+        isAdminMode = true;
+      }
+    } catch(e) {}
+
+    function updateAdminUIState() {
+      const banner = document.getElementById('adminModeBanner');
+      const btn = document.getElementById('adminPortalBtn');
+      const btnText = document.getElementById('adminPortalBtnText');
+      if (banner) {
+        if (isAdminMode) {
+          banner.classList.remove('hidden');
+        } else {
+          banner.classList.add('hidden');
+        }
+      }
+      if (btn && btnText) {
+        if (isAdminMode) {
+          btn.className = 'text-xs bg-amber-500 text-white font-bold px-3 py-2 rounded-lg border border-amber-600 flex items-center gap-1.5 transition-all shadow-sm';
+          btnText.innerText = 'Admin Active';
+        } else {
+          btn.className = 'text-xs bg-slate-100 hover:bg-amber-100 text-slate-600 hover:text-amber-800 font-bold px-3 py-2 rounded-lg border border-slate-300 flex items-center gap-1.5 transition-all shadow-xs';
+          btnText.innerText = 'Admin Portal';
+        }
+      }
+    }
+
+    function toggleAdminPrompt() {
+      if (isAdminMode) {
+        toggleAdminMode(false);
+        return;
+      }
+      const pin = prompt('🔒 ENGR. HANIF KHAN - ADMIN SOURCING ACCESS\n\nPlease enter your 4-digit Security PIN:\n(Default PIN: 0315)');
+      if (pin === '0315' || pin === '786' || pin === '15537') {
+        toggleAdminMode(true);
+      } else if (pin !== null) {
+        alert('❌ Invalid PIN. Sourcing intelligence remains hidden.');
+      }
+    }
+
+    function toggleAdminMode(enable) {
+      isAdminMode = enable;
+      try {
+        if (enable) {
+          sessionStorage.setItem('eh_admin_mode', 'true');
+        } else {
+          sessionStorage.removeItem('eh_admin_mode');
+        }
+      } catch(e) {}
+      updateAdminUIState();
+      filterEStore();
+    }
 
     function renderEStoreGrid(items) {
       const grid = document.getElementById('eStoreGrid');
@@ -2741,6 +2978,27 @@
         const isStock = p.status.includes('In Stock');
         const stockText = isStock ? 'Stock: Available' : 'Stock: On Demand';
         const stockColor = isStock ? 'text-emerald-600' : 'text-amber-600';
+        const margin = p.rate - (p.cost || Math.round(p.rate * 0.78));
+        const marginPct = Math.round((margin / p.rate) * 100);
+
+        // Admin-only intelligence box (STRICTLY HIDDEN FROM CUSTOMERS)
+        let adminSourcingBox = '';
+        if (isAdminMode) {
+          adminSourcingBox = 
+            '<div class="mt-2.5 p-2 bg-amber-50/90 rounded-lg border border-amber-300 text-[11px] space-y-1 text-slate-800">' +
+              '<div class="flex items-center justify-between font-bold text-amber-950">' +
+                '<span><i class="fa-solid fa-truck-ramp-box text-amber-600"></i> Best Source: <span class="text-sky-700 underline">' + p.supplier + '</span></span>' +
+                '<span class="text-emerald-700 font-mono font-bold">+Rs. ' + margin.toLocaleString() + ' (' + marginPct + '%)</span>' +
+              '</div>' +
+              '<div class="flex items-center justify-between text-[10px] text-slate-600">' +
+                '<span>Buy Cost: <b class="text-slate-900 font-mono">Rs. ' + p.cost.toLocaleString() + '</b></span>' +
+                '<span>Selling Rate: <b class="text-slate-900 font-mono">Rs. ' + p.rate.toLocaleString() + '</b></span>' +
+              '</div>' +
+              '<a href="' + p.supplierUrl + '" target="_blank" class="block text-center bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold py-1 px-2 rounded text-[10px] transition-colors shadow-xs mt-1">' +
+                '<i class="fa-solid fa-arrow-up-right-from-square"></i> Order Direct on ' + p.supplier + '' +
+              '</a>' +
+            '</div>';
+        }
 
         html += '<div class="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">' +
           '<div>' +
@@ -2761,9 +3019,12 @@
                 '<div class="text-base font-black text-sky-600 font-mono pt-1">PKR ' + p.rate.toLocaleString() + '</div>' +
               '</div>' +
             '</div>' +
+
+            // Inject Admin Sourcing Box if logged in
+            (adminSourcingBox ? '<div class="px-3 pb-2">' + adminSourcingBox + '</div>' : '') +
           '</div>' +
 
-          // Action row matching Image 2: QTY + Add to Cart + Product Info
+          // Action row matching Image 2: QTY + Add to Cart + WhatsApp Direct
           '<div class="p-3 bg-slate-50 border-t border-slate-100 flex items-center gap-2">' +
             '<div class="flex items-center text-xs text-slate-600">' +
               '<span class="mr-1 font-semibold text-[11px]">QTY:</span>' +
@@ -2780,6 +3041,7 @@
       });
 
       grid.innerHTML = html;
+      updateAdminUIState();
     }
 
     function addWithQty(id) {
@@ -2812,6 +3074,9 @@
       const subtotal = p.rate * qty;
       const total = subtotal + deliveryFee;
 
+      const costTotal = (p.cost || Math.round(p.rate * 0.78)) * qty;
+      const profitTotal = subtotal - costTotal;
+
       const msg = 
         '🛒 *ORDER COMPONENT VIA HANIF ELECTRONICS*\n' +
         '========================================\n' +
@@ -2822,7 +3087,17 @@
         '*Delivery Destination:* ' + cityName + ' (PKR ' + deliveryFee + ')\n' +
         '*TOTAL PAYABLE:* PKR ' + total.toLocaleString() + '\n' +
         '----------------------------------------\n' +
-        'Please confirm availability, payment details, and dispatch.';
+        'Please confirm availability, payment details, and dispatch.\n' +
+        '========================================\n' +
+        '🔒 *[ADMIN PROCUREMENT DISPATCH GUIDE]*\n' +
+        '*(Confidential - For Engr. Hanif Khan Only)*\n' +
+        '• Best Supplier: ' + p.supplier + '\n' +
+        '• Wholesale Buy Cost: PKR ' + p.cost.toLocaleString() + ' each (Total: PKR ' + costTotal.toLocaleString() + ')\n' +
+        '• Customer Sell Rate: PKR ' + p.rate.toLocaleString() + ' each (Total: PKR ' + subtotal.toLocaleString() + ')\n' +
+        '• Net Profit Margin: +PKR ' + profitTotal.toLocaleString() + '\n' +
+        '• Direct Buy URL: ' + p.supplierUrl + '\n' +
+        '• Courier Dispatch: ' + cityName + ' via Trax / TCS COD\n' +
+        '========================================';
 
       window.open('https://wa.me/923159915537?text=' + encodeURIComponent(msg), '_blank');
     }
@@ -2834,7 +3109,7 @@
         '🛒 *QUICK INQUIRY / ORDER*\n' +
         '*Product:* ' + itemName + '\n' +
         '*City:* ' + cityName + '\n' +
-        'Please confirm availability and dispatch cost.';
+        'Please confirm availability, best rate, and dispatch cost.';
       window.open('https://wa.me/923159915537?text=' + encodeURIComponent(msg), '_blank');
     }
 
@@ -2877,17 +3152,15 @@
       const catSelect = document.getElementById('eStoreCatFilter');
       if (catSelect) catSelect.value = cat;
 
-      // Clear search box to view full category
       const s = document.getElementById('eStoreSearchInput');
       if (s) s.value = '';
 
       filterEStore();
 
-      // Highlight active link
       const links = document.querySelectorAll('.cat-link');
       links.forEach(l => l.classList.remove('text-sky-600', 'font-bold', 'bg-sky-50'));
-      if (event && event.target) {
-        const btn = event.target.closest('button');
+      if (window.event && window.event.target) {
+        const btn = window.event.target.closest('button');
         if (btn) btn.classList.add('text-sky-600', 'font-bold', 'bg-sky-50');
       }
     }
@@ -2913,7 +3186,44 @@
       window.open('https://wa.me/923159915537?text=' + encodeURIComponent(msg), '_blank');
     }
 
-    // Initialize E-Store Catalog on load
+    // 6-Supplier Rate Comparator Modal for Admin
+    function openSupplierCompareModal() {
+      const query = (document.getElementById('eStoreSearchInput') ? document.getElementById('eStoreSearchInput').value.trim() : '') || 'esp32';
+      const modal = document.getElementById('supplierCompareModal');
+      const input = document.getElementById('compQueryInput');
+      if (input) input.value = query;
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeSupplierCompareModal() {
+      const modal = document.getElementById('supplierCompareModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function openSingleSupplierSearch(siteKey) {
+      const q = encodeURIComponent(document.getElementById('compQueryInput').value.trim() || 'esp32');
+      let url = '';
+      switch (siteKey) {
+        case 'digilog': url = 'https://digilog.pk/search?q=' + q; break;
+        case 'electrobes': url = 'https://electrobes.com/?s=' + q + '&post_type=product'; break;
+        case 'arduinopak': url = 'https://www.arduinopak.com/Search.aspx?key=' + q; break;
+        case 'ewall': url = 'https://www.ewall.com.pk/?s=' + q + '&post_type=product'; break;
+        case 'dreamsmart': url = 'https://www.dreamsmart.pk/?s=' + q + '&post_type=product'; break;
+        case 'colgroad': url = 'https://colgroad.com/?s=' + q + '&post_type=product'; break;
+      }
+      if (url) window.open(url, '_blank');
+    }
+
+    function openAll6Suppliers() {
+      const q = encodeURIComponent(document.getElementById('compQueryInput').value.trim() || 'esp32');
+      window.open('https://digilog.pk/search?q=' + q, '_blank');
+      window.open('https://electrobes.com/?s=' + q + '&post_type=product', '_blank');
+      window.open('https://www.arduinopak.com/Search.aspx?key=' + q, '_blank');
+      window.open('https://www.ewall.com.pk/?s=' + q + '&post_type=product', '_blank');
+      window.open('https://www.dreamsmart.pk/?s=' + q + '&post_type=product', '_blank');
+      window.open('https://colgroad.com/?s=' + q + '&post_type=product', '_blank');
+    }
+// Initialize E-Store Catalog on load
     document.addEventListener('DOMContentLoaded', function() {
       renderEStoreGrid(STORE_ITEMS);
     });
@@ -3022,6 +3332,71 @@
         <button onclick="dispatchWhatsAppOrder()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all">
           <i class="fa-brands fa-whatsapp text-lg"></i>
           <span>Confirm & Send Order to WhatsApp (0315-9915537)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 6-Supplier Rate Comparator Modal (Admin Only) -->
+  <div id="supplierCompareModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-xl w-full p-6 text-slate-800">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center font-bold">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-slate-900">Admin 6-Supplier Live Comparator</h3>
+            <p class="text-[10px] text-slate-500">Query all 6 authorized Pakistani vendors to verify today's lowest rate</p>
+          </div>
+        </div>
+        <button onclick="closeSupplierCompareModal()" class="text-slate-400 hover:text-slate-600 text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-xs font-bold text-slate-700 mb-1">Component / Module Name:</label>
+        <div class="flex gap-2">
+          <input type="text" id="compQueryInput" placeholder="e.g. ESP32, NEMA 17, Arduino Uno..." class="flex-1 px-3 py-2 border border-slate-300 rounded-lg text-xs font-medium focus:outline-none focus:border-amber-500">
+          <button onclick="openAll6Suppliers()" class="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold text-xs px-4 py-2 rounded-lg shadow flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-bolt"></i> Open All 6 at Once
+          </button>
+        </div>
+      </div>
+
+      <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Or Query Individual Supplier:</div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+        <button onclick="openSingleSupplierSearch('digilog')" class="p-2.5 bg-slate-50 hover:bg-sky-50 border border-slate-200 hover:border-sky-300 rounded-lg text-left transition-colors font-semibold text-slate-800 flex items-center justify-between">
+          <span>Digilog.pk</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+        </button>
+        <button onclick="openSingleSupplierSearch('electrobes')" class="p-2.5 bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 rounded-lg text-left transition-colors font-semibold text-slate-800 flex items-center justify-between">
+          <span>Electrobes.com</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+        </button>
+        <button onclick="openSingleSupplierSearch('arduinopak')" class="p-2.5 bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 rounded-lg text-left transition-colors font-semibold text-slate-800 flex items-center justify-between">
+          <span>ArduinoPak.com</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+        </button>
+        <button onclick="openSingleSupplierSearch('ewall')" class="p-2.5 bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 rounded-lg text-left transition-colors font-semibold text-slate-800 flex items-center justify-between">
+          <span>EWall.com.pk</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+        </button>
+        <button onclick="openSingleSupplierSearch('dreamsmart')" class="p-2.5 bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 rounded-lg text-left transition-colors font-semibold text-slate-800 flex items-center justify-between">
+          <span>DreamSmart.pk</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+        </button>
+        <button onclick="openSingleSupplierSearch('colgroad')" class="p-2.5 bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-amber-300 rounded-lg text-left transition-colors font-semibold text-slate-800 flex items-center justify-between">
+          <span>ColgRoad.com</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i>
+        </button>
+      </div>
+
+      <div class="mt-4 pt-3 border-t border-slate-200 flex justify-end">
+        <button onclick="closeSupplierCompareModal()" class="text-xs font-bold text-slate-500 hover:text-slate-800 px-3 py-1.5">
+          Close
         </button>
       </div>
     </div>
