@@ -85,6 +85,7 @@
             <i class="fa-solid fa-graduation-cap"></i> FYP Solutions
           </a>
           <a href="#projects" class="hover:text-teal-400 transition-colors">Projects & Builds</a>
+          <a href="#components" class="hover:text-teal-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-microchip text-xs text-teal-400"></i> Components Search</a>
           <a href="#telemetry" class="hover:text-teal-400 transition-colors">Live Telemetry</a>
           <a href="#services" class="hover:text-teal-400 transition-colors">Services</a>
           <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
@@ -480,6 +481,126 @@
       </div>
     </div>
   </section>
+
+
+  <!-- ==================== ELECTRONICS COMPONENTS & SOURCING SEARCH ==================== -->
+  <section id="components" class="py-16 bg-slate-900/60 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-900/50 text-teal-300 text-xs font-semibold border border-teal-500/30 uppercase tracking-wider">
+            <i class="fa-solid fa-microchip"></i> Hardware & Component Sourcing
+          </span>
+          <h2 class="text-3xl font-extrabold text-white mt-2">Electronics Components & Parts Search</h2>
+          <p class="text-sm text-slate-300 mt-1 max-w-2xl">
+            Search our verified inventory or request on-demand sourcing for any electronic component, microcontroller, IC, sensor, motor, capacitor, or resistor for your projects.
+          </p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <a href="#custom-component-box" class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-400 hover:to-emerald-500 text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow-lg shadow-teal-500/20 transition-all">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+            <span>Request Unlisted Component</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Search Bar -->
+      <div class="relative mb-6">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 text-lg">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <input 
+          type="text" 
+          id="compSearchInput" 
+          oninput="filterComponentCatalog()" 
+          placeholder="Search any component by name or keyword (e.g. ESP32, Arduino Uno, NEMA 17, Resistor, Capacitor, DC Motor, Stepper, Sensor, BTS7960, Relay, TFT)..." 
+          class="w-full bg-slate-950/90 border-2 border-slate-700 hover:border-teal-500/60 focus:border-teal-400 rounded-2xl pl-12 pr-4 py-3.5 text-sm sm:text-base text-white placeholder-slate-500 focus:outline-none shadow-xl transition-all font-sans"
+        >
+        <span id="searchCountBadge" class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-mono bg-slate-800 text-teal-400 px-2.5 py-1 rounded-lg border border-slate-700">
+          Showing All Components
+        </span>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center gap-2 mb-8" id="categoryPillContainer">
+        <button onclick="setCategoryFilter('ALL')" class="cat-pill active-cat px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-teal-500 text-slate-950 transition-all">
+          All Components (<span id="countAll">0</span>)
+        </button>
+        <button onclick="setCategoryFilter('MCU')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
+          <i class="fa-solid fa-microchip mr-1"></i> MCUs & Boards
+        </button>
+        <button onclick="setCategoryFilter('MOTORS')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
+          <i class="fa-solid fa-gear mr-1"></i> Motors & Steppers
+        </button>
+        <button onclick="setCategoryFilter('DRIVERS')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
+          <i class="fa-solid fa-bolt mr-1"></i> Motor Drivers & Relays
+        </button>
+        <button onclick="setCategoryFilter('SENSORS')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
+          <i class="fa-solid fa-wave-square mr-1"></i> Sensors & Probes
+        </button>
+        <button onclick="setCategoryFilter('PASSIVES')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
+          <i class="fa-solid fa-dna mr-1"></i> Resistors, Capacitors & Regulators
+        </button>
+        <button onclick="setCategoryFilter('DISPLAYS')" class="cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700">
+          <i class="fa-solid fa-tv mr-1"></i> Displays & Wireless
+        </button>
+      </div>
+
+      <!-- Component Dynamic Grid -->
+      <div id="componentsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- No Results State -->
+      <div id="noResultsState" class="hidden text-center py-12 bg-slate-950/60 rounded-2xl border border-slate-800">
+        <i class="fa-solid fa-box-open text-4xl text-slate-600 mb-3 block"></i>
+        <h4 class="text-lg font-bold text-white">No Exact Match Found in Stock Catalog</h4>
+        <p class="text-xs text-slate-400 max-w-md mx-auto mt-1 mb-5">
+          Don't worry! I can source, test, or provide any unlisted electronic component or IC directly for your project.
+        </p>
+        <button onclick="requestUnlistedFromSearch()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-2.5 rounded-xl text-xs shadow-lg shadow-emerald-600/30 transition-all">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Source This Component on WhatsApp (0315-9915537)</span>
+        </button>
+      </div>
+
+      <!-- Custom Component On-Demand Sourcing Box -->
+      <div id="custom-component-box" class="mt-12 bg-gradient-to-r from-teal-950 via-slate-900 to-cyan-950 p-6 sm:p-8 rounded-2xl border border-teal-500/30 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">On-Demand Sourcing & Verification</span>
+            <h3 class="text-2xl font-bold text-white mt-1">Looking for a Specific Model, Chip, or Sensor?</h3>
+            <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              If your engineering design requires a specialized microcontroller, obsolete semiconductor, precision low-tolerance resistor kit, high-voltage capacitor, or industrial sensor probe — send the part number or specification below and I will arrange it with verified testing.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs text-slate-400 mt-4">
+              <span class="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">✓ Tested on Bench</span>
+              <span class="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">✓ Breadboard / PCB Pinout Support</span>
+              <span class="bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">✓ Nationwide Delivery</span>
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-slate-900/90 p-5 rounded-xl border border-slate-800">
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Enter Component Name / Part Number / Specs:</label>
+            <input 
+              type="text" 
+              id="customPartInput" 
+              placeholder="e.g., IRFZ44N MOSFET, NEMA 23, STM32F401, 100uF 50V..." 
+              class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white mb-3 focus:outline-none focus:border-teal-400"
+            >
+            <button 
+              onclick="submitCustomPartInquiry()" 
+              class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all"
+            >
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              <span>Source Component via WhatsApp (0315-9915537)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 
   <!-- ==================== LIVE INTERACTIVE TELEMETRY ==================== -->
   <section id="telemetry" class="py-16 border-b border-slate-800">
@@ -975,6 +1096,537 @@
       const text = encodeURIComponent('Hello Engr Hanif,\\n\\n*Project / FYP Build Inquiry*\\n*Name:* ' + name + '\\n*Category:* ' + service + '\\n*Timeline:* ' + timeline + '\\n*Details:* ' + details);
       window.open('https://wa.me/923159915537?text=' + text, '_blank');
     }
+  
+    // ==========================================
+    // ELECTRONICS COMPONENTS COMPREHENSIVE DATASET
+    // ==========================================
+    const ELECTRONICS_COMPONENTS = [
+      // --- Microcontrollers & Boards ---
+      {
+        id: 'c1',
+        name: 'ESP32-WROOM-32 Dev Module',
+        category: 'MCU',
+        categoryLabel: 'Microcontroller',
+        icon: 'fa-microchip',
+        badgeColor: 'teal',
+        specs: 'Dual-Core 240MHz, 4MB Flash, Wi-Fi 802.11 b/g/n, BLE 4.2, 38 GPIOs, CP2102/CH340 USB.',
+        tags: ['esp32', 'mcu', 'wifi', 'bluetooth', 'iot', 'espressif', 'wroom']
+      },
+      {
+        id: 'c2',
+        name: 'ESP32-C3 Super Mini',
+        category: 'MCU',
+        categoryLabel: 'Microcontroller',
+        icon: 'fa-microchip',
+        badgeColor: 'teal',
+        specs: 'Single-Core RISC-V 160MHz, Ultra-Compact Form Factor, Wi-Fi 4 + BLE 5, Low Power.',
+        tags: ['esp32', 'c3', 'risc-v', 'super mini', 'mcu', 'compact', 'iot']
+      },
+      {
+        id: 'c3',
+        name: 'Arduino Uno R3 (ATmega328P)',
+        category: 'MCU',
+        categoryLabel: 'Microcontroller',
+        icon: 'fa-microchip',
+        badgeColor: 'teal',
+        specs: '16MHz Clock, 5V Native Logic, 14 Digital I/O (6 PWM), 6 Analog Inputs, Standard Shield Pinout.',
+        tags: ['arduino', 'uno', 'atmega328p', '5v', 'mcu', 'arduino uno', 'starter']
+      },
+      {
+        id: 'c4',
+        name: 'Arduino Nano V3 (CH340 / FTDI)',
+        category: 'MCU',
+        categoryLabel: 'Microcontroller',
+        icon: 'fa-microchip',
+        badgeColor: 'teal',
+        specs: 'ATmega328P, 16MHz, Breadboard Friendly DIP-30, Mini-USB / Type-C, 8 Analog Pins.',
+        tags: ['arduino', 'nano', 'breadboard', 'atmega328p', 'nano v3']
+      },
+      {
+        id: 'c5',
+        name: 'Arduino Mega 2560 R3',
+        category: 'MCU',
+        categoryLabel: 'Microcontroller',
+        icon: 'fa-microchip',
+        badgeColor: 'teal',
+        specs: 'ATmega2560, 54 Digital I/O (15 PWM), 16 Analog Inputs, 4 Hardware UART Serial Ports.',
+        tags: ['arduino', 'mega', '2560', 'mega 2560', 'mcu', 'high io']
+      },
+      {
+        id: 'c6',
+        name: 'Raspberry Pi 4 Model B (4GB / 8GB)',
+        category: 'MCU',
+        categoryLabel: 'Single Board Computer',
+        icon: 'fa-brands fa-raspberry-pi',
+        badgeColor: 'purple',
+        specs: 'Broadcom 1.5GHz Quad-Core 64-bit ARM Cortex-A72, 4K Dual Display, Gigabit Ethernet, USB 3.0.',
+        tags: ['raspberry pi', 'rpi4', 'pi 4', 'sbc', 'linux', 'arm', 'python']
+      },
+      {
+        id: 'c7',
+        name: 'Raspberry Pi Pico / Pico W',
+        category: 'MCU',
+        categoryLabel: 'Microcontroller',
+        icon: 'fa-microchip',
+        badgeColor: 'purple',
+        specs: 'RP2040 Dual ARM Cortex-M0+, 133MHz, 26 Multi-function GPIOs, Optional Wi-Fi (Pico W).',
+        tags: ['pico', 'rp2040', 'raspberry pi pico', 'pico w', 'mcu']
+      },
+      {
+        id: 'c8',
+        name: 'STM32F103C8T6 "Blue Pill"',
+        category: 'MCU',
+        categoryLabel: 'Microcontroller',
+        icon: 'fa-microchip',
+        badgeColor: 'blue',
+        specs: 'ARM 32-bit Cortex-M3 CPU, 72MHz, 64KB Flash, 20KB SRAM, USB, CAN, 2x SPI, 2x I2C.',
+        tags: ['stm32', 'blue pill', 'f103', 'arm', 'cortex-m3', 'stm']
+      },
+      {
+        id: 'c9',
+        name: 'ESP8266 NodeMCU v3 (ESP-12E)',
+        category: 'MCU',
+        categoryLabel: 'Microcontroller',
+        icon: 'fa-wifi',
+        badgeColor: 'teal',
+        specs: '80MHz Tensilica CPU, 4MB Flash, Integrated Wi-Fi TCP/IP Stack, Breadboard Friendly.',
+        tags: ['esp8266', 'nodemcu', 'esp-12e', 'wifi', 'iot']
+      },
+      {
+        id: 'c10',
+        name: 'ESP32-CAM AI-Thinker Board',
+        category: 'MCU',
+        categoryLabel: 'Camera & MCU',
+        icon: 'fa-camera',
+        badgeColor: 'teal',
+        specs: 'ESP32-S + OV2640 2MP Camera Sensor, MicroSD card slot, Onboard Flash LED, Wi-Fi/BLE.',
+        tags: ['esp32-cam', 'camera', 'ov2640', 'esp32', 'video stream']
+      },
+
+      // --- Motors & Actuators ---
+      {
+        id: 'c11',
+        name: 'NEMA 17 Stepper Motor',
+        category: 'MOTORS',
+        categoryLabel: 'Stepper Motor',
+        icon: 'fa-gear',
+        badgeColor: 'cyan',
+        specs: '1.8° Step Angle (200 steps/rev), 1.5A - 2.0A Phase Current, High Holding Torque for 3D Printers & CNC.',
+        tags: ['nema 17', 'stepper', 'motor', 'nema', 'stepper motor', 'cnc', '3d printer']
+      },
+      {
+        id: 'c12',
+        name: '28BYJ-48 Geared Stepper + ULN2003',
+        category: 'MOTORS',
+        categoryLabel: 'Stepper Motor & Driver',
+        icon: 'fa-gear',
+        badgeColor: 'cyan',
+        specs: '5V DC 4-Phase Geared Stepper with 1:64 reduction gear ratio and 4-channel LED driver board.',
+        tags: ['28byj-48', 'uln2003', 'stepper', 'geared stepper', 'motor']
+      },
+      {
+        id: 'c13',
+        name: 'High-Torque DC Gear Motors (12V / 24V)',
+        category: 'MOTORS',
+        categoryLabel: 'DC Motor',
+        icon: 'fa-gear',
+        badgeColor: 'cyan',
+        specs: 'All-metal planetary / spur gearbox, 50 to 1000 RPM variations, heavy-duty robotics & automation.',
+        tags: ['dc motor', 'gear motor', 'motor', '12v motor', 'robotics']
+      },
+      {
+        id: 'c14',
+        name: 'SG90 Micro Servo Motor (9g)',
+        category: 'MOTORS',
+        categoryLabel: 'Servo Motor',
+        icon: 'fa-arrows-rotate',
+        badgeColor: 'cyan',
+        specs: 'Operating voltage 4.8V-6V, 1.8 kg/cm torque, 180-degree rotation, lightweight for robotic arms.',
+        tags: ['servo', 'sg90', 'servo motor', 'micro servo', 'motor']
+      },
+      {
+        id: 'c15',
+        name: 'MG996R Metal Gear High-Torque Servo',
+        category: 'MOTORS',
+        categoryLabel: 'Servo Motor',
+        icon: 'fa-arrows-rotate',
+        badgeColor: 'cyan',
+        specs: 'Full metal gearing, 11 kg/cm torque at 6V, double ball bearing, high-strength industrial steering.',
+        tags: ['mg996r', 'servo', 'metal gear', 'high torque', 'motor']
+      },
+      {
+        id: 'c16',
+        name: 'BLDC Brushless Motor & 30A/40A ESC',
+        category: 'MOTORS',
+        categoryLabel: 'Brushless Motor',
+        icon: 'fa-fan',
+        badgeColor: 'cyan',
+        specs: 'Outrunner high-RPM brushless DC motor paired with 30A/40A 3S-4S electronic speed controller.',
+        tags: ['bldc', 'brushless motor', 'esc', 'bldc motor', 'motor']
+      },
+
+      // --- Motor Drivers & Relays ---
+      {
+        id: 'c17',
+        name: 'BTS7960 43A High-Power H-Bridge',
+        category: 'DRIVERS',
+        categoryLabel: 'Motor Driver',
+        icon: 'fa-bolt',
+        badgeColor: 'orange',
+        specs: 'Dual BTS7960 half-bridge, 6V-27V, up to 43A peak current, isolated PWM drive for heavy DC motors.',
+        tags: ['bts7960', 'driver', 'h-bridge', 'motor driver', 'high power']
+      },
+      {
+        id: 'c18',
+        name: 'L298N Dual H-Bridge Motor Driver',
+        category: 'DRIVERS',
+        categoryLabel: 'Motor Driver',
+        icon: 'fa-bolt',
+        badgeColor: 'orange',
+        specs: 'Controls 2 DC motors (bi-directional) or 1 4-wire bipolar stepper motor, onboard 5V regulator.',
+        tags: ['l298n', 'driver', 'dual h-bridge', 'motor driver']
+      },
+      {
+        id: 'c19',
+        name: 'A4988 / DRV8825 Stepper Drivers',
+        category: 'DRIVERS',
+        categoryLabel: 'Stepper Driver',
+        icon: 'fa-bolt',
+        badgeColor: 'orange',
+        specs: 'Step/Dir interface, up to 1/16 (A4988) or 1/32 (DRV8825) microstepping, adjustable current limit.',
+        tags: ['a4988', 'drv8825', 'stepper driver', 'driver', 'pololu']
+      },
+      {
+        id: 'c20',
+        name: 'TB6600 4A Industrial Stepper Driver',
+        category: 'DRIVERS',
+        categoryLabel: 'Industrial Driver',
+        icon: 'fa-bolt',
+        badgeColor: 'orange',
+        specs: '9V-42V DC input, up to 4.0A current, optical isolation, up to 1/32 microstepping, metal casing.',
+        tags: ['tb6600', 'driver', 'industrial stepper driver', 'nema 23', 'cnc']
+      },
+      {
+        id: 'c21',
+        name: 'Fotek 40A Solid State Relay (SSR-40DA)',
+        category: 'DRIVERS',
+        categoryLabel: 'Solid State Relay',
+        icon: 'fa-toggle-on',
+        badgeColor: 'orange',
+        specs: 'Input 3-32V DC, Output 24-380V AC up to 40A, optical isolation, zero-crossing spark-free switching.',
+        tags: ['ssr', 'fotek', 'relay', 'solid state relay', 'heater', 'pump', 'ac switch']
+      },
+      {
+        id: 'c22',
+        name: '1 / 2 / 4 / 8-Channel 5V Relay Modules',
+        category: 'DRIVERS',
+        categoryLabel: 'Electromechanical Relay',
+        icon: 'fa-toggle-on',
+        badgeColor: 'orange',
+        specs: 'Optocoupler isolated inputs, 10A 250V AC / 30V DC switching contacts, LED state indicators.',
+        tags: ['relay', '5v relay', 'channel relay', 'optocoupler', 'switch']
+      },
+
+      // --- Passives, Resistors, Capacitors & Power ---
+      {
+        id: 'c23',
+        name: 'Resistors Assortment (1/4W & 1/2W Metal Film)',
+        category: 'PASSIVES',
+        categoryLabel: 'Resistors',
+        icon: 'fa-sliders',
+        badgeColor: 'emerald',
+        specs: 'Values from 1Ω to 10MΩ, 1% high-precision metal film, through-hole & SMD (0805, 0603, 1206).',
+        tags: ['resistor', 'resistors', 'metal film', 'ohm', 'pull-up', 'divider', 'passives']
+      },
+      {
+        id: 'c24',
+        name: 'Electrolytic Capacitors (1uF to 4700uF)',
+        category: 'PASSIVES',
+        categoryLabel: 'Capacitors',
+        icon: 'fa-battery-half',
+        badgeColor: 'emerald',
+        specs: 'Radial lead aluminum electrolytic capacitors, 16V, 25V, 35V, 50V rated for power filtering.',
+        tags: ['capacitor', 'capacitors', 'electrolytic', 'filtering', 'uf', 'passives']
+      },
+      {
+        id: 'c25',
+        name: 'Ceramic & Monolithic Capacitors (22pF to 100nF)',
+        category: 'PASSIVES',
+        categoryLabel: 'Capacitors',
+        icon: 'fa-battery-half',
+        badgeColor: 'emerald',
+        specs: '100nF (104) decoupling capacitors, 22pF crystal oscillator capacitors, 50V ceramic disc.',
+        tags: ['ceramic capacitor', 'capacitor', '104', '100nf', 'decoupling', 'passives']
+      },
+      {
+        id: 'c26',
+        name: 'Power MOSFETs (IRFZ44N / IRLZ44N / IRF540N)',
+        category: 'PASSIVES',
+        categoryLabel: 'Semiconductors',
+        icon: 'fa-bolt',
+        badgeColor: 'emerald',
+        specs: 'N-Channel enhancement mode power MOSFETs, low Rds(on), high speed switching for DC loads.',
+        tags: ['mosfet', 'irfz44n', 'transistor', 'semiconductor', 'pwm switch']
+      },
+      {
+        id: 'c27',
+        name: 'DC-DC Buck & Boost Modules (LM2596 / XL6009)',
+        category: 'PASSIVES',
+        categoryLabel: 'Power Supply',
+        icon: 'fa-plug',
+        badgeColor: 'emerald',
+        specs: 'LM2596 Step-Down (1.25V-35V 3A), XL6009 Step-Up (up to 35V 4A), high-efficiency switching.',
+        tags: ['buck', 'boost', 'lm2596', 'xl6009', 'voltage regulator', 'dc-dc', 'power']
+      },
+
+      // --- Sensors & Probes ---
+      {
+        id: 'c28',
+        name: 'AJ-SR04M Waterproof Ultrasonic Sensor',
+        category: 'SENSORS',
+        categoryLabel: 'Ultrasonic Sensor',
+        icon: 'fa-water',
+        badgeColor: 'blue',
+        specs: 'Integrated sealed waterproof probe, 20-450cm detection range, 5V DC, ideal for water tanks.',
+        tags: ['ultrasonic', 'aj-sr04m', 'waterproof ultrasonic', 'water level', 'distance', 'sensor']
+      },
+      {
+        id: 'c29',
+        name: 'HC-SR04 Ultrasonic Distance Sensor',
+        category: 'SENSORS',
+        categoryLabel: 'Distance Sensor',
+        icon: 'fa-ruler-horizontal',
+        badgeColor: 'blue',
+        specs: '2cm - 400cm range with 3mm precision, 40kHz sonic burst, standard 4-pin interface (VCC/Trig/Echo/GND).',
+        tags: ['hc-sr04', 'ultrasonic', 'distance sensor', 'sensor']
+      },
+      {
+        id: 'c30',
+        name: 'DS18B20 Waterproof Temperature Probe',
+        category: 'SENSORS',
+        categoryLabel: 'Temperature Sensor',
+        icon: 'fa-temperature-half',
+        badgeColor: 'blue',
+        specs: 'Stainless steel sealed tube, -55°C to +125°C range, 9 to 12-bit OneWire digital output.',
+        tags: ['ds18b20', 'temperature', 'onewire', 'waterproof temp', 'sensor']
+      },
+      {
+        id: 'c31',
+        name: 'DHT22 / AM2302 Temp & Humidity Sensor',
+        category: 'SENSORS',
+        categoryLabel: 'Environmental Sensor',
+        icon: 'fa-cloud-sun',
+        badgeColor: 'blue',
+        specs: 'Calibrated digital output, 0-100% RH (2-5% accuracy), -40°C to 80°C (±0.5°C accuracy).',
+        tags: ['dht22', 'am2302', 'temperature', 'humidity', 'sensor']
+      },
+      {
+        id: 'c32',
+        name: 'AD8232 ECG Sensor & 3-Lead Cable Kit',
+        category: 'SENSORS',
+        categoryLabel: 'Biomedical Sensor',
+        icon: 'fa-heart-pulse',
+        badgeColor: 'red',
+        specs: 'Single-lead heart rate monitor front-end, integrated instrumentation amplifier, leads-off detection.',
+        tags: ['ad8232', 'ecg', 'heart rate', 'biomedical', 'electrodes', 'sensor']
+      },
+      {
+        id: 'c33',
+        name: 'MAX30102 Pulse Oximeter & Heart Rate',
+        category: 'SENSORS',
+        categoryLabel: 'Biomedical Sensor',
+        icon: 'fa-heart-pulse',
+        badgeColor: 'red',
+        specs: 'High-sensitivity photoplethysmogram (PPG), I2C communication, dual Red & IR LEDs for SpO2 calculation.',
+        tags: ['max30102', 'spo2', 'pulse oximeter', 'heart rate', 'biomedical', 'sensor']
+      },
+      {
+        id: 'c34',
+        name: 'MQ Series Gas Sensors (MQ-2 / MQ-135 / MQ-7)',
+        category: 'SENSORS',
+        categoryLabel: 'Gas Sensor',
+        icon: 'fa-smog',
+        badgeColor: 'blue',
+        specs: 'MQ-2 (LPG, Smoke), MQ-135 (Air Quality, Ammonia, CO2), MQ-7 (Carbon Monoxide), analog/digital outs.',
+        tags: ['mq-2', 'mq-135', 'mq-7', 'gas sensor', 'air quality', 'smoke', 'sensor']
+      },
+      {
+        id: 'c35',
+        name: 'Capacitive Soil Moisture Sensor v1.2',
+        category: 'SENSORS',
+        categoryLabel: 'Agricultural Sensor',
+        icon: 'fa-seedling',
+        badgeColor: 'blue',
+        specs: 'Corrosion-resistant capacitive sensing plate (no exposed electrodes), 3.3V-5.5V operating voltage.',
+        tags: ['soil moisture', 'capacitive soil', 'irrigation', 'agriculture', 'sensor']
+      },
+
+      // --- Displays & Wireless ---
+      {
+        id: 'c36',
+        name: '2.8" SPI TFT LCD (ILI9341 320x240)',
+        category: 'DISPLAYS',
+        categoryLabel: 'Color Display',
+        icon: 'fa-tv',
+        badgeColor: 'blue',
+        specs: '320x240 RGB color TFT with 4-wire SPI interface, 3.3V logic, optional resistive touch controller.',
+        tags: ['tft', 'ili9341', 'spi display', 'lcd', 'screen', 'color display']
+      },
+      {
+        id: 'c37',
+        name: '0.96" I2C OLED Display (SSD1306)',
+        category: 'DISPLAYS',
+        categoryLabel: 'OLED Display',
+        icon: 'fa-tv',
+        badgeColor: 'blue',
+        specs: '128x64 high-contrast monochrome pixels (White/Blue), I2C address 0x3C, ultra-low power consumption.',
+        tags: ['oled', 'ssd1306', '0.96 oled', 'i2c display', 'screen']
+      },
+      {
+        id: 'c38',
+        name: 'P10 Outdoor LED Display Panel',
+        category: 'DISPLAYS',
+        categoryLabel: 'LED Panel',
+        icon: 'fa-tv',
+        badgeColor: 'blue',
+        specs: '32x16 dots, 10mm pitch, HUB12 / HUB08 interface, high brightness for scrolling text notice boards.',
+        tags: ['p10', 'led display', 'p10 panel', 'hub12', 'hub08', 'scrolling text']
+      },
+      {
+        id: 'c39',
+        name: 'NEO-6M GPS Module with Ceramic Antenna',
+        category: 'DISPLAYS',
+        categoryLabel: 'GPS / Navigation',
+        icon: 'fa-location-dot',
+        badgeColor: 'emerald',
+        specs: '50-channel u-blox 6 positioning engine, UART NMEA output, EEPROM backup battery, 2.5m accuracy.',
+        tags: ['gps', 'neo-6m', 'neo6m', 'navigation', 'satellite', 'location']
+      },
+      {
+        id: 'c40',
+        name: 'SX1278 LoRa Transceiver Module (433MHz / 868MHz)',
+        category: 'DISPLAYS',
+        categoryLabel: 'Long Range Wireless',
+        icon: 'fa-satellite-dish',
+        badgeColor: 'emerald',
+        specs: 'SPI interface, Semtech SX1278 spread-spectrum LoRa, up to 5-10km line-of-sight telemetry.',
+        tags: ['lora', 'sx1278', 'wireless', 'telemetry', 'long range']
+      },
+      {
+        id: 'c41',
+        name: 'SIM800L GPRS/GSM Cellular Module',
+        category: 'DISPLAYS',
+        categoryLabel: 'Cellular / Telematics',
+        icon: 'fa-sim-card',
+        badgeColor: 'emerald',
+        specs: 'Quad-band 850/900/1800/1900MHz, AT command interface, SMS dispatch, voice, and GPRS data.',
+        tags: ['sim800l', 'gsm', 'gprs', 'sms', 'cellular', 'sim']
+      }
+    ];
+
+    let currentCatFilter = 'ALL';
+
+    function renderComponentGrid(items) {
+      const grid = document.getElementById('componentsGrid');
+      const noResults = document.getElementById('noResultsState');
+      const countBadge = document.getElementById('searchCountBadge');
+
+      if (!grid) return;
+
+      if (items.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        countBadge.innerText = '0 components found';
+        return;
+      }
+
+      noResults.classList.add('hidden');
+      countBadge.innerText = items.length + ' component' + (items.length === 1 ? '' : 's') + ' available';
+
+      let html = '';
+      items.forEach(c => {
+        const waMsg = encodeURIComponent('Hello Engr Hanif, I am inquiring about component sourcing/availability for: ' + c.name + ' (' + c.categoryLabel + ')');
+        html += '<div class="bg-slate-900 border border-slate-800 hover:border-teal-500/50 rounded-2xl p-5 flex flex-col justify-between transition-all group shadow-md hover:shadow-teal-500/10">' +
+          '<div>' +
+            '<div class="flex items-center justify-between mb-3">' +
+              '<span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-teal-400 border border-slate-700">' + c.categoryLabel + '</span>' +
+              '<div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 group-hover:text-teal-400 transition-colors">' +
+                '<i class="fa-solid ' + c.icon + '"></i>' +
+              '</div>' +
+            '</div>' +
+            '<h4 class="font-bold text-white text-base group-hover:text-teal-400 transition-colors leading-snug">' + c.name + '</h4>' +
+            '<p class="text-xs text-slate-400 mt-2 leading-relaxed">' + c.specs + '</p>' +
+          '</div>' +
+          '<div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between">' +
+            '<span class="text-xs text-emerald-400 font-semibold flex items-center gap-1"><i class="fa-solid fa-check"></i> Available</span>' +
+            '<a href="https://wa.me/923159915537?text=' + waMsg + '" target="_blank" class="bg-emerald-600/90 hover:bg-emerald-500 text-white font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all shadow-md">' +
+              '<i class="fa-brands fa-whatsapp text-sm"></i> Inquire' +
+            '</a>' +
+          '</div>' +
+        '</div>';
+      });
+
+      grid.innerHTML = html;
+    }
+
+    function filterComponentCatalog() {
+      const searchInput = document.getElementById('compSearchInput');
+      const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
+      let filtered = ELECTRONICS_COMPONENTS;
+
+      // Filter by category
+      if (currentCatFilter !== 'ALL') {
+        filtered = filtered.filter(c => c.category === currentCatFilter);
+      }
+
+      // Filter by search query
+      if (query.length > 0) {
+        filtered = filtered.filter(c => {
+          return c.name.toLowerCase().includes(query) ||
+                 c.specs.toLowerCase().includes(query) ||
+                 c.categoryLabel.toLowerCase().includes(query) ||
+                 c.tags.some(t => t.toLowerCase().includes(query));
+        });
+      }
+
+      renderComponentGrid(filtered);
+    }
+
+    function setCategoryFilter(cat) {
+      currentCatFilter = cat;
+      const pills = document.querySelectorAll('.cat-pill');
+      pills.forEach(p => {
+        p.className = 'cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition-all border border-slate-700';
+      });
+
+      event.target.closest('button').className = 'cat-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-teal-500 text-slate-950 transition-all';
+      filterComponentCatalog();
+    }
+
+    function submitCustomPartInquiry() {
+      const part = document.getElementById('customPartInput').value.trim();
+      if (!part) {
+        alert('Please enter a component name or part number.');
+        return;
+      }
+      const msg = encodeURIComponent('Hello Engr Hanif, I am looking to source / purchase the following electronic component:\n\n*Component Name / Specs:* ' + part + '\n\nPlease let me know availability and pricing.');
+      window.open('https://wa.me/923159915537?text=' + msg, '_blank');
+    }
+
+    function requestUnlistedFromSearch() {
+      const q = document.getElementById('compSearchInput').value.trim();
+      const msg = encodeURIComponent('Hello Engr Hanif, I searched your website for: "' + q + '". Do you have this component or can you source it for my project?');
+      window.open('https://wa.me/923159915537?text=' + msg, '_blank');
+    }
+
+    // Initialize Catalog on Page Load
+    document.addEventListener('DOMContentLoaded', function() {
+      const countEl = document.getElementById('countAll');
+      if (countEl) countEl.innerText = ELECTRONICS_COMPONENTS.length;
+      renderComponentGrid(ELECTRONICS_COMPONENTS);
+    });
+
   </script>
 </body>
 </html>
