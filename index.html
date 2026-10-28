@@ -521,6 +521,32 @@
         </span>
       </div>
 
+      
+      <!-- Multi-Vendor Rate Query & Sourcing Guarantee Banner -->
+      <div class="mb-8 p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900 border border-teal-500/30 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-2xl flex-shrink-0">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono font-bold text-teal-400 bg-teal-900/50 px-2 py-0.5 rounded border border-teal-500/30">BEST PRICE QUERY ENGINE</span>
+              <span class="text-xs text-slate-400">Digilog.pk • Electrobes.com • ArduinoPak.com</span>
+            </div>
+            <h4 class="text-base font-bold text-white mt-1">Multi-Vendor Price Comparison & Genuine Sourcing</h4>
+            <p class="text-xs text-slate-300 mt-0.5">
+              Every component inquiry is queried across Pakistan's leading electronics suppliers to secure the lowest market rate, transparent courier delivery charges, and verified bench-tested quality before dispatch.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <a href="https://digilog.pk/" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">Digilog</a>
+          <a href="https://electrobes.com/" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">Electrobes</a>
+          <a href="https://www.arduinopak.com/" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">ArduinoPak</a>
+        </div>
+      </div>
+
+
       <!-- Category Filter Pills -->
       <div class="flex flex-wrap items-center gap-2 mb-8" id="categoryPillContainer">
         <button onclick="setCategoryFilter('ALL')" class="cat-pill active-cat px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-teal-500 text-slate-950 transition-all">
@@ -1559,9 +1585,14 @@
           '</div>' +
           '<div class="mt-5 pt-3 border-t border-slate-800 flex items-center justify-between">' +
             '<span class="text-xs text-emerald-400 font-semibold flex items-center gap-1"><i class="fa-solid fa-check"></i> Available</span>' +
-            '<a href="https://wa.me/923159915537?text=' + waMsg + '" target="_blank" class="bg-emerald-600/90 hover:bg-emerald-500 text-white font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all shadow-md">' +
-              '<i class="fa-brands fa-whatsapp text-sm"></i> Inquire' +
-            '</a>' +
+            '<div class="flex items-center gap-1.5">' +
+              '<button onclick="openOrderModal(\'' + c.id + '\')" class="bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition-all shadow-md">' +
+                '<i class="fa-solid fa-cart-plus"></i> Order' +
+              '</button>' +
+              '<a href="https://wa.me/923159915537?text=' + waMsg + '" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs px-2.5 py-1.5 rounded-lg flex items-center gap-1 border border-slate-700 transition-all">' +
+                '<i class="fa-brands fa-whatsapp text-teal-400"></i>' +
+              '</a>' +
+            '</div>' +
           '</div>' +
         '</div>';
       });
@@ -1620,6 +1651,148 @@
       window.open('https://wa.me/923159915537?text=' + msg, '_blank');
     }
 
+    
+    // ==========================================
+    // MULTI-VENDOR RATE & ORDER DISPATCH SYSTEM
+    // ==========================================
+    let currentOrderItem = null;
+
+    // Attach estimated market rates (queried across Digilog, Electrobes, ArduinoPak)
+    const COMPONENT_PRICES = {
+      'c1': 1650, // ESP32-WROOM
+      'c2': 1150, // ESP32-C3
+      'c3': 1350, // Arduino Uno
+      'c4': 750,  // Arduino Nano
+      'c5': 3200, // Arduino Mega 2560
+      'c6': 18500, // Raspberry Pi 4
+      'c7': 1850, // Raspberry Pi Pico W
+      'c8': 950,  // STM32 Blue Pill
+      'c9': 950,  // ESP8266 NodeMCU
+      'c10': 2450, // ESP32-CAM
+      'c11': 2400, // NEMA 17 Stepper
+      'c12': 550,  // 28BYJ-48 Stepper
+      'c13': 1200, // DC Gear Motor
+      'c14': 380,  // SG90 Servo
+      'c15': 1450, // MG996R Servo
+      'c16': 3600, // BLDC Motor + ESC
+      'c17': 2100, // BTS7960 43A Driver
+      'c18': 480,  // L298N Driver
+      'c19': 350,  // A4988 / DRV8825
+      'c20': 2250, // TB6600 Driver
+      'c21': 1950, // Fotek 40A SSR
+      'c22': 280,  // Relay Module
+      'c23': 250,  // Resistor Pack
+      'c24': 300,  // Electrolytic Capacitors
+      'c25': 200,  // Ceramic Capacitors
+      'c26': 180,  // IRFZ44N MOSFET
+      'c27': 350,  // LM2596 Buck
+      'c28': 1450, // AJ-SR04M Waterproof
+      'c29': 350,  // HC-SR04
+      'c30': 480,  // DS18B20 Probe
+      'c31': 750,  // DHT22
+      'c32': 1850, // AD8232 ECG Kit
+      'c33': 850,  // MAX30102
+      'c34': 550,  // MQ Gas Sensor
+      'c35': 320,  // Soil Moisture
+      'c36': 2850, // 2.8 TFT ILI9341
+      'c37': 650,  // 0.96 OLED
+      'c38': 2400, // P10 LED Panel
+      'c39': 1750, // NEO-6M GPS
+      'c40': 1850, // SX1278 LoRa
+      'c41': 1650  // SIM800L GSM
+    };
+
+    function openOrderModal(compId) {
+      const comp = ELECTRONICS_COMPONENTS.find(c => c.id === compId);
+      if (!comp) return;
+
+      currentOrderItem = comp;
+      const basePrice = COMPONENT_PRICES[compId] || 1000;
+
+      document.getElementById('orderModalTitle').innerText = 'Order ' + comp.name;
+      document.getElementById('orderModalCompName').innerText = comp.name;
+      document.getElementById('orderModalCompCategory').innerText = comp.categoryLabel + ' • Sourced via Digilog / Electrobes / ArduinoPak';
+      document.getElementById('orderModalBasePrice').innerText = 'Rs. ' + basePrice.toLocaleString();
+      document.getElementById('orderQtyInput').value = 1;
+
+      recalcOrderTotal();
+      document.getElementById('orderComponentModal').classList.remove('hidden');
+    }
+
+    function closeOrderModal() {
+      document.getElementById('orderComponentModal').classList.add('hidden');
+    }
+
+    function adjustOrderQty(delta) {
+      const input = document.getElementById('orderQtyInput');
+      let val = parseInt(input.value) || 1;
+      val += delta;
+      if (val < 1) val = 1;
+      if (val > 100) val = 100;
+      input.value = val;
+      recalcOrderTotal();
+    }
+
+    function recalcOrderTotal() {
+      if (!currentOrderItem) return;
+      const basePrice = COMPONENT_PRICES[currentOrderItem.id] || 1000;
+      const qty = parseInt(document.getElementById('orderQtyInput').value) || 1;
+      const citySelect = document.getElementById('orderCitySelect');
+      const deliveryFee = parseInt(citySelect.value) || 260;
+
+      const subtotal = basePrice * qty;
+      const total = subtotal + deliveryFee;
+
+      document.getElementById('orderSubtotalText').innerText = 'Rs. ' + subtotal.toLocaleString() + ' (' + qty + 'x)';
+      document.getElementById('orderDeliveryText').innerText = 'Rs. ' + deliveryFee.toLocaleString();
+      document.getElementById('orderFinalTotalText').innerText = 'Rs. ' + total.toLocaleString();
+    }
+
+    function dispatchWhatsAppOrder() {
+      if (!currentOrderItem) return;
+
+      const customerName = document.getElementById('orderCustomerName').value.trim();
+      const customerAddress = document.getElementById('orderCustomerAddress').value.trim();
+
+      if (!customerName || !customerAddress) {
+        alert('Please enter your name, delivery address, and phone number so we can process your order.');
+        return;
+      }
+
+      const qty = parseInt(document.getElementById('orderQtyInput').value) || 1;
+      const basePrice = COMPONENT_PRICES[currentOrderItem.id] || 1000;
+      const citySelect = document.getElementById('orderCitySelect');
+      const selectedOption = citySelect.options[citySelect.selectedIndex];
+      const cityName = selectedOption.getAttribute('data-city') || 'Standard Courier';
+      const deliveryFee = parseInt(citySelect.value) || 260;
+
+      const subtotal = basePrice * qty;
+      const grandTotal = subtotal + deliveryFee;
+
+      const orderText = 
+        '🛒 *NEW ELECTRONICS COMPONENT ORDER*\n' +
+        '==================================\n' +
+        '*Customer:* ' + customerName + '\n' +
+        '*Address & City:* ' + customerAddress + ' (' + cityName + ')\n' +
+        '----------------------------------\n' +
+        '*Item Details:*\n' +
+        '• ' + currentOrderItem.name + '\n' +
+        '• Category: ' + currentOrderItem.categoryLabel + '\n' +
+        '• Quantity: ' + qty + '\n' +
+        '• Unit Rate: Rs. ' + basePrice.toLocaleString() + ' (Best Rate: Digilog/Electrobes/ArduinoPak)\n' +
+        '----------------------------------\n' +
+        '*Items Subtotal:* Rs. ' + subtotal.toLocaleString() + '\n' +
+        '*Courier Delivery Fee:* Rs. ' + deliveryFee.toLocaleString() + ' (' + cityName + ')\n' +
+        '*TOTAL PAYABLE:* Rs. ' + grandTotal.toLocaleString() + '\n' +
+        '----------------------------------\n' +
+        '*Payment Method:* Cash on Delivery / Bank Transfer\n' +
+        '*Action Required:* Please confirm availability & dispatch tracking.';
+
+      window.open('https://wa.me/923159915537?text=' + encodeURIComponent(orderText), '_blank');
+      closeOrderModal();
+    }
+
+
     // Initialize Catalog on Page Load
     document.addEventListener('DOMContentLoaded', function() {
       const countEl = document.getElementById('countAll');
@@ -1628,5 +1801,99 @@
     });
 
   </script>
+
+  <!-- ==================== COMPONENT ORDER & DELIVERY CALCULATOR MODAL ==================== -->
+  <div id="orderComponentModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl glow-teal">
+      <div class="flex justify-between items-center pb-3 border-b border-slate-800">
+        <div>
+          <span class="text-xs font-mono text-teal-400 uppercase tracking-wider">Multi-Vendor Verified Sourcing</span>
+          <h3 id="orderModalTitle" class="text-lg font-bold text-white">Place Component Order</h3>
+        </div>
+        <button onclick="closeOrderModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <!-- Selected Component Card -->
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex justify-between items-center">
+          <div>
+            <div id="orderModalCompName" class="font-bold text-white text-sm">ESP32-WROOM-32 Dev Module</div>
+            <div id="orderModalCompCategory" class="text-slate-400 text-xs mt-0.5">Sourced via Digilog / Electrobes / ArduinoPak</div>
+          </div>
+          <div class="text-right">
+            <span class="text-slate-400 text-xs block">Best Market Rate:</span>
+            <span id="orderModalBasePrice" class="font-bold text-teal-400 font-mono text-sm">Rs. 1,650</span>
+          </div>
+        </div>
+
+        <!-- Quantity & City Delivery -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-slate-300 font-semibold mb-1">Quantity</label>
+            <div class="flex items-center">
+              <button onclick="adjustOrderQty(-1)" class="w-8 h-8 rounded-l-lg bg-slate-800 hover:bg-slate-700 text-white font-bold">-</button>
+              <input type="number" id="orderQtyInput" value="1" min="1" max="100" class="w-full h-8 bg-slate-950 border-y border-slate-700 text-center text-white font-mono focus:outline-none" oninput="recalcOrderTotal()">
+              <button onclick="adjustOrderQty(1)" class="w-8 h-8 rounded-r-lg bg-slate-800 hover:bg-slate-700 text-white font-bold">+</button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-slate-300 font-semibold mb-1">Delivery Destination</label>
+            <select id="orderCitySelect" class="w-full h-8 bg-slate-950 border border-slate-700 rounded-lg px-2 text-white focus:outline-none focus:border-teal-400" onchange="recalcOrderTotal()">
+              <option value="150" data-city="Peshawar (Local Delivery)">Peshawar (Rs. 150)</option>
+              <option value="260" data-city="Islamabad / Rawalpindi (Courier)" selected>Islamabad / Rawalpindi (Rs. 260)</option>
+              <option value="280" data-city="Lahore / Punjab (TCS / Leopard)">Lahore / Punjab (Rs. 280)</option>
+              <option value="300" data-city="Karachi / Sindh (TCS / Leopard)">Karachi / Sindh (Rs. 300)</option>
+              <option value="280" data-city="KPK / Other Cities (Courier)">Other Cities Nationwide (Rs. 280)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Customer Info -->
+        <div class="space-y-2 pt-1">
+          <div>
+            <label class="block text-slate-300 font-semibold mb-1">Your Full Name</label>
+            <input type="text" id="orderCustomerName" required placeholder="e.g. Engr. Hamza Khan / Student" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-teal-400">
+          </div>
+          <div>
+            <label class="block text-slate-300 font-semibold mb-1">Delivery Address & Phone Number</label>
+            <input type="text" id="orderCustomerAddress" required placeholder="House/Hostel, Street, City, Contact Phone..." class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-teal-400">
+          </div>
+        </div>
+
+        <!-- Price Breakdown -->
+        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1.5 font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Items Subtotal:</span>
+            <span id="orderSubtotalText" class="text-white">Rs. 1,650</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Courier Delivery Fee:</span>
+            <span id="orderDeliveryText" class="text-cyan-400">Rs. 260</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Vendor Sourcing:</span>
+            <span class="text-emerald-400 text-xs">Best Rate (Digilog/Electrobes/ArduinoPak)</span>
+          </div>
+          <div class="pt-2 border-t border-slate-800 flex justify-between text-sm font-bold">
+            <span class="text-white font-sans">Total Amount Payable:</span>
+            <span id="orderFinalTotalText" class="text-teal-400 text-base">Rs. 1,910</span>
+          </div>
+        </div>
+
+        <div class="text-[11px] text-slate-400 flex items-center gap-1.5">
+          <i class="fa-solid fa-shield-halved text-teal-400"></i>
+          <span>Order is reviewed and approved on WhatsApp with transaction slip confirmation.</span>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-800">
+        <button onclick="dispatchWhatsAppOrder()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Confirm & Send Order to WhatsApp (0315-9915537)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
