@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engr. Hanif Ullah | Hardware & Embedded Systems Engineer</title>
+  <meta name="description" content="Professional Engineering Portfolio, IoT Telemetry Dashboard, and Electronics Store of Engr. Hanif Ullah (CISNR, UET Peshawar).">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN for real-time telemetry -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              cyan: '#06b6d4',
+              teal: '#00c7b7',
+              dark: '#0f172a',
+              card: '#1e293b',
+              border: '#334155'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .animate-pulse-slow { animation: pulse-slow 2.5s infinite ease-in-out; }
+    .glassmorphism {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white min-h-screen flex flex-col">
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <nav class="sticky top-0 z-50 glassmorphism border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-cyan-500 flex items-center justify-center font-bold text-white shadow-lg shadow-teal-500/20">
+            EH
+          </div>
+          <div>
+            <a href="#home" class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+              Engr. Hanif Ullah
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-teal-900/60 text-teal-300 border border-teal-500/30">CISNR</span>
+            </a>
+            <p class="text-xs text-slate-400 hidden sm:block">Hardware & Embedded Systems Engineer</p>
+          </div>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
+          <a href="#projects" class="hover:text-teal-400 transition-colors">Projects</a>
+          <a href="#telemetry" class="hover:text-teal-400 transition-colors">Live Telemetry</a>
+          <a href="#store" class="hover:text-teal-400 transition-colors">Hardware Store</a>
+          <a href="#services" class="hover:text-teal-400 transition-colors">Services</a>
+          <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
+          <a href="https://wa.me/923159915537" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg font-semibold transition-all shadow-md shadow-emerald-600/30">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>WhatsApp (0315-9915537)</span>
+          </a>
+        </div>
+
+        <!-- Mobile WhatsApp button -->
+        <div class="flex md:hidden items-center gap-3">
+          <a href="https://wa.me/923159915537" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white p-2 rounded-lg text-sm">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="home" class="relative overflow-hidden pt-12 pb-20 border-b border-slate-800/80">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.15),rgba(255,255,255,0))]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-teal-500/30 text-teal-400 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-teal-400 animate-ping"></span>
+            Centre of Intelligent Systems & Network Research (CISNR), UET Peshawar
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            Engineering Resilient <br class="hidden sm:inline" />
+            <span class="bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+              Embedded Systems
+            </span> & IoT Telemetry
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+            From circuit design and firmware development to industrial sensor telemetry and field automation. Specializing in 
+            <strong class="text-white">ESP32, STM32, Arduino, Raspberry Pi, LoRa, GSM/GPS</strong>, and mission-critical cloud dashboards.
+          </p>
+
+          <!-- Action buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="https://wa.me/923159915537?text=Hello%20Engr%20Hanif,%20I%20am%20interested%20in%20your%20engineering%20services/projects." target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-400 hover:to-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-teal-500/25 transition-all">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>WhatsApp (0315-9915537)</span>
+            </a>
+            <a href="https://github.com/Engrhanifkhan" target="_blank" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-5 py-3.5 rounded-xl border border-slate-700 transition-all">
+              <i class="fa-brands fa-github text-xl"></i>
+              <span>GitHub Repositories</span>
+            </a>
+            <a href="https://www.linkedin.com/in/engr-hanif-khan-628a04259/" target="_blank" class="inline-flex items-center gap-2 bg-blue-700/30 hover:bg-blue-700/50 text-blue-300 border border-blue-500/30 font-semibold px-5 py-3.5 rounded-xl transition-all">
+              <i class="fa-brands fa-linkedin text-xl"></i>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+
+          <!-- Quick Metrics -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 max-w-lg">
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-white">10+</div>
+              <div class="text-xs text-slate-400">Published Hardware Repos</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-teal-400">100%</div>
+              <div class="text-xs text-slate-400">Verified Pinouts</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400">0315-9915537</div>
+              <div class="text-xs text-slate-400">Direct Contact</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Telemetry Card Preview -->
+        <div class="lg:col-span-5">
+          <div class="glassmorphism rounded-2xl p-6 border border-slate-800 shadow-2xl relative overflow-hidden">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-700/60 mb-4">
+              <div class="flex items-center gap-3">
+                <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-sm font-bold text-white uppercase tracking-wider">Live System Telemetry</span>
+              </div>
+              <span class="text-xs bg-slate-800 text-teal-400 font-mono px-2.5 py-1 rounded-md border border-slate-700">ESP32 Online</span>
+            </div>
+
+            <!-- Quick Telemetry Gauges -->
+            <div class="space-y-4">
+              <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800 flex justify-between items-center">
+                <div>
+                  <div class="text-xs text-slate-400">Geothermal Loop In/Out</div>
+                  <div class="text-lg font-bold text-teal-400 font-mono">19.4°C / 14.8°C (COP 4.2)</div>
+                </div>
+                <i class="fa-solid fa-temperature-half text-teal-400 text-xl"></i>
+              </div>
+
+              <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800 flex justify-between items-center">
+                <div>
+                  <div class="text-xs text-slate-400">Overhead Water Tank (ESP-NOW)</div>
+                  <div class="text-lg font-bold text-cyan-400 font-mono">78% Full | Pump: STANDBY</div>
+                </div>
+                <i class="fa-solid fa-water text-cyan-400 text-xl"></i>
+              </div>
+
+              <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800 flex justify-between items-center">
+                <div>
+                  <div class="text-xs text-slate-400">Emergency Patient Vitals</div>
+                  <div class="text-lg font-bold text-emerald-400 font-mono">HR: 76 bpm | SpO2: 98%</div>
+                </div>
+                <i class="fa-solid fa-heart-pulse text-emerald-400 text-xl"></i>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-slate-800 text-center">
+              <a href="#telemetry" class="text-xs text-teal-400 hover:text-teal-300 font-semibold inline-flex items-center gap-1.5">
+                <span>Interact with live simulators below</span>
+                <i class="fa-solid fa-arrow-down"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED PROJECTS ==================== -->
+  <section id="projects" class="py-16 bg-slate-900/40 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Open-Source & Production Hardware</span>
+          <h2 class="text-3xl font-extrabold text-white mt-1">Featured Engineering Projects</h2>
+        </div>
+        <p class="text-sm text-slate-400 max-w-md mt-2 md:mt-0">
+          Independent repositories with authentic hardware schematics, verified pinouts, and production C/C++ firmware.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Project 1: Geothermal -->
+        <div class="bg-slate-900 border border-slate-800 hover:border-teal-500/50 rounded-2xl p-6 transition-all flex flex-col justify-between group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded text-xs font-mono bg-teal-900/50 text-teal-300 border border-teal-500/30">ESP32 + Adafruit IO</span>
+              <a href="https://engrhanifkhan.github.io/shallow-geothermal-monitor/" target="_blank" class="text-xs text-emerald-400 hover:underline flex items-center gap-1">
+                <i class="fa-solid fa-globe"></i> Live Web Demo
+              </a>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-teal-400 transition-colors">
+              Shallow Geothermal Telemetry System
+            </h3>
+            <p class="text-sm text-slate-400 mt-2">
+              Modular Horizontal Ground Heat Exchanger (HGHE) telemetry with multi-depth DS18B20 OneWire temperature logging, ESP32 firmware, COP thermodynamics, and live GitHub Pages web dashboard.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <a href="https://github.com/Engrhanifkhan/shallow-geothermal-monitor" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
+              <i class="fa-brands fa-github text-base"></i> View Code
+            </a>
+            <button onclick="openBOMModal('Geothermal')" class="text-xs bg-slate-800 hover:bg-slate-700 text-teal-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
+              BOM & Pinout
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 2: Water Tank Level -->
+        <div class="bg-slate-900 border border-slate-800 hover:border-teal-500/50 rounded-2xl p-6 transition-all flex flex-col justify-between group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded text-xs font-mono bg-cyan-900/50 text-cyan-300 border border-cyan-500/30">ESP-NOW + Blynk IoT</span>
+              <span class="text-xs text-slate-400">Ultrasonic + SSR</span>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+              Wireless Tank Level & Pump Control
+            </h3>
+            <p class="text-sm text-slate-400 mt-2">
+              Dual-mode water resource automation platform with ESP-NOW zero-latency peer-to-peer transmission, AJ-SR04M waterproof ultrasonic sensing, SSR pump automation, and Blynk cloud telemetry.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <a href="https://github.com/Engrhanifkhan/wireless-tank-level-indicator" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
+              <i class="fa-brands fa-github text-base"></i> View Code
+            </a>
+            <button onclick="openBOMModal('TankLevel')" class="text-xs bg-slate-800 hover:bg-slate-700 text-cyan-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
+              BOM & Pinout
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 3: ILI9341 TFT Display -->
+        <div class="bg-slate-900 border border-slate-800 hover:border-teal-500/50 rounded-2xl p-6 transition-all flex flex-col justify-between group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded text-xs font-mono bg-blue-900/50 text-blue-300 border border-blue-500/30">SPI 320x240</span>
+              <span class="text-xs text-slate-400">Adafruit GFX</span>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+              ESP32 ILI9341 SPI TFT Suite
+            </h3>
+            <p class="text-sm text-slate-400 mt-2">
+              Hardware testing suite and telemetry dashboard for ESP32 and 2.8" SPI ILI9341 TFT display. Includes low-level MADCTL 0x36 mirror text hardware register fix and benchmark widgets.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <a href="https://github.com/Engrhanifkhan/esp32-ili9341-tft-display" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
+              <i class="fa-brands fa-github text-base"></i> View Code
+            </a>
+            <button onclick="openBOMModal('TFT')" class="text-xs bg-slate-800 hover:bg-slate-700 text-blue-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
+              BOM & Pinout
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 4: 3D Printer Controller -->
+        <div class="bg-slate-900 border border-slate-800 hover:border-teal-500/50 rounded-2xl p-6 transition-all flex flex-col justify-between group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded text-xs font-mono bg-orange-900/50 text-orange-300 border border-orange-500/30">Dual-Zone SSR</span>
+              <span class="text-xs text-slate-400">3x DS18B20</span>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">
+              ESP32 3D Printer Enclosure Controller
+            </h3>
+            <p class="text-sm text-slate-400 mt-2">
+              Chamber & bed regulation unit with 3x DS18B20 OneWire sensors, dual-zone SSR PID heating control, safety thermal runaways, and cloud monitoring via Blynk IoT.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <a href="https://github.com/Engrhanifkhan/esp32-3d-printer-controller" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
+              <i class="fa-brands fa-github text-base"></i> View Code
+            </a>
+            <button onclick="openBOMModal('3DPrinter')" class="text-xs bg-slate-800 hover:bg-slate-700 text-orange-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
+              BOM & Pinout
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 5: Emergency Response -->
+        <div class="bg-slate-900 border border-slate-800 hover:border-teal-500/50 rounded-2xl p-6 transition-all flex flex-col justify-between group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded text-xs font-mono bg-red-900/50 text-red-300 border border-red-500/30">ECG + SpO2 + GSM</span>
+              <span class="text-xs text-slate-400">NEO-6M GPS</span>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-red-400 transition-colors">
+              Smart Healthcare & Emergency Response
+            </h3>
+            <p class="text-sm text-slate-400 mt-2">
+              Accident victim telemetry system with AD8232 ECG front-end, MAX30102 SpO2 & HR, body temperature probe, GPS tracking, and automated SIM800L emergency SMS dispatcher.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <a href="https://github.com/Engrhanifkhan/Smart-Emergency-Response-System-For-Accident-Victims" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
+              <i class="fa-brands fa-github text-base"></i> View Code
+            </a>
+            <button onclick="openBOMModal('Emergency')" class="text-xs bg-slate-800 hover:bg-slate-700 text-red-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
+              BOM & Pinout
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 6: Automated Imagery -->
+        <div class="bg-slate-900 border border-slate-800 hover:border-teal-500/50 rounded-2xl p-6 transition-all flex flex-col justify-between group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded text-xs font-mono bg-purple-900/50 text-purple-300 border border-purple-500/30">Raspberry Pi + OpenCV</span>
+              <span class="text-xs text-slate-400">3-Axis Stepper</span>
+            </div>
+            <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+              Automated Imagery & Incubation Suite
+            </h3>
+            <p class="text-sm text-slate-400 mt-2">
+              Biomedical platform with 3-axis motorized tray positioning (10 petri dish capacity), automated autofocus, 7x7 tile mosaic stitching, and PID incubator temperature control.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+            <a href="https://github.com/Engrhanifkhan/automatic_imagery_unit_hardware_testing_tool" target="_blank" class="text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5">
+              <i class="fa-brands fa-github text-base"></i> View Code
+            </a>
+            <button onclick="openBOMModal('Imagery')" class="text-xs bg-slate-800 hover:bg-slate-700 text-purple-300 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors">
+              BOM & Pinout
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LIVE INTERACTIVE TELEMETRY ==================== -->
+  <section id="telemetry" class="py-16 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 text-center max-w-2xl mx-auto">
+        <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Interactive Simulator</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Live Hardware Telemetry Demonstrators</h2>
+        <p class="text-sm text-slate-400 mt-2">
+          Interact with simulated sensor streams and actuators demonstrating our embedded firmware logic in real-time.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- Simulator 1: Wireless Water Tank -->
+        <div class="glassmorphism rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-slate-700/60 mb-4">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-water text-cyan-400"></i>
+                <h3 class="font-bold text-white text-base">Water Tank Level & Pump Automation (ESP-NOW)</h3>
+              </div>
+              <span id="tankPumpBadge" class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono">PUMP: STANDBY</span>
+            </div>
+
+            <!-- Animated Water Tank Graphic -->
+            <div class="flex items-center gap-6 my-6">
+              <div class="w-32 h-44 bg-slate-900 border-2 border-slate-700 rounded-xl relative overflow-hidden flex flex-col justify-end p-1 shadow-inner">
+                <div id="waterLevelBar" class="w-full bg-gradient-to-t from-cyan-600 to-teal-400 rounded-lg transition-all duration-300 relative" style="height: 65%;">
+                  <div class="absolute inset-x-0 top-0 h-1 bg-white/40"></div>
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center font-mono font-bold text-lg text-white drop-shadow">
+                  <span id="waterPercentLabel">65</span>%
+                </div>
+              </div>
+
+              <div class="flex-1 space-y-3">
+                <div>
+                  <div class="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>Adjust Water Height (Simulated Sensor Distance):</span>
+                    <span id="sliderValueLabel" class="text-cyan-400 font-mono">65 cm</span>
+                  </div>
+                  <input type="range" min="0" max="100" value="65" id="tankSlider" class="w-full accent-cyan-400 cursor-pointer" oninput="updateTankSimulation(this.value)">
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                  <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                    <span class="text-slate-400">Remaining Volume:</span>
+                    <div id="tankVolumeLabel" class="text-white font-bold font-mono text-sm mt-0.5">325 Liters</div>
+                  </div>
+                  <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800">
+                    <span class="text-slate-400">Auto Thresholds:</span>
+                    <div class="text-slate-300 font-mono text-xs mt-0.5">Start &lt;20% | Stop &gt;95%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+            <span>Watchdog Failsafe: 15s Timeout</span>
+            <button onclick="toggleManualPump()" class="bg-cyan-900/60 hover:bg-cyan-800/80 text-cyan-300 px-3 py-1.5 rounded-lg font-semibold border border-cyan-500/30 transition-all">
+              Toggle Manual Override
+            </button>
+          </div>
+        </div>
+
+        <!-- Simulator 2: Real-Time ECG & Patient Monitor -->
+        <div class="glassmorphism rounded-2xl p-6 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-slate-700/60 mb-4">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-heart-pulse text-red-500"></i>
+                <h3 class="font-bold text-white text-base">Emergency Vital Signs Telemetry (AD8232 + MAX30102)</h3>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/30 font-mono">LIVE FEED</span>
+            </div>
+
+            <!-- ECG Canvas -->
+            <div class="bg-slate-950 rounded-xl p-2 border border-slate-800 relative mb-4">
+              <canvas id="ecgCanvas" width="450" height="110" class="w-full h-28 block"></canvas>
+            </div>
+
+            <!-- Vital metrics cards -->
+            <div class="grid grid-cols-3 gap-3">
+              <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center">
+                <div class="text-xs text-slate-400">Heart Rate</div>
+                <div id="hrValue" class="text-xl font-bold font-mono text-red-400 mt-1">74 BPM</div>
+              </div>
+              <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center">
+                <div class="text-xs text-slate-400">Oxygen (SpO2)</div>
+                <div id="spo2Value" class="text-xl font-bold font-mono text-cyan-400 mt-1">98%</div>
+              </div>
+              <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-center">
+                <div class="text-xs text-slate-400">Body Temp</div>
+                <div id="tempValue" class="text-xl font-bold font-mono text-emerald-400 mt-1">36.8°C</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 mt-4">
+            <span>GPS: 34.0151° N, 71.5249° E</span>
+            <a href="https://wa.me/923159915537?text=Alert%20Simulation:%20Patient%20Vitals%20Triggered%20from%20Portfolio" target="_blank" class="text-red-400 hover:underline">
+              Dispatch SMS Alert
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ELECTRONICS STORE & INVENTORY ==================== -->
+  <section id="store" class="py-16 bg-slate-900/40 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Components & Modules</span>
+          <h2 class="text-3xl font-extrabold text-white mt-1">Hardware Store & Development Kits</h2>
+        </div>
+        <div class="mt-4 md:mt-0 flex items-center gap-3">
+          <button onclick="openCartModal()" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-teal-300 px-4 py-2 rounded-xl border border-slate-700 font-semibold text-sm transition-all">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>View Cart (<span id="cartCount">0</span>)</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Product 1 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
+          <div>
+            <div class="w-full h-36 bg-slate-800/80 rounded-lg flex items-center justify-center text-4xl text-teal-400 mb-4">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <span class="text-xs font-mono text-teal-400 bg-teal-900/40 px-2 py-0.5 rounded">MCU DevKit</span>
+            <h4 class="font-bold text-white text-base mt-2">ESP32-WROOM-32 Dev Module</h4>
+            <p class="text-xs text-slate-400 mt-1">Dual-core 240MHz, 4MB Flash, Wi-Fi & BLE, CP2102 USB.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+            <span class="font-bold text-teal-400 font-mono">Rs. 1,650</span>
+            <button onclick="addToCart('ESP32-WROOM-32', 1650)" class="bg-teal-600 hover:bg-teal-500 text-white text-xs px-3 py-1.5 rounded-lg font-semibold transition-all">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
+          <div>
+            <div class="w-full h-36 bg-slate-800/80 rounded-lg flex items-center justify-center text-4xl text-cyan-400 mb-4">
+              <i class="fa-solid fa-tv"></i>
+            </div>
+            <span class="text-xs font-mono text-cyan-400 bg-cyan-900/40 px-2 py-0.5 rounded">SPI Display</span>
+            <h4 class="font-bold text-white text-base mt-2">2.8" SPI TFT LCD (ILI9341)</h4>
+            <p class="text-xs text-slate-400 mt-1">320x240 RGB resolution, 4-wire SPI, 3.3V logic, optional touch.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+            <span class="font-bold text-teal-400 font-mono">Rs. 2,850</span>
+            <button onclick="addToCart('2.8 SPI TFT ILI9341', 2850)" class="bg-teal-600 hover:bg-teal-500 text-white text-xs px-3 py-1.5 rounded-lg font-semibold transition-all">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
+          <div>
+            <div class="w-full h-36 bg-slate-800/80 rounded-lg flex items-center justify-center text-4xl text-emerald-400 mb-4">
+              <i class="fa-solid fa-water"></i>
+            </div>
+            <span class="text-xs font-mono text-emerald-400 bg-emerald-900/40 px-2 py-0.5 rounded">Sensor</span>
+            <h4 class="font-bold text-white text-base mt-2">AJ-SR04M Waterproof Ultrasonic</h4>
+            <p class="text-xs text-slate-400 mt-1">Integrated sealed probe, 20-450cm range, industrial water tanks.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+            <span class="font-bold text-teal-400 font-mono">Rs. 1,450</span>
+            <button onclick="addToCart('AJ-SR04M Sensor', 1450)" class="bg-teal-600 hover:bg-teal-500 text-white text-xs px-3 py-1.5 rounded-lg font-semibold transition-all">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
+          <div>
+            <div class="w-full h-36 bg-slate-800/80 rounded-lg flex items-center justify-center text-4xl text-orange-400 mb-4">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <span class="text-xs font-mono text-orange-400 bg-orange-900/40 px-2 py-0.5 rounded">Relay</span>
+            <h4 class="font-bold text-white text-base mt-2">Fotek 40A Solid State Relay (SSR)</h4>
+            <p class="text-xs text-slate-400 mt-1">SSR-40DA, 3-32V DC input, 24-380V AC switching for motors/heaters.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+            <span class="font-bold text-teal-400 font-mono">Rs. 1,950</span>
+            <button onclick="addToCart('Fotek 40A SSR', 1950)" class="bg-teal-600 hover:bg-teal-500 text-white text-xs px-3 py-1.5 rounded-lg font-semibold transition-all">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ENGINEERING SERVICES & QUOTATIONS ==================== -->
+  <section id="services" class="py-16 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Engineering Services</span>
+          <h2 class="text-3xl font-extrabold text-white">Custom Hardware, Firmware & Telemetry Architecture</h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Need an industrial monitoring prototype, custom IoT telemetry system, or university FYP engineering assistance? I provide complete turnkey development from schematic to field deployment.
+          </p>
+
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-teal-400 mt-1"></i>
+              <div>
+                <strong class="text-white text-sm">Embedded C/C++ Firmware Development:</strong>
+                <p class="text-xs text-slate-400">Non-blocking architectures, RTOS tasks, low-power sleep modes for ESP32 and STM32.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-teal-400 mt-1"></i>
+              <div>
+                <strong class="text-white text-sm">Industrial Telemetry (LoRa, GSM, GPS, Modbus):</strong>
+                <p class="text-xs text-slate-400">Long-range data acquisition for water, agriculture, energy, and vehicle telematics.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-teal-400 mt-1"></i>
+              <div>
+                <strong class="text-white text-sm">PCB Schematic & Circuit Design:</strong>
+                <p class="text-xs text-slate-400">KiCad and Proteus schematics, power supply isolation, and sensor interfacing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quotation Form -->
+        <div class="lg:col-span-6">
+          <div class="glassmorphism rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl">
+            <h3 class="text-xl font-bold text-white mb-2">Request an Engineering Quotation</h3>
+            <p class="text-xs text-slate-400 mb-6">Submit your project details to send a direct quotation inquiry to my WhatsApp.</p>
+
+            <form onsubmit="submitQuotation(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Your Name</label>
+                <input type="text" id="quoteName" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-teal-500" placeholder="e.g. Engr. Ahmad">
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Service Type</label>
+                  <select id="quoteService" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-teal-500">
+                    <option>IoT Telemetry Setup</option>
+                    <option>Embedded Firmware (ESP32/STM32)</option>
+                    <option>Custom PCB Design</option>
+                    <option>Student FYP Mentorship</option>
+                    <option>Hardware Component Sourcing</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Target Timeline</label>
+                  <select id="quoteTimeline" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-teal-500">
+                    <option>Urgent (&lt; 1 week)</option>
+                    <option>Standard (2-3 weeks)</option>
+                    <option>Flexible</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Project Requirements</label>
+                <textarea id="quoteDetails" rows="3" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-teal-500" placeholder="Briefly describe your hardware, sensors, and functional goals..."></textarea>
+              </div>
+              <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Send Quotation to WhatsApp (0315-9915537)</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT & CREDENTIALS ==================== -->
+  <section id="about" class="py-16 bg-slate-900/30 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5">
+          <div class="relative p-2 rounded-2xl bg-gradient-to-tr from-teal-500/20 via-cyan-500/10 to-transparent border border-slate-800">
+            <div class="bg-slate-900 rounded-xl p-6 space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full bg-teal-500/20 border border-teal-500/40 flex items-center justify-center text-teal-400 text-2xl font-bold">
+                  HU
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-white">Engr. Hanif Ullah</h3>
+                  <p class="text-xs text-teal-400">Junior Hardware Engineer</p>
+                  <p class="text-xs text-slate-400">CISNR, UET Peshawar</p>
+                </div>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Experienced in telemetry networks, sensor calibration, wireless protocols (LoRa, GSM, GPS, Wi-Fi), and field commissioning of SCADA automation units.
+              </p>
+              <div class="pt-3 border-t border-slate-800 text-xs text-slate-400 space-y-1.5">
+                <div><i class="fa-solid fa-phone text-teal-400 mr-2"></i> +92 315 9915537</div>
+                <div><i class="fa-solid fa-envelope text-teal-400 mr-2"></i> hanifullahshams@gmail.com</div>
+                <div><i class="fa-solid fa-location-dot text-teal-400 mr-2"></i> Peshawar, Khyber Pakhtunkhwa, Pakistan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6">
+          <span class="text-teal-400 font-semibold text-xs tracking-wider uppercase">Technical Mastery</span>
+          <h2 class="text-3xl font-extrabold text-white">Microcontroller Architectures & Protocols</h2>
+          
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+              <h4 class="font-bold text-white text-sm">MCUs & MPUs</h4>
+              <p class="text-xs text-slate-400 mt-1">ESP32, STM32, Arduino, Raspberry Pi, ESP8266</p>
+            </div>
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+              <h4 class="font-bold text-white text-sm">Wireless Tech</h4>
+              <p class="text-xs text-slate-400 mt-1">LoRa / LoRaWAN, GSM/GPRS, GPS (NEO-6M), BLE, Wi-Fi</p>
+            </div>
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+              <h4 class="font-bold text-white text-sm">Buses & Protocols</h4>
+              <p class="text-xs text-slate-400 mt-1">OneWire, I2C, SPI, UART, Modbus RS-485, CAN</p>
+            </div>
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+              <h4 class="font-bold text-white text-sm">Firmware Dev</h4>
+              <p class="text-xs text-slate-400 mt-1">Embedded C, C++, Python, PlatformIO, Arduino IDE</p>
+            </div>
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+              <h4 class="font-bold text-white text-sm">EDA & Simulation</h4>
+              <p class="text-xs text-slate-400 mt-1">KiCad, Proteus, EasyEDA, Oscilloscope Debugging</p>
+            </div>
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+              <h4 class="font-bold text-white text-sm">Cloud IoT</h4>
+              <p class="text-xs text-slate-400 mt-1">Blynk IoT, Adafruit IO, MQTT Brokers, GitHub Pages</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="mt-auto py-10 bg-slate-950 border-t border-slate-900 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <div class="flex justify-center space-x-6 text-slate-400 text-lg">
+        <a href="https://wa.me/923159915537" target="_blank" class="hover:text-emerald-400 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://github.com/Engrhanifkhan" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/engr-hanif-khan-628a04259/" target="_blank" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:hanifullahshams@gmail.com" class="hover:text-red-400 transition-colors"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+      <p>© 2026 Engr. Hanif Ullah. Hosted 100% Free of Cost on GitHub Pages.</p>
+      <p class="text-slate-600">Hardware & Embedded Systems Engineer • CISNR, UET Peshawar, Pakistan</p>
+    </div>
+  </footer>
+
+  <!-- ==================== BOM MODAL ==================== -->
+  <div id="bomModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex justify-between items-center pb-3 border-b border-slate-800">
+        <h3 id="bomTitle" class="text-lg font-bold text-white">Bill of Materials</h3>
+        <button onclick="closeBOMModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="bomBody" class="text-xs text-slate-300 space-y-2 max-h-72 overflow-y-auto">
+        <!-- Dynamic content injected -->
+      </div>
+      <div class="pt-3 border-t border-slate-800 flex justify-between items-center">
+        <div id="bomEstimatedCost" class="font-bold text-teal-400 font-mono text-sm"></div>
+        <a id="bomOrderBtn" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs px-4 py-2 rounded-lg flex items-center gap-1.5">
+          <i class="fa-brands fa-whatsapp"></i> Inquire Parts on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CART MODAL ==================== -->
+  <div id="cartModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex justify-between items-center pb-3 border-b border-slate-800">
+        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-cart-shopping text-teal-400"></i>
+          <span>Your Hardware Cart</span>
+        </h3>
+        <button onclick="closeCartModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="cartItemsList" class="text-xs text-slate-300 space-y-2 max-h-60 overflow-y-auto">
+        <!-- Cart items dynamic -->
+      </div>
+      <div class="pt-3 border-t border-slate-800 space-y-3">
+        <div class="flex justify-between text-sm font-bold text-white">
+          <span>Total:</span>
+          <span id="cartTotalLabel" class="text-teal-400 font-mono">Rs. 0</span>
+        </div>
+        <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Checkout via WhatsApp (+92 315 9915537)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== INTERACTION LOGIC & TELEMETRY SIMULATORS ==================== -->
+  <script>
+    // 1. Water Tank Level Simulation
+    let pumpRunning = false;
+    function updateTankSimulation(val) {
+      document.getElementById('waterPercentLabel').innerText = val;
+      document.getElementById('sliderValueLabel').innerText = val + ' cm';
+      document.getElementById('waterLevelBar').style.height = val + '%';
+      document.getElementById('tankVolumeLabel').innerText = Math.round((val / 100) * 500) + ' Liters';
+
+      const badge = document.getElementById('tankPumpBadge');
+      if (val <= 20) {
+        pumpRunning = true;
+        badge.innerText = 'PUMP: RUNNING (AUTO)';
+        badge.className = 'text-xs px-2.5 py-1 rounded bg-emerald-950 text-emerald-400 font-mono border border-emerald-500/40 animate-pulse';
+      } else if (val >= 95) {
+        pumpRunning = false;
+        badge.innerText = 'PUMP: STANDBY (FULL)';
+        badge.className = 'text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono';
+      }
+    }
+
+    function toggleManualPump() {
+      pumpRunning = !pumpRunning;
+      const badge = document.getElementById('tankPumpBadge');
+      if (pumpRunning) {
+        badge.innerText = 'PUMP: RUNNING (MANUAL)';
+        badge.className = 'text-xs px-2.5 py-1 rounded bg-emerald-950 text-emerald-400 font-mono border border-emerald-500/40 animate-pulse';
+      } else {
+        badge.innerText = 'PUMP: STANDBY';
+        badge.className = 'text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono';
+      }
+    }
+
+    // 2. Real-Time ECG Waveform Drawing
+    const canvas = document.getElementById('ecgCanvas');
+    const ctx = canvas.getContext('2d');
+    let x = 0;
+    let y = 55;
+    let step = 0;
+
+    function drawECG() {
+      ctx.fillStyle = 'rgba(2, 6, 23, 0.08)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+
+      x += 2;
+      if (x > canvas.width) {
+        x = 0;
+      }
+
+      step++;
+      const mod = step % 60;
+      if (mod === 20) y = 48; // P wave
+      else if (mod === 24) y = 55;
+      else if (mod === 30) y = 70; // Q wave
+      else if (mod === 33) y = 10; // R peak
+      else if (mod === 36) y = 90; // S wave
+      else if (mod === 40) y = 55;
+      else if (mod === 46) y = 45; // T wave
+      else if (mod === 50) y = 55;
+      else y = 55 + (Math.random() * 2 - 1); // Baseline noise
+
+      ctx.lineTo(x, y);
+      ctx.stroke();
+
+      requestAnimationFrame(drawECG);
+    }
+    drawECG();
+
+    // 3. BOM Data & Modal
+    const BOM_DATA = {
+      'Geothermal': {
+        title: 'Shallow Geothermal Telemetry System BOM',
+        items: [
+          'ESP32-WROOM-32 Dev Module (Qty: 1)',
+          'DS18B20 Waterproof Temperature Probes (Qty: 4)',
+          '4.7kΩ Pull-up Resistor for OneWire Bus (Qty: 1)',
+          '5V 2A Regulated Power Supply (Qty: 1)',
+          'Weatherproof IP65 Conduit Box (Qty: 1)'
+        ],
+        cost: 'Estimated BOM Cost: Rs. 4,800 (~$17)'
+      },
+      'TankLevel': {
+        title: 'Wireless Tank Level & Pump Controller BOM',
+        items: [
+          'ESP32-C3 Super Mini / ESP32 (Qty: 2 for dual-node)',
+          'AJ-SR04M Waterproof Ultrasonic Sensor (Qty: 1)',
+          '1kΩ and 2kΩ Resistors for 5V-to-3.3V Echo divider',
+          'Fotek 40A Solid State Relay (SSR-40DA) or 5V Relay Module',
+          '5V 2A Power Adapter (Qty: 1)'
+        ],
+        cost: 'Estimated BOM Cost: Rs. 6,200 (~$22)'
+      },
+      'TFT': {
+        title: 'ESP32 SPI ILI9341 TFT Display Kit BOM',
+        items: [
+          'ESP32-WROOM-32 (Qty: 1)',
+          '2.8" SPI TFT LCD Display Module ILI9341 320x240 (Qty: 1)',
+          'Female-to-Male Dupont Jumper Wire Ribbon (Qty: 1)',
+          'Breadboard / Prototyping shield (Qty: 1)'
+        ],
+        cost: 'Estimated BOM Cost: Rs. 4,500 (~$16)'
+      },
+      '3DPrinter': {
+        title: 'ESP32 3D Printer Enclosure Controller BOM',
+        items: [
+          'ESP32 Dev Module (Qty: 1)',
+          'DS18B20 Digital Temp Sensors (Qty: 3 - Chamber, Bed, Ambient)',
+          '2x 25A / 40A SSR Relays for dual-zone heating',
+          'Blynk IoT cloud dashboard configuration'
+        ],
+        cost: 'Estimated BOM Cost: Rs. 5,900 (~$21)'
+      },
+      'Emergency': {
+        title: 'Smart Emergency Health Response System BOM',
+        items: [
+          'ESP32-WROOM-32 (Qty: 1)',
+          'AD8232 ECG Sensor & 3-Lead Electrode Cable (Qty: 1)',
+          'MAX30102 Pulse Oximeter & Heart Rate Sensor (Qty: 1)',
+          'NEO-6M GPS Module with Ceramic Antenna (Qty: 1)',
+          'SIM800L GSM/GPRS Module with high-current buck converter (Qty: 1)',
+          'HX8357D / ILI9341 Color Display (Qty: 1)'
+        ],
+        cost: 'Estimated BOM Cost: Rs. 11,500 (~$41)'
+      },
+      'Imagery': {
+        title: 'Biomedical Automated Imagery Suite BOM',
+        items: [
+          'Raspberry Pi 4 Model B (Qty: 1)',
+          'High-Resolution Camera Module with autofocus lens (Qty: 1)',
+          '3x NEMA 17 Stepper Motors + BTS7960 Motor Drivers',
+          'Limit switches, lead screws, and motorized petri dish tray',
+          'Incubator heating element and temperature sensor'
+        ],
+        cost: 'Estimated BOM Cost: Rs. 38,000 (~$135)'
+      }
+    };
+
+    function openBOMModal(key) {
+      const data = BOM_DATA[key];
+      if (!data) return;
+      document.getElementById('bomTitle').innerText = data.title;
+      document.getElementById('bomEstimatedCost').innerText = data.cost;
+      
+      let html = '<ul class="space-y-1.5 list-disc list-inside">';
+      data.items.forEach(i => html += '<li>' + i + '</li>');
+      html += '</ul>';
+      document.getElementById('bomBody').innerHTML = html;
+
+      const orderMsg = encodeURIComponent('Hello Engr Hanif, I am interested in sourcing the BOM for: ' + data.title);
+      document.getElementById('bomOrderBtn').href = 'https://wa.me/923159915537?text=' + orderMsg;
+
+      document.getElementById('bomModal').classList.remove('hidden');
+    }
+
+    function closeBOMModal() {
+      document.getElementById('bomModal').classList.add('hidden');
+    }
+
+    // 4. Shopping Cart
+    let cart = [];
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      document.getElementById('cartCount').innerText = cart.length;
+      alert(name + ' added to your inquiry cart!');
+    }
+
+    function openCartModal() {
+      const list = document.getElementById('cartItemsList');
+      if (cart.length === 0) {
+        list.innerHTML = '<div class="text-center py-6 text-slate-500">Your cart is currently empty.</div>';
+        document.getElementById('cartTotalLabel').innerText = 'Rs. 0';
+      } else {
+        let total = 0;
+        let html = '<div class="divide-y divide-slate-800">';
+        cart.forEach((item, idx) => {
+          total += item.price;
+          html += '<div class="py-2 flex justify-between items-center"><span>' + item.name + '</span><span class="font-mono text-teal-400">Rs. ' + item.price.toLocaleString() + '</span></div>';
+        });
+        html += '</div>';
+        list.innerHTML = html;
+        document.getElementById('cartTotalLabel').innerText = 'Rs. ' + total.toLocaleString();
+      }
+      document.getElementById('cartModal').classList.remove('hidden');
+    }
+
+    function closeCartModal() {
+      document.getElementById('cartModal').classList.add('hidden');
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) {
+        alert('Cart is empty!');
+        return;
+      }
+      let total = 0;
+      let itemsStr = '';
+      cart.forEach((i, idx) => {
+        total += i.price;
+        itemsStr += (idx + 1) + '. ' + i.name + ' (Rs. ' + i.price + ')\n';
+      });
+      const text = encodeURIComponent('Hello Engr Hanif, I would like to place an order for the following items:\n\n' + itemsStr + '\nTotal: Rs. ' + total.toLocaleString() + '\n\nPlease confirm delivery and availability.');
+      window.open('https://wa.me/923159915537?text=' + text, '_blank');
+    }
+
+    // 5. Quotation Form
+    function submitQuotation(e) {
+      e.preventDefault();
+      const name = document.getElementById('quoteName').value;
+      const service = document.getElementById('quoteService').value;
+      const timeline = document.getElementById('quoteTimeline').value;
+      const details = document.getElementById('quoteDetails').value;
+
+      const text = encodeURIComponent('Hello Engr Hanif,\n\n*Quotation Inquiry*\n*Name:* ' + name + '\n*Service:* ' + service + '\n*Timeline:* ' + timeline + '\n*Details:* ' + details);
+      window.open('https://wa.me/923159915537?text=' + text, '_blank');
+    }
+  </script>
+</body>
+</html>
